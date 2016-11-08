@@ -21,24 +21,24 @@
 
 document.addEventListener("turbolinks:load", function() {
 
-    $(function() {
-      if($.fn.cloudinary_fileupload !== undefined) {
-        $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
-      }
-    });
+  $(function() {
+    if($.fn.cloudinary_fileupload !== undefined) {
+      $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
+    }
+  });
 
 
-    $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  $('.preview').html(
-       console.log( "upload done!", data ));
-       // $.cloudinary.video(data.result.public_id, 
-       //     { format: data.result.format, version: data.result.version, 
-       //       crop: 'scale', width: 200 }));    
-       $('.video_public_id').val(data.result.public_id);    
-       // return true;
-    });
+  $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  $('.preview').html(
+     console.log( "upload done!", data ));
+     // $.cloudinary.video(data.result.public_id, 
+     //     { format: data.result.format, version: data.result.version, 
+     //       crop: 'scale', width: 200 }));    
+     $('.video_public_id').val(data.result.public_id);    
+     // return true;
+  });
 
-    $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-      $('.progress').val(Math.round((data.loaded * 100.0) / data.total));
-    });
+  $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
+    $('.progress').val(Math.round((data.loaded * 100.0) / data.total));
+  });
 });
 

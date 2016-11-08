@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dgwgbnszx
+  api_key: '799159149797679'
+  api_secret: 5C-UkWA1ZP9jnWRZPn0ELS0W6I0
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dgwgbnszx
+  api_key: '799159149797679'
+  api_secret: 5C-UkWA1ZP9jnWRZPn0ELS0W6I0
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dgwgbnszx
+  api_key: '799159149797679'
+  api_secret: 5C-UkWA1ZP9jnWRZPn0ELS0W6I0
+  enhance_image_tag: true
+  static_image_support: false

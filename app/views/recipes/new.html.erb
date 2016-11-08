@@ -1,0 +1,4 @@
+<%= form_tag(recipes_path, method: 'post', id: 'video-upload') do %>
+  <%= cl_upload_tag(:video_id, chunk_size: 6_000_000) %>
+  <%= submit_tag "upload video" %>
+<% end %>

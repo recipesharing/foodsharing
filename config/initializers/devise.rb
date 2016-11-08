@@ -7,26 +7,23 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '86399a66300837bc3f79694be85d7153d2c6a729ab0f7398bcb8ea852f557a14deeae3344d3dfe0f2186c66abfd9a0da19cf69d34920da0ac487305c1842a450'
-
+require 'devise/orm/active_record'
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-
-  config.omniauth :facebook, "APP_ID", "APP_SECRET",
-                callback_url: "CALLBACK_URL"
+  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com' 
+  config.omniauth :facebook, "156568341479738", "46b94e83f661e2a7eb525cfa8e730033", scope: "email"
+  config.omniauth :google_oauth2, "862432264132-p559gte8t3ohun1bon1d64n1d12lb7ec.apps.googleusercontent.com", "uNq2AtzJXVYT8e41nFaWYk1q", scope: "email,profile,offline", prompt: "consent"
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
-
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
-  # available as additional gems.
-  require 'devise/orm/active_record'
+  # available as additional gems
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

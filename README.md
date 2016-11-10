@@ -10,6 +10,7 @@ URL: https://csfoodsharing.herokuapp.com
 
 Anonymous user can
 * [ ] Watch recipe with video.
+* [ ] View recipe detail page.
 * [ ] Watch realtime comment of video.
 * [ ] See recipe market place.
 * [ ] Register to become a member.

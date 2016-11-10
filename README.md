@@ -1,25 +1,58 @@
-# README
+recipesharing is a Ruby on Rails recipe community and market place application.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Submitted by: Group#2
 
-Things you may want to cover:
+Time spent: ??? hours spent in total
 
-* Ruby version
+URL: https://csfoodsharing.herokuapp.com
 
-* System dependencies
+## User Stories
 
-* Configuration
+Anonymous user can
+* [ ] Watch recipe with video.
+* [ ] Watch realtime comment of video.
+* [ ] See recipe market place.
+* [ ] Register to become a member.
+* [ ] Register to become a chief to selling ingredient on market place.
 
-* Database creation
+Member can
+* [ ] Do what ever anonymous user can.
+* [ ] Can comment and rating recipe.
+* [ ] Can place order for ingredient in market place.
+* [ ] Can vote for useful comment.
+* [ ] Can vote for chief.
 
-* Database initialization
+Chief user can
+* [ ] Can do what ever member user can do.
+* [ ] Create recipe come with video and description.
+* [ ] Comment in realtime in video.
+* [ ] Selling things on market place with approval of system.
+* [ ] View static about video and interest about item.
 
-* How to run the test suite
+## Demo video
 
-* Services (job queues, cache servers, search engines, etc.)
+Here's a demo of implemented user stories:
 
-* Deployment instructions
+* comming soon!
+![Video demo]()
 
-* ...
-# foodsharing
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Notes
+
+
+## License
+
+    Copyright 2016 vtoanb
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.

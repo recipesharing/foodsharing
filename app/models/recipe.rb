@@ -15,5 +15,10 @@
 #
 
 class Recipe < ApplicationRecord
+  validates_presence_of :short_description
+  validates_presence_of :video_id
+  validates_presence_of :description
   belongs_to :country
+  has_many :ingredients
+  has_one :instruction
 end

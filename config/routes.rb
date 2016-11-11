@@ -4,7 +4,4 @@ Rails.application.routes.draw do
   devise_for :users, class_name: 'User',
     :controllers => {:omniauth_callbacks => 'users/omniauth_callbacks', registrations: 'users/registrations'}
   resource :recipes
-
-
 end
-

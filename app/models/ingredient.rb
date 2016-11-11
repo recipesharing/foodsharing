@@ -1,5 +1,6 @@
 class Ingredient < ApplicationRecord
-  validates_present_of :name
-  validates_present_of :url
-  validates_present_of :description
+  validates_presence_of :name
+  validates_presence_of :url
+  validates_presence_of :description
+  belongs_to :recipe
 end

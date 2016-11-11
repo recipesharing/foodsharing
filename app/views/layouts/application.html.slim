@@ -1,12 +1,14 @@
 doctype html
 html
-  head
-    title
-      | Foodsharing
-    = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = cloudinary_js_config
+  .container
+    head
+      title
+        | Foodsharing
+      = csrf_meta_tags
+      = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+      = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+      = cloudinary_js_config
+      link[href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300i|Roboto:900" rel="stylesheet"]
   body
     header
       ==  render 'layouts/navigation'

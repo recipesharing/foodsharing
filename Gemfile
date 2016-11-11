@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'pg', '~> 0.18.4'
@@ -48,10 +48,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.1.0'
-end
-
 gem 'city-state'
 gem 'slim'
 gem 'annotate'
@@ -62,3 +58,4 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'kaminari'
 gem 'cancancan', '~> 1.10'
 gem 'rails_12factor', group: :production
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?

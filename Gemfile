@@ -27,6 +27,7 @@ gem 'google-api-client', '~> 0.7.1'
 
 
 group :development, :test do
+  gem 'simplecov'
   gem 'factory_girl'
   gem 'rspec-rails', '~> 3.5'
   gem 'byebug', platform: :mri
@@ -34,10 +35,15 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rails-erd'
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+    gem 'simplecov', require: false
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -50,5 +56,4 @@ end
 gem 'city-state'
 gem 'slim'
 gem 'annotate'
-gem 'rails-erd'
 gem 'faker'

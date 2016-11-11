@@ -47,3 +47,5 @@ end
 
 gem 'city-state'
 gem 'slim'
+gem 'annotate'
+gem 'rails-erd'

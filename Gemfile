@@ -27,6 +27,8 @@ gem 'google-api-client', '~> 0.7.1'
 
 
 group :development, :test do
+  gem 'factory_girl'
+  gem 'rspec-rails', '~> 3.5'
   gem 'byebug', platform: :mri
   gem 'pry'
 end
@@ -49,3 +51,4 @@ gem 'city-state'
 gem 'slim'
 gem 'annotate'
 gem 'rails-erd'
+gem 'faker'

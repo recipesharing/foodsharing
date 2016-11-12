@@ -7,3 +7,4 @@ ul.list-items
     |  <%= link_to "Help", help_path %> 
   li.list-item.<%=.'active'.if.@page.==.'term'.%>
     |  <%= link_to "Term", term_path %> 
+

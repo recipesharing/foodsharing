@@ -5,6 +5,7 @@
 @import "owl.carousel";
 @import "owl.theme";
 @import "font-awesome";
+@import "static_pages";
 
 ul.ingredient-list {
   background-color: rgba(255,255,255,0.8);
@@ -184,4 +185,7 @@ div.desc {
 /* Recipe page style */
 #recipe-page {
   .item-box { margin-bottom: 100px; }
+.content-static {
+  padding: 30px;
+  position: relative;
 }

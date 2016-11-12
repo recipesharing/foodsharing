@@ -1,3 +1,46 @@
-// Place all the styles related to the StaticPages controller here.
+// Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.static-pages{
+  margin-top: 100px;
+  .leftbar{
+    .list-items{
+      list-style: none; 
+      .list-item{
+        border: 1px solid #ddd;
+        border-bottom: none;
+        background-color: #fff;
+        display: block;
+        height: 70px;
+        line-height: 70px;
+        a{
+          padding: 0 15px;
+          display: block;
+          vertical-align: middle;
+          color: #9b9b9b;
+          -webkit-transition: color ease 300ms;
+          transition: color ease 300ms;
+          font-size: 15px;
+        }
+        a:hover,a:active,a:focus{
+          color: #4a4a4a;
+          text-decoration: none;
+        }
+      }
+      .list-item:last-child{
+        border-bottom: 1px solid #ddd;
+      }
+      .list-item.active{
+        border-right: 4px solid #337ab7;
+      }
+    }
+  }
+  h1.page-title{
+    margin: 0;
+    font-size: 30px;
+  }
+  hr{
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}

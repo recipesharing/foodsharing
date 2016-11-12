@@ -16,6 +16,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require cloudinary
+//= require social-share-button
 //= require_tree .
 
 

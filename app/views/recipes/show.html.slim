@@ -15,7 +15,6 @@ br
         - @ingredients.each do |ingredient|
           li= ingredient.name
 
-  .row
+  .row.card
     - @instructions.each do |instruct|
-      .col-md-6
         = render partial: 'instruction', locals: { instruction: instruct } if instruct.present?

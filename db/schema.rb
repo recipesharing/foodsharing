@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111042550) do
+ActiveRecord::Schema.define(version: 20161112092043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,10 +49,12 @@ ActiveRecord::Schema.define(version: 20161111042550) do
   end
 
   create_table "instructions", force: :cascade do |t|
-    t.json     "step"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "recipe_id"
+    t.integer  "step"
+    t.string   "title"
+    t.text     "content"
     t.index ["recipe_id"], name: "index_instructions_on_recipe_id", using: :btree
   end
 
@@ -83,6 +85,11 @@ ActiveRecord::Schema.define(version: 20161111042550) do
     t.string   "short_description"
     t.integer  "cooking_time_min",  default: 0
     t.integer  "calory",            default: 0
+    t.string   "thumbnail",                                  array: true
+    t.string   "name"
+    t.integer  "serving_num",       default: 2
+    t.string   "ingredient_url"
+    t.string   "background_image"
     t.index ["country_id"], name: "index_recipes_on_country_id", using: :btree
   end
 

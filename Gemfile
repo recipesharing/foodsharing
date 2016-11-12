@@ -25,7 +25,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'google-api-client', '~> 0.7.1'
 
-
 group :development, :test do
   gem 'simplecov'
   gem 'factory_girl'
@@ -57,3 +56,4 @@ gem 'city-state'
 gem 'slim'
 gem 'annotate'
 gem 'faker'
+gem 'social-share-button'

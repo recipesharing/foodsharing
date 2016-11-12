@@ -1,1 +1,21 @@
+br
+br
+br
+br
+br
+.container
+  = render partial: 'recipe', locals: { recipe: @recipe }
 
+  .row
+    h3= "video hướng dẫn nấu #{@recipe.name}"
+    .col-md-6.col-xs-12
+      = cl_video_tag(@recipe.video_id, width: '100%', controls: true)
+    .col-md-6.col-xs-12
+      ul[style="list-style-type: none"]
+        - @ingredients.each do |ingredient|
+          li= ingredient.name
+
+  .row
+    - @instructions.each do |instruct|
+      .col-md-6
+        = render partial: 'instruction', locals: { instruction: instruct } if instruct.present?

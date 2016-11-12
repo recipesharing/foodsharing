@@ -1,6 +1,7 @@
 
 // Custom bootstrap variables must be set or imported before bootstrap itself.
 @import "bootstrap";
+@import "social-share-button";
 
 nav.navbar-findcond { background: #fff; border-color: #ccc; box-shadow: 0 0 2px 0 #ccc; }
 nav.navbar-findcond a { color: #f14444; }
@@ -19,3 +20,9 @@ nav.navbar-findcond ul.dropdown-menu > li > a { color: #444; }
 nav.navbar-findcond ul.dropdown-menu > li > a:hover { background: #f14444; color: #fff; }
 nav.navbar-findcond span.badge { background: #f14444; font-weight: normal; font-size: 11px; margin: 0 4px; }
 nav.navbar-findcond span.badge.new { background: rgba(255, 0, 0, 0.8); color: #fff; }
+.col-centered { float: none; margin: 0 auto }
+
+ul.ingredient-list {
+  background-color: rgba(255,255,255,0.8);
+  list-style-type: none;
+}

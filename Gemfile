@@ -3,16 +3,15 @@ source 'https://rubygems.org'
 gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'pg', '~> 0.18.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-
+gem 'owlcarousel-rails'
 gem 'carrierwave'
 gem 'cloudinary'
-
+gem "font-awesome-rails"
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'

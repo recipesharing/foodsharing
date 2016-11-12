@@ -9,7 +9,9 @@ html
     = cloudinary_js_config
   body
     header
-      == render 'layouts/navigation'
+      ==  render 'layouts/navigation'
     main[role='main']
       == render 'layouts/messages'
       == yield
+    
+      == render  'includes/footer'

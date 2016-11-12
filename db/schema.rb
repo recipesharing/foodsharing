@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(version: 20161112092043) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 

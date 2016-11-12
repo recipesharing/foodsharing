@@ -2,19 +2,14 @@ footer
   .container
     ul.pull-left
       li
-        a[href="<%= introduce_path %>"]
-           |About Us
+        = link_to "About us", introduce_path      
       li
-        a[href="<%= contact_path %>"]
-           |Contact
+        = link_to "Contact", contact_path
       li
-        a[href="<%= help_path %>"]
-           |Help
+        = link_to "Help", help_path
       li
-        a[href="<%= term_path %>"]
-           |Term
-
-           
+        = link_to "Term", term_path
+          
     ul.pull-right
       li
         a[href="#"]

@@ -1,0 +1,17 @@
+<ul class="list-items">
+  <li class="list-item <%= 'active' if @page == 'introduce' %>">
+    <%= link_to "Giới Thiệu", introduce_path %>
+  </li>
+  <li class="list-item <%= 'active' if @page == 'contact' %>">
+    <%= link_to "Liên Hệ", contact_path %>
+  </li>
+  <li class="list-item <%= 'active' if @page == 'help' %>">
+    <%= link_to "Trợ Giúp", help_path %>
+  </li>
+  <li class="list-item <%= 'active' if @page == 'term' %>">
+    <%= link_to "Điều Khoản", term_path %>
+  </li>
+  <li class="list-item <%= 'active' if @page == 'policy' %>">
+    <%= link_to "Chính Sách Bảo Mật", policy_path %>
+  </li>
+</ul>

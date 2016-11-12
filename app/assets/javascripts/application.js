@@ -16,11 +16,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require cloudinary
-<<<<<<< 025da31ed15fc5612873be5355d0957fbce155a8
 //= require social-share-button
-=======
 //= require owl.carousel
->>>>>>>  thinhupdate
 //= require_tree .
 
 

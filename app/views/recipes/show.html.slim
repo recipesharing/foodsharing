@@ -3,18 +3,22 @@ br
 br
 br
 br
-.container
-  = render partial: 'recipe', locals: { recipe: @recipe }
+.container#recipe-page
+  .row.item-box
+    = render partial: 'recipe', locals: { recipe: @recipe }
 
-  .row
-    h3= "video hướng dẫn nấu #{@recipe.name}"
+  .row.item-box
+    h3= "cooking instruction video for #{@recipe.name}"
     .col-md-6.col-xs-12
       = cl_video_tag(@recipe.video_id, width: '100%', controls: true)
     .col-md-6.col-xs-12
       ul[style="list-style-type: none"]
+        h4= "ingredients of #{@recipe.name}"
         - @ingredients.each do |ingredient|
           li= ingredient.name
 
-  .row.card
+  .row.item-box
+    h3
+      | Cooking instruction details
     - @instructions.each do |instruct|
         = render partial: 'instruction', locals: { instruction: instruct } if instruct.present?

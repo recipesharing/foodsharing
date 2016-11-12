@@ -25,13 +25,6 @@ ul.ingredient-list {
   float: left;
 }
 
-body,h1,h2, h3, h4, h5 {
-  margin: 0 auto;
-  padding: 0;
-  font-size: 100%;
-  font-style: normal;
-
-}
 #owl-demo .item img{
     width:100%;
     height:auto;
@@ -186,4 +179,9 @@ div.desc {
 
 .navbar-default.navbar-fixed-top .nav-container{
   width:95%;
+}
+
+/* Recipe page style */
+#recipe-page {
+  .item-box { margin-bottom: 100px; }
 }

@@ -1,0 +1,10 @@
+ul.list-items
+  li.list-item.<%=.'active'.if.@page.==.'introduce'.%>
+    |  <%= link_to "About Us", introduce_path %> 
+  li.list-item.<%=.'active'.if.@page.==.'contact'.%>
+    |  <%= link_to "Contact", contact_path %> 
+  li.list-item.<%=.'active'.if.@page.==.'help'.%>
+    |  <%= link_to "Help", help_path %> 
+  li.list-item.<%=.'active'.if.@page.==.'term'.%>
+    |  <%= link_to "Term", term_path %> 
+

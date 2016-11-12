@@ -16,7 +16,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require cloudinary
+<<<<<<< 025da31ed15fc5612873be5355d0957fbce155a8
 //= require social-share-button
+=======
+//= require owl.carousel
+>>>>>>>  thinhupdate
 //= require_tree .
 
 
@@ -41,5 +45,26 @@ document.addEventListener("turbolinks:load", function() {
   $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
     $('.progress').val(Math.round((data.loaded * 100.0) / data.total));
   });
+});
+
+
+$(document).ready(function() {
+ 
+  $("#owl-demo").owlCarousel({
+ 
+      navigation : true, // Show next and prev buttons
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem:true
+ 
+      // "singleItem:true" is a shortcut for:
+      // items : 1, 
+      // itemsDesktop : false,
+      // itemsDesktopSmall : false,
+      // itemsTablet: false,
+      // itemsMobile : false
+ 
+  });
+ 
 });
 

@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :recipes
   devise_for :users, class_name: 'User',
     :controllers => {:omniauth_callbacks => 'users/omniauth_callbacks', registrations: 'users/registrations'}
-
   %w(
     introduce
     contact
@@ -16,3 +15,4 @@ Rails.application.routes.draw do
     get path, to: "static_pages##{path}"
   end
 end
+

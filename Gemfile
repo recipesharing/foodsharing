@@ -23,6 +23,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'google-api-client', '~> 0.7.1'
+<<<<<<< HEAD
+=======
+gem "font-awesome-rails"
+>>>>>>> awesomefont implemented
 
 group :development, :test do
   gem 'simplecov'
@@ -59,3 +63,4 @@ gem 'kaminari'
 gem 'cancancan', '~> 1.10'
 gem 'rails_12factor', group: :production
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'rails-assets-tether', '>= 1.1.0'

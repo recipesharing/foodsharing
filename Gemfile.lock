@@ -346,11 +346,8 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.2)
   devise
-<<<<<<< HEAD
   factory_girl
   faker
-=======
->>>>>>> awesomefont implemented
   font-awesome-rails
   google-api-client (~> 0.7.1)
   jbuilder (~> 2.5)
@@ -365,13 +362,10 @@ DEPENDENCIES
   pry
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
-<<<<<<< HEAD
+  rails-assets-tether (>= 1.1.0)
   rails-erd
   rails_12factor
   rspec-rails (~> 3.5)
-=======
-  rails-assets-tether (>= 1.1.0)
->>>>>>> awesomefont implemented
   sass-rails (~> 5.0)
   shoulda-matchers (~> 3.1)
   simplecov

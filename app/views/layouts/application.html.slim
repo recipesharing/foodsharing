@@ -11,10 +11,6 @@ html
     header
       ==  render 'layouts/navigation'
     main[role='main']
-      .container    
-        br
-        br
-        br
-        == render 'layouts/messages'
-        == yield
+      == render 'layouts/messages'
+      == yield
       == render  'includes/footer'

@@ -11,7 +11,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'owlcarousel-rails'
 gem 'carrierwave'
 gem 'cloudinary'
-gem "font-awesome-rails"
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
@@ -23,10 +22,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'google-api-client', '~> 0.7.1'
-<<<<<<< HEAD
-=======
 gem "font-awesome-rails"
->>>>>>> awesomefont implemented
 
 group :development, :test do
   gem 'simplecov'
@@ -45,7 +41,6 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov', require: false
   gem 'shoulda-matchers', '~> 3.1'
 end
 

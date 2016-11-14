@@ -60,3 +60,4 @@ gem 'acts_as_commentable'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'kaminari'
 gem 'cancancan', '~> 1.10'
+gem 'rails_12factor', group: :production

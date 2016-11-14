@@ -4,7 +4,7 @@ Submitted by: Group#2
 
 Time spent: ??? hours spent in total
 
-URL: https://csfoodsharing.herokuapp.com
+URL: https://csrecipe.herokuapp.com
 
 ## User Stories
 

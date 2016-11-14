@@ -20,6 +20,9 @@ class Recipe < ApplicationRecord
   validates_presence_of :video_id
   validates_presence_of :description
   belongs_to :country
+  belongs_to :user
   has_many :ingredients
   has_many :instructions
+
+  acts_as_commentable
 end

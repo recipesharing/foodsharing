@@ -41,7 +41,8 @@ group :development do
 end
 
 group :test do
-    gem 'simplecov', require: false
+  gem 'simplecov', require: false
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -56,3 +57,8 @@ gem 'slim'
 gem 'annotate'
 gem 'faker'
 gem 'social-share-button'
+gem 'acts_as_commentable'
+gem 'acts_as_votable', '~> 0.10.0'
+gem 'kaminari'
+gem 'cancancan', '~> 1.10'
+gem 'rails_12factor', group: :production

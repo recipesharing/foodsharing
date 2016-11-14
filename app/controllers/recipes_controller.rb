@@ -21,8 +21,13 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.includes(:ingredients, :instructions).find(params[:id])
+    @recipe = Recipe.includes(:ingredients, :instructions, :comments).find(params[:id])
     @ingredients = @recipe.ingredients
     @instructions = @recipe.instructions.order(step: :ASC)
+    @comments = if params[:page]
+      @recipe.comments.page(params[:page]).per(10)
+    else
+      @recipe.comments.page(1).per(10)
+    end
   end
 end

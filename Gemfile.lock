@@ -39,6 +39,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts_as_commentable (4.0.2)
+    acts_as_votable (0.10.0)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     annotate (2.7.1)
@@ -128,6 +130,9 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.0.2)
     jwt (1.5.6)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.0.8)
@@ -308,6 +313,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_commentable
+  acts_as_votable (~> 0.10.0)
   annotate
   bootstrap (~> 4.0.0.alpha5)
   byebug
@@ -322,6 +329,7 @@ DEPENDENCIES
   google-api-client (~> 0.7.1)
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   listen (~> 3.0.5)
   omniauth
   omniauth-facebook

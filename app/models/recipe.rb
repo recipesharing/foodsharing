@@ -22,4 +22,6 @@ class Recipe < ApplicationRecord
   belongs_to :country
   has_many :ingredients
   has_many :instructions
+
+  acts_as_commentable
 end

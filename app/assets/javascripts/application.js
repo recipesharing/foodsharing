@@ -20,8 +20,17 @@
 //= require owl.carousel
 //= require_tree .
 
-
 document.addEventListener("turbolinks:load", function() {
+
+  $(".new-comment").bind('ajax:success', function(e, data, status, xhr){
+    $(".comment-box").prepend("<div class='row comment-item'><div class='col'>" + data.comment + "</div><div class='col'></div></div>")
+    $("#comment").val('');
+  });
+
+  $(".delete-comment").bind('ajax:success', function(){
+    $(this).parent().parent().fadeOut(); 
+  });
+
 
   $(function() {
     if($.fn.cloudinary_fileupload !== undefined) {
@@ -32,11 +41,7 @@ document.addEventListener("turbolinks:load", function() {
 
   $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  $('.preview').html(
      console.log( "upload done!", data ));
-     // $.cloudinary.video(data.result.public_id, 
-     //     { format: data.result.format, version: data.result.version, 
-     //       crop: 'scale', width: 200 }));    
      $('.video_public_id').val(data.result.public_id);    
-     // return true;
   });
 
   $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
@@ -53,14 +58,6 @@ $(document).ready(function() {
       slideSpeed : 300,
       paginationSpeed : 400,
       singleItem:true
- 
-      // "singleItem:true" is a shortcut for:
-      // items : 1, 
-      // itemsDesktop : false,
-      // itemsDesktopSmall : false,
-      // itemsTablet: false,
-      // itemsMobile : false
- 
   });
  
 });

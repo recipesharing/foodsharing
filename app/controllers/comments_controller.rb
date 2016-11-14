@@ -1,10 +1,13 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Recipe.find(params[:recipe_id]).comments.create(comment: params[:comment])
-    respond_to do |format|
-      format.json { render json: @comment }
-      # format.html { redirect_to root_path }
-      # format.js { render partial: 'comments/create', locals: { comment: @comment } }
+    recipe = Recipe.find(params[:recipe_id])
+    if current_user != nil
+      @comment = recipe.comments.create(comment: params[:comment])
+      respond_to do |format|
+        format.json { render json: @comment }
+      end
+    else
+      redirect_to recipe, flash: { alert: "login to leave your review!" }
     end
   end
 

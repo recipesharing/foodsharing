@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit]
+
   def new
     @public_id = Time.now.to_f.to_s + rand(1000).to_s
     @countries = Country.all.map(&:name)

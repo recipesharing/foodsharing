@@ -1,0 +1,64 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/vutoan/code/ruby/groupproject/foodsharing/app/controllers/comments_controller.rb": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/vutoan/code/ruby/groupproject/foodsharing/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/vutoan/code/ruby/groupproject/foodsharing/spec/helpers/comments_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/Users/vutoan/code/ruby/groupproject/foodsharing/spec/views/comments/create.html.erb_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1479102552
+  }
+}

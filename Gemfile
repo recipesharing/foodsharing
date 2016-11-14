@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'shrimp'
 gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'pg', '~> 0.18.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

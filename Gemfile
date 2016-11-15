@@ -30,6 +30,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'byebug', platform: :mri
   gem 'pry'
+  gem 'letter_opener'
 end
 
 group :development do
@@ -64,4 +65,3 @@ gem 'cancancan', '~> 1.10'
 gem 'rails_12factor', group: :production
 gem 'sidekiq'
 # gem 'sidetiq'
-# gem 'letter_opener' in developer and test

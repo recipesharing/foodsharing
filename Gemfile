@@ -70,3 +70,4 @@ else
   end
 end 
 gem 'acts_as_commentable_with_threading'
+gem 'stripe'

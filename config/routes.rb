@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :invoices
   get 'home/show'
   root 'home#index'
   resources :recipes

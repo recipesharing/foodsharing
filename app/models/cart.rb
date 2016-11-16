@@ -23,4 +23,3 @@ class Cart
   def increment_cart_recipe_by_one(recipe_id)
     @cart_data[recipe_id] += 1
   end
-end

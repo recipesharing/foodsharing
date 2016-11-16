@@ -71,4 +71,8 @@ else
   end
 end 
 gem 'acts_as_commentable_with_threading'
+<<<<<<< 3b2b36c0fb7000b4bac0aa5d0663e3616f381701
 gem 'react-rails'
+=======
+gem 'stripe'
+>>>>>>> merge

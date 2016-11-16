@@ -5,7 +5,7 @@ class CartsController < ApplicationController
     @ordered_recipes= {}
     @total = 0
     @pickup_time =0
-    @cart_item =0
+    @cart_recipe =0
 
     @cart_recipes.each do |recipe_id, quantity,price|
     recipe= Recipe.find_by_id(recipe_id)

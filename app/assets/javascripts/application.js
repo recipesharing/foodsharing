@@ -47,18 +47,12 @@ document.addEventListener("turbolinks:load", function() {
   $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
     $('.progress').val(Math.round((data.loaded * 100.0) / data.total));
   });
-});
 
-
-$(document).ready(function() {
- 
   $("#owl-demo").owlCarousel({
- 
       navigation : true, // Show next and prev buttons
       slideSpeed : 300,
       paginationSpeed : 400,
       singleItem:true
   });
- 
-});
 
+});

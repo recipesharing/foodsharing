@@ -29,6 +29,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable
   has_many :identities
   has_many :recipes
+  acts_as_voter
 
   def facebook
     identities.where( :provider => "facebook" ).first

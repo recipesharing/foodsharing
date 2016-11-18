@@ -22,4 +22,6 @@
 
 # remove idea folder from git
 .idea/
+coverage/*
+dump.rdb
 

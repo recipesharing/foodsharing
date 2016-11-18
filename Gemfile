@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'shrimp'
+
 gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'pg', '~> 0.18.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -11,7 +12,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'owlcarousel-rails'
 gem 'carrierwave'
 gem 'cloudinary'
-gem "font-awesome-rails"
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
@@ -23,6 +23,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'google-api-client', '~> 0.7.1'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'simplecov'
@@ -42,16 +43,11 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov', require: false
   gem 'shoulda-matchers', '~> 3.1'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
-
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.1.0'
-end
 
 gem 'city-state'
 gem 'slim'
@@ -65,3 +61,12 @@ gem 'cancancan', '~> 1.10'
 gem 'rails_12factor', group: :production
 gem 'sidekiq'
 # gem 'sidetiq'
+if Gem.win_platform?
+  gem 'rails-assets-tether', '>= 1.1.0'
+  gem 'wdm', '>= 0.1.0'
+else
+  source 'https://rails-assets.org' do
+    gem 'rails-assets-tether', '>= 1.1.0'
+  end
+end 
+

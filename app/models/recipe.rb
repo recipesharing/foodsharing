@@ -25,4 +25,5 @@ class Recipe < ApplicationRecord
   has_many :instructions
 
   acts_as_commentable
+  acts_as_votable
 end

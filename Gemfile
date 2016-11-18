@@ -64,4 +64,4 @@ gem 'kaminari'
 gem 'cancancan', '~> 1.10'
 gem 'rails_12factor', group: :production
 gem 'sidekiq'
-gem 'sidetiq'
+# gem 'sidetiq'

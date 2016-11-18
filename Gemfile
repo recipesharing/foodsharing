@@ -69,4 +69,3 @@ else
     gem 'rails-assets-tether', '>= 1.1.0'
   end
 end 
-

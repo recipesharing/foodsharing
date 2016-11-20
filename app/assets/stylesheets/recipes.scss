@@ -5,3 +5,63 @@ ul.ingredient-list > li {
   list-style: none;
   padding: 9px;
 }
+
+/* Recipe page style */
+#recipe-page {
+  .item-box { margin-bottom: 100px;
+    border: solid 1px #E0E0E0;
+    background-color: white;
+    min-height: 650px;
+    h2.single-line { padding: 28px 20px }
+  }
+  .content-static {
+    padding: 30px;
+    position: relative;
+  }
+
+  .item-box-video {
+    border: solid 1px #E0E0E0;
+    margin-bottom: 100px;
+    background-color: white;
+    min-height: 650px
+    video {
+      background-color: white;
+    }
+  }
+
+  h2 {
+    margin-bottom: 0px;
+  }
+}
+
+.instruction-num {
+  background-color: #313567;
+  color: #fff;
+  font-family: "Signika-Regular", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 13px;
+  padding: 7px 9px;
+  /*width: 18px;*/
+  margin-right: 10px;
+  float: left;
+  border-radius: 30px;
+}
+
+.instruction-title {
+  font-size: 19px;
+  font-weight: 400;
+  color: #333;
+  float: left;
+}
+
+.instruction-block {
+  margin-top: 25px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e6e6e6;
+  min-height: 26px;
+  line-height: 26px;
+}

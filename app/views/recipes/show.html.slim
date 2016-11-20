@@ -9,7 +9,7 @@ br
     = render partial: 'recipe', locals: { recipe: @recipe }
 
   .row.item-box-video
-    h2[style="padding: 28px 20px"]= "cooking instruction video for #{@recipe.name}"
+    h2.single-line[style="padding: 28px 20px"]= "cooking video for #{@recipe.name}"
     .col-md-12.col-xs-12[style="padding: 0px"]
       = cl_video_tag(@recipe.video_id, controls: true, width: '100%')
     /.col-md-4.col-xs-12
@@ -19,12 +19,12 @@ br
           li= ingredient.name
 
   .row.item-box
-    h3
-      | Cooking instruction details
+    h2.single-line
+      | instruction
     - @instructions.each do |instruct|
         = render partial: 'instruction', locals: { instruction: instruct } if instruct.present?
   .row.item-box
-    h3
+    h2.single-line
       | customer reviews
     = paginate @comments
     .comment-box

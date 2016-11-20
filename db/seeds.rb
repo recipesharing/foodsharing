@@ -15,6 +15,7 @@ recipe = Recipe.create(video_id: "1478856605.035882999",
 4.times { Ingredient.create(name: Faker::App.name, recipe: recipe) }
 4.times do |step|
   Instruction.create(title: Faker::Lorem.sentence,
+    image_url: 'http://res.cloudinary.com/dgwgbnszx/image/upload/c_mfit,h_380,w_500/v1478839280/3_aylfeg.jpg',
     content: Faker::Lorem.paragraph,
     step: step,
     recipe: recipe)

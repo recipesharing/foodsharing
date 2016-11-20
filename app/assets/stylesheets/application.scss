@@ -1,5 +1,6 @@
 
 // Custom bootstrap variables must be set or imported before bootstrap itself.
+@import "fonts";
 @import "bootstrap";
 @import "social-share-button";
 @import "owl.carousel";
@@ -7,6 +8,10 @@
 @import "font-awesome";
 @import "static_pages";
 @import "recipes";
+
+p, h1, h2, h3 {
+  font-family: "Signika-Regular", sans-serif;
+}
 
 body {
   background-color: rgb(249,249,251);
@@ -20,8 +25,8 @@ ul.ingredient-list {
   background-color:white;
   height:40px;
   -webkit-box-shadow: 0 8px 6px -6px #999;
-    -moz-box-shadow: 0 8px 6px -6px #999;
-    box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
 
 }
 .navbar-right {
@@ -199,31 +204,6 @@ div.desc {
   width:95%;
 }
 
-/* Recipe page style */
-#recipe-page {
-  .item-box { margin-bottom: 100px; 
-    border: solid 1px #E0E0E0;
-    background-color: white;
-    min-height: 650px }
-  .content-static {
-    padding: 30px;
-    position: relative;
-  }
-
-  .item-box-video {
-    border: solid 1px #E0E0E0;
-    margin-bottom: 100px;
-    background-color: white;
-    min-height: 650px
-    video {
-      background-color: white;
-    }
-  }
-
-  h2 {
-    margin-bottom: 0px;
-  }
-}
 
 .white-text {
   color: white;

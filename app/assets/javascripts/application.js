@@ -54,5 +54,4 @@ document.addEventListener("turbolinks:load", function() {
       paginationSpeed : 400,
       singleItem:true
   });
-
 });

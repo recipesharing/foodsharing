@@ -6,6 +6,11 @@
 @import "owl.theme";
 @import "font-awesome";
 @import "static_pages";
+@import "recipes";
+
+body {
+  background-color: rgb(249,249,251);
+}
 
 ul.ingredient-list {
   background-color: rgba(255,255,255,0.8);
@@ -95,16 +100,28 @@ ul.ingredient-list {
   margin-bottom: 5px;
   font-weight: 400;
 }
+footer{
+  ul {
+    list-style: none;
 
+  }
 
-ul {
-  list-style: none;
-
+  li {
+    display: inline-block;
+    padding: 10px;
+  }
 }
 
-li {
-  display: inline-block;
-  padding: 10px;
+.nav-container{
+  ul {
+    list-style: none;
+
+  }
+
+  li {
+    display: inline-block;
+    padding: 10px;
+  }
 }
 
 footer {
@@ -184,9 +201,30 @@ div.desc {
 
 /* Recipe page style */
 #recipe-page {
-  .item-box { margin-bottom: 100px; }
+  .item-box { margin-bottom: 100px; 
+    border: solid 1px #E0E0E0;
+    background-color: white;
+    min-height: 650px }
   .content-static {
     padding: 30px;
     position: relative;
   }
+
+  .item-box-video {
+    border: solid 1px #E0E0E0;
+    margin-bottom: 100px;
+    background-color: white;
+    min-height: 650px
+    video {
+      background-color: white;
+    }
+  }
+
+  h2 {
+    margin-bottom: 0px;
+  }
+}
+
+.white-text {
+  color: white;
 }

@@ -26,4 +26,8 @@ class Recipe < ApplicationRecord
 
   acts_as_commentable
   acts_as_votable
+
+  def up_votes
+    self.get_upvotes.size
+  end
 end

@@ -29,6 +29,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable
   has_many :identities
   has_many :recipes
+  has_one :payment
+  accepts_nested_attributes_for :payment
   acts_as_voter
 
   def facebook
@@ -51,6 +53,10 @@ class User < ApplicationRecord
     end
     @google_oauth2_client
   end
+
+
+
+  
 end
 
 

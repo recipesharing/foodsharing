@@ -12,6 +12,12 @@
 #  short_description :string
 #  cooking_time_min  :integer          default(0)
 #  calory            :integer          default(0)
+#  thumbnail         :string           is an Array
+#  name              :string
+#  serving_num       :integer          default(2)
+#  ingredient_url    :string
+#  background_image  :string
+#  user_id           :integer
 #
 class Recipe < ApplicationRecord
   validates_presence_of :name

@@ -26,20 +26,9 @@ br
     h2.single-line
       | customer reviews
     / = paginate @comments
-    .container
+    .container.comment-box
       - @comments.each do |comment|
-        .row.comment-item
-          .col-xs-3.col-md-1.comment-head
-            = cl_image_tag("userDefaultIcon_x1msy4.png", :width=>50, :crop=>"scale")
-          .col-xs-8.comment-body
-            .row
-              = link_to comment.user.name || comment.user.email, '#'
-            .row
-              = comment.body
-          .col-xs-1
-            - if can? :destroy, comment
-              = link_to  comment_path(comment), method: :delete, remote: true, class: 'delete-comment' do
-                li.fa.fa-trash
+        = render partial: 'comment', locals: { comment: comment } if comment.present?
       .row.comment-item
         .col-xs-3.col-md-1.comment-head
           = cl_image_tag("userDefaultIcon_x1msy4.png", :width=>50, :crop=>"scale")

@@ -92,6 +92,27 @@ ActiveRecord::Schema.define(version: 20161121014210) do
     t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "order_recipes", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "food_id"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "status",        default: "Pending"
+    t.integer  "total"
+    t.integer  "vat"
+    t.integer  "delivery_cost"
+    t.string   "payment_id"
+    t.string   "invoice"
+    t.integer  "pickup_time",   default: 0
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "user_id"
+  end
+
   create_table "payments", force: :cascade do |t|
     t.string   "email"
     t.string   "token"
@@ -117,6 +138,7 @@ ActiveRecord::Schema.define(version: 20161121014210) do
     t.string   "background_image"
     t.integer  "user_id"
     t.integer  "payment_id"
+    t.float    "price"
     t.index ["country_id"], name: "index_recipes_on_country_id", using: :btree
     t.index ["payment_id"], name: "index_recipes_on_payment_id", using: :btree
     t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree

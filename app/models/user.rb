@@ -29,7 +29,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable
   has_many :identities
   has_many :recipes
-  has_one :payment
+  has_many :payment
   accepts_nested_attributes_for :payment
   acts_as_voter
 

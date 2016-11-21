@@ -29,6 +29,16 @@ ul.ingredient-list > li {
     }
   }
 
+  .item-box-short {
+    border: solid 1px #E0E0E0;
+    margin-bottom: 100px;
+    background-color: white;
+    h2.single-line { padding: 28px 20px }
+  }
+  .comment-item {
+    padding: 20px;
+  }
+
   h2 {
     margin-bottom: 0px;
   }

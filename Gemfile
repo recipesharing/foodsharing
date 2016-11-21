@@ -69,3 +69,4 @@ else
     gem 'rails-assets-tether', '>= 1.1.0'
   end
 end 
+gem 'acts_as_commentable_with_threading'

@@ -1,13 +1,15 @@
 class CommentsController < ApplicationController
+  include CanCan::Ability
+
   def create
     recipe = Recipe.find(params[:recipe_id])
-    if current_user != nil
-      @comment = recipe.comments.create(comment: params[:comment])
-      respond_to do |format|
-        format.json { render json: @comment }
-      end
-    else
-      redirect_to recipe, flash: { alert: "login to leave your review!" }
+    # this is root comment
+    @comment = Comment.build_from(recipe, current_user, params[:comment]) if current_user.present?
+    # move to child
+    # save
+    @comment.save
+    respond_to do |format|
+      format.json { render json: @comment }
     end
   end
 

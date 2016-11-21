@@ -4,7 +4,6 @@ br
 br
 br
 .container#recipe-page
-  /- item-box to style margin bottom
   .row.item-box
     = render partial: 'recipe', locals: { recipe: @recipe }
 
@@ -23,19 +22,30 @@ br
       | instruction
     - @instructions.each do |instruct|
         = render partial: 'instruction', locals: { instruction: instruct } if instruct.present?
-  .row.item-box
+  .row.item-box-short
     h2.single-line
       | customer reviews
-    = paginate @comments
-    .comment-box
+    / = paginate @comments
+    .container
       - @comments.each do |comment|
         .row.comment-item
-          .col= comment.comment
-          .col= link_to 'destroy', comment_path(comment), method: :delete, remote: true, class: 'delete-comment'
-      -if user_signed_in?
-        = form_tag :comments, remote: true, class: 'new-comment' do
-          = text_field_tag :comment
-          = hidden_field_tag :recipe_id, @recipe.id
-          = submit_tag "leave your review"
-      -else
-        = link_to "sign in to post review", new_user_session_path
+          .col-xs-3.col-md-1.comment-head
+            = cl_image_tag("userDefaultIcon_x1msy4.png", :width=>50, :crop=>"scale")
+          .col-xs-8.comment-body
+            .row
+              = link_to comment.user.name || comment.user.email, '#'
+            .row
+              = comment.body
+          .col-xs-1
+            - if can? :destroy, comment
+              = link_to  comment_path(comment), method: :delete, remote: true, class: 'delete-comment' do
+                li.fa.fa-trash
+      .row.comment-item
+        .col-xs-3.col-md-1.comment-head
+          = cl_image_tag("userDefaultIcon_x1msy4.png", :width=>50, :crop=>"scale")
+        .col-xs-10.comment-body[style="padding-top: 5px; padding-left: 0px"]
+          -if user_signed_in?
+            = form_tag :comments, remote: true, class: 'new-comment form-group' do
+              = text_field_tag :comment, 'enter your comment', class: 'form-control'
+              = hidden_field_tag :recipe_id, @recipe.id
+              /= submit_tag "leave your review"

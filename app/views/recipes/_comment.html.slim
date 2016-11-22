@@ -7,5 +7,7 @@
     .row
       = comment.body
   .col-xs-1
-    = link_to  comment_path(comment), method: :delete, remote: true, class: 'delete-comment' do
-      li.fa.fa-trash
+    - if current_user.present?
+      - if can? :destroy, comment
+        = link_to  comment_path(comment), method: :delete, remote: true, class: 'delete-comment' do
+          li.fa.fa-trash

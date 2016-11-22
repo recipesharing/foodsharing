@@ -23,14 +23,14 @@
 document.addEventListener("turbolinks:load", function() {
 
   $(".new-comment").bind('ajax:success', function(e, data, status, xhr){
-    $(".comment-box").prepend("<div class='row comment-item'><div class='col'>" + data.comment + "</div><div class='col'></div></div>")
+    $(".comment-box").prepend(data);
     $("#comment").val('');
   });
-
+// Todo: rebind problems for delete
   $(".delete-comment").bind('ajax:success', function(){
-    $(this).parent().parent().fadeOut(); 
+    console.log("last");
+    $(this).parent().parent().fadeOut();
   });
-
 
   $(function() {
     if($.fn.cloudinary_fileupload !== undefined) {
@@ -54,5 +54,4 @@ document.addEventListener("turbolinks:load", function() {
       paginationSpeed : 400,
       singleItem:true
   });
-
 });

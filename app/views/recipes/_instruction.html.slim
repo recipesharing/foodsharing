@@ -1,7 +1,10 @@
 .card-block.col-md-6.col-xs-12[style="height: 550px"]
   .card-image-top
     = cl_image_tag(instruction.image_url, width: '100%', height: 'auto')
-  .card-title
-    h4= "#{instruction.step + 1}   #{instruction.title}"
+  .card-title.instruction-block
+    span.instruction-num
+      = "#{instruction.step + 1}"
+    span.instruction-title
+      = instruction.title
   .card-text
     = instruction.content

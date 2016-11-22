@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
 
   def create
     if params[:video_id].present?
-      preloaded = Cloudinary::PreloadedFile.new(params[:video_id])         
+      preloaded = Cloudinary::PreloadedFile.new(params[:video_id])
       raise "Invalid upload signature" if !preloaded.valid?
       @recipe = Recipe.new(video_id: preloaded.identifier, public_id: params[:public_id], description: params[:description])
       if @recipe.save
@@ -23,13 +23,18 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.includes(:ingredients, :instructions, :comments).find(params[:id])
-    @ingredients = @recipe.ingredients
-    @instructions = @recipe.instructions.order(step: :ASC)
-    @comments = if params[:page]
-      @recipe.comments.page(params[:page]).per(10)
+    @recipe = Recipe.includes(:ingredients, :instructions, :comment_threads).find_by_id(params[:id])
+    if @recipe.present?
+      @ingredients = @recipe.ingredients
+      @instructions = @recipe.instructions.order(step: :ASC)
+      @comments = if params[:page]
+        @recipe.root_comments.page(params[:page]).per(10)
+      else
+        @recipe.root_comments.page(1).per(10)
+      end
     else
-      @recipe.comments.page(1).per(10)
+      # Todo: handling by raise record not found
+      redirect_to root_path
     end
   end
 end

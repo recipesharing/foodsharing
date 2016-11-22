@@ -29,5 +29,6 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     can [:edit, :create, :update, :destroy], Recipe, user_id: user.id
+    can [:edit, :destroy, :update], Comment, user_id: user.id
   end
 end

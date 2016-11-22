@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'menus/index'
+  get 'cook_books/index'
   get 'home/show'
   root 'home#index'
   resources :recipes

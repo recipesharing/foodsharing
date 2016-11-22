@@ -21,6 +21,8 @@ class Recipe < ApplicationRecord
   validates_presence_of :description
   belongs_to :country
   belongs_to :user
+  belongs_to :season
+  belongs_to :main_ingredient
   has_many :ingredients
   has_many :instructions
 

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   get 'menus/index'
-  get 'cook_books/index'
   get 'home/show'
   root 'home#index'
+  get 'cook_books', to: 'cook_books#index'
+  resource :cook_books
   resources :recipes
   resources :comments
   devise_for :users, class_name: 'User',

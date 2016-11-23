@@ -1,5 +1,5 @@
 # populate countries
-CS.countries.map { |country| Country.create(name: country[1]) }
+# CS.countries.map { |country| Country.create(name: country[1]) }
 
 # generate recipe ,video_id, description, public_id, country_id, short_description, cooking_time_min, calory
 seasons = %w[fall spring summer winter]
@@ -18,9 +18,9 @@ main_ingredient.each do |ingredient|
 end
 
 recipe = Recipe.create(video_id: "1478856605.035882999",
-  country: Country.find(rand(Country.count)),
-  season: Season.find(rand(Season.count)),
-  main_ingredient: MainIngredient.find(rand(MainIngredient.count)),
+  country: Country.find(rand(1..Country.count)),
+  season: Season.find(rand(1..Season.count)),
+  main_ingredient: MainIngredient.find(rand(1..MainIngredient.count)),
   description: Faker::Lorem.paragraph,
   name: Faker::App.name,
   short_description: Faker::Lorem.sentence,

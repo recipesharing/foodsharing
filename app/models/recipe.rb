@@ -32,4 +32,9 @@ class Recipe < ApplicationRecord
   def up_votes
     self.get_upvotes.size
   end
+
+  def self.search(params)
+    key = "%#{params[:search]}%"
+    where("name ILIKE ? OR description ILIKE ?", key, key)
+  end
 end

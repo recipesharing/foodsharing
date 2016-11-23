@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122113238) do
+ActiveRecord::Schema.define(version: 20161123044350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20161122113238) do
     t.integer  "user_id"
     t.integer  "season_id"
     t.integer  "main_ingredient_id"
+    t.string   "background_name"
     t.index ["country_id"], name: "index_recipes_on_country_id", using: :btree
     t.index ["main_ingredient_id"], name: "index_recipes_on_main_ingredient_id", using: :btree
     t.index ["season_id"], name: "index_recipes_on_season_id", using: :btree

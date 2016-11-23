@@ -1,7 +1,10 @@
 class CookBooksController < ApplicationController
   before_action :repare_recipes, only: [:index]
   def index
-    raise 'e'
+    # raise 'e'
+    @main_ingredients = MainIngredient.all
+    @cuisines = Country.all
+    @seasons = Season.all
   end
 
   private

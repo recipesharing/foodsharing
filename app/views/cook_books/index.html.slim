@@ -4,7 +4,7 @@ br
 br
 .container
   .row
-    .col-xs-12.col-md-4
+    .col-xs-12.col-md-3
       .row
         h2
           | Cookbook
@@ -13,10 +13,22 @@ br
       .row
         h3
           | Main Ingredient
+        ul[style="list-style: none"]
+          - @main_ingredients.each do |ingredient|
+            li= ingredient.name
       .row
         h3
           | Cuisine
+        ul[style="list-style: none"]
+          - @cuisines.each do |cuisine|
+            li= cuisine.name
       .row
         h3
           | Seasonal Recipes
-    .col-xs-12.col-md-8
+        ul[style="list-style: none"]
+          - @seasons.each do |season|
+            li= season.name
+    .col-xs-12.col-md-9
+      .row
+        - @recipes.each do |recipe|
+          = render partial: 'shared/recipe', locals: { recipe: recipe }

@@ -1,7 +1,9 @@
 class CookBooksController < ApplicationController
   before_action :repare_recipes, only: [:index]
   def index
-    # raise 'e'
+    # if params[:cuisine]
+    #   debugger
+    # end
     @main_ingredients = MainIngredient.all
     @cuisines = Country.all
     @seasons = Season.all
@@ -18,6 +20,10 @@ class CookBooksController < ApplicationController
       else
         Recipe.page(1).includes(:season, :main_ingredient, :country)
       end
+    end
+
+    if params[:cuisine]
+      @recipes = @recipes.cuisine(params)
     end
   end
 end

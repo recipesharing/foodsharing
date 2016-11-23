@@ -29,8 +29,17 @@ class Recipe < ApplicationRecord
   acts_as_commentable
   acts_as_votable
 
+  # scope :cuisine, ->(params) { where("id IN (?)",params[:cuisine]) }
+  # scope :main_ingredie, ->(params) { where("id IN (?)",params[:cuisine]) }
+  # scope :cuisine, ->(params) { where("id IN (?)",params[:cuisine]) }
+
   def up_votes
     self.get_upvotes.size
+  end
+
+  def self.cuisine(params)
+    cuisine = params[:cuisine].split(',')
+    where("id IN (?)", cuisine)
   end
 
   def self.search(params)

@@ -18,6 +18,7 @@
 //= require cloudinary
 //= require social-share-button
 //= require owl.carousel
+//= require cook_books
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
@@ -53,5 +54,22 @@ document.addEventListener("turbolinks:load", function() {
       slideSpeed : 300,
       paginationSpeed : 400,
       singleItem:true
+  });
+
+  // cook-books
+  $(".cuisine").on("click", function(){
+    $(this).toggleClass("pick-cuisine");
+  });
+
+  $("form#cookbooks").on("submit", function(){
+    var $hidden_cuisine = $("<input type='hidden' name='cuisine' id='cuisine'/>");
+    var cuisine_selector = $("ul#cuisine-list").find("li.pick-cuisine");
+    var cuisine = [];
+    jQuery.each(cuisine_selector, function(){
+      cuisine.push($(this).val());
+    });
+    $hidden_cuisine.val((cuisine));
+    $(this).append($hidden_cuisine);
+    return true;
   });
 });

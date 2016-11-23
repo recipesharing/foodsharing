@@ -7,10 +7,13 @@ Rails.application.routes.draw do
   resources :cart_items
   resources :carts
   resource :cook_books
+  get 'orders/index'
   resources :recipes
   resources :comments
   devise_for :users, class_name: 'User',
     :controllers => {:omniauth_callbacks => 'users/omniauth_callbacks', registrations: 'users/registrations'}
+  resource :orders
+
   %w(
     introduce
     contact

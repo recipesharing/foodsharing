@@ -13,7 +13,6 @@
 #  cooking_time_min  :integer          default(0)
 #  calory            :integer          default(0)
 #
-
 class Recipe < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :short_description
@@ -34,16 +33,16 @@ class Recipe < ApplicationRecord
   # scope :cuisine, ->(params) { where("id IN (?)",params[:cuisine]) }
 
   def up_votes
-    self.get_upvotes.size
+    get_upvotes.size
   end
 
   def self.cuisine(params)
     cuisine = params[:cuisine].split(',')
-    where("id IN (?)", cuisine)
+    where('country_id IN (?)', cuisine)
   end
 
   def self.search(params)
     key = "%#{params[:search]}%"
-    where("name ILIKE ? OR description ILIKE ?", key, key)
+    where('name ILIKE ? OR description ILIKE ?', key, key)
   end
 end

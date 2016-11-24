@@ -8,11 +8,11 @@ br
       .row
         h2
           | Cookbook
-        = form_tag :cook_books, method: 'get', class: 'form-group', id: 'cookbooks', remote: true do
-          = text_field_tag :search, 'search', class: 'form-control'
+        = form_tag :cook_books, method: 'get', class: 'form-group', id: 'cookbooks', remote: true
+          = text_field_tag :search, '', class: 'form-control', placeholder: 'search'
           / = hidden_field_tag :cuisine, val: {}, id: "cuisine"
           / = hidden_field_tag :main_ingredients, val: {}, id: "main_ingredients"
-        button.btn.btn-primary[style="margin: 20px 20px 20px 0"]
+        button.btn.btn-primary#filter-btn[style="margin: 20px 20px 20px 0"]
           | search and filter
       .row
         h3
@@ -34,6 +34,6 @@ br
           - @seasons.each do |season|
             li= season.name
     .col-xs-12.col-md-9
-      .row
+      .row#recipe-container
         - @recipes.each do |recipe|
           = render partial: 'shared/recipe', locals: { recipe: recipe }

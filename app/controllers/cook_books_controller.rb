@@ -1,29 +1,28 @@
+# cook book controller
 class CookBooksController < ApplicationController
   before_action :repare_recipes, only: [:index]
   def index
-    # if params[:cuisine]
-    #   debugger
-    # end
     @main_ingredients = MainIngredient.all
     @cuisines = Country.all
     @seasons = Season.all
+    respond_to do |format|
+      format.html
+      format.js {}
+    end
   end
 
   private
 
   def repare_recipes
     if params[:search]
-      @recipes = Recipe.search(params)
+      @recipes = if params[:search] == ''
+                   Recipe.all
+                 else
+                   Recipe.search(params)
+                 end
+      @recipes = @recipes.cuisine(params) if params[:cuisine]
     else
-      @recipes = if params[:page] then
-        Recipe.page(params[:page]).includes(:season, :main_ingredient, :country)
-      else
-        Recipe.page(1).includes(:season, :main_ingredient, :country)
-      end
-    end
-
-    if params[:cuisine]
-      @recipes = @recipes.cuisine(params)
+      @recipes = Recipe.all
     end
   end
 end

@@ -32,13 +32,37 @@ class Recipe < ApplicationRecord
     get_upvotes.size
   end
 
-  def self.cuisine(params)
-    cuisine = params[:cuisine].split(',')
-    where('country_id IN (?)', cuisine)
+  def self.filter(params)
+    # use scope to filter result
+    cuisine = params[:cuisine].split(',') if params[:cuisine]
+    ingredient = params[:main_ingredient].split(',') if params[:main_ingredient]
+    season = params[:season].split(',') if params[:season]
+    # chained filter out result
+    result = Recipe.all
+    # cuisine filter
+    result = cuisine(cuisine) if cuisine
+
+    # ingredient filter
+    result2 = if ingredient
+                result.ingredient(ingredient)
+              else
+                result
+              end
+
+    # season filter
+    if season
+      result2.season(season)
+    else
+      result2
+    end
   end
 
   def self.search(params)
     key = "%#{params[:search]}%"
     where('name ILIKE ? OR description ILIKE ?', key, key)
   end
+
+  scope :cuisine, ->(cuisine) { where('country_id IN (?)', cuisine) }
+  scope :ingredient, ->(a) { where('main_ingredient_id IN (?)', a) }
+  scope :season, ->(season) { where('season_id IN (?)', season) }
 end

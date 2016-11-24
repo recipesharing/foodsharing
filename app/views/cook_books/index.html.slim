@@ -2,7 +2,7 @@ br
 br
 br
 br
-.container
+.container#cookbook-page
   .row
     .col-xs-12.col-md-3
       .row
@@ -10,16 +10,15 @@ br
           | Cookbook
         = form_tag :cook_books, method: 'get', class: 'form-group', id: 'cookbooks', remote: true
           = text_field_tag :search, '', class: 'form-control', placeholder: 'search'
-          / = hidden_field_tag :cuisine, val: {}, id: "cuisine"
-          / = hidden_field_tag :main_ingredients, val: {}, id: "main_ingredients"
         button.btn.btn-primary#filter-btn[style="margin: 20px 20px 20px 0"]
           | search and filter
       .row
         h3
           | Main Ingredient
-        ul[style="list-style: none"]
+        ul#ingredient-list[style="list-style: none"]
           - @main_ingredients.each do |ingredient|
-            li= ingredient.name
+            li.ingredient value= ingredient.id
+              = ingredient.name
       .row
         h3
           | Cuisine
@@ -30,9 +29,10 @@ br
       .row
         h3
           | Seasonal Recipes
-        ul[style="list-style: none"]
+        ul#season-list[style="list-style: none"]
           - @seasons.each do |season|
-            li= season.name
+            li.season value = season.id
+              = season.name
     .col-xs-12.col-md-9
       .row#recipe-container
         - @recipes.each do |recipe|

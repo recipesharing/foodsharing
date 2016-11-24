@@ -70,15 +70,9 @@ document.addEventListener("turbolinks:load", function() {
   });
 
   $("form#cookbooks").on("submit", function(){
-    var $hidden_cuisine = $("<input type='hidden' name='cuisine' id='cuisine'/>");
-    var cuisine_selector = $("ul#cuisine-list").find("li.pick-cuisine");
-    var cuisine = [];
-    jQuery.each(cuisine_selector, function(){
-      cuisine.push($(this).val());
-    });
-    $hidden_cuisine.val((cuisine));
-    if (cuisine.length > 0) { $(this).append($hidden_cuisine); }
-    return true;
+    getCuisineList();
+    getIngredientList();
+    getSeasonList();
   });
 
   $("#filter-btn").on("click", function(){

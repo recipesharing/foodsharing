@@ -1,0 +1,76 @@
+/*! File: Shared/footer.less */
+footer { background-color: rgba(36, 39, 42, 0.06); width: 100%; padding-top: 20px; font-size: 15px; margin-top: 60px }
+footer a { text-decoration: none }
+footer .footer-container { width: 100%; max-width: 1000px; margin: 0 auto; padding-bottom: 30px }
+footer .footer-row { padding: 35px auto; text-align: center }
+footer .footer-row:before, footer .footer-row:after { content: ""; display: table; clear: both }
+footer .footer-col-3 { width: 25%; float: left; min-height: 1px }
+footer .footer-col-4 { width: 33.33%; float: left; min-height: 1px }
+footer .footer-stats { padding: 35px 10px }
+footer .footer-stats div p { color: rgba(36, 39, 42, 0.4); font-size: 15px; text-transform: uppercase; letter-spacing: 1px; margin: 0 }
+footer .footer-stats div .footer-stat { font-size: 36px; font-weight: 400; margin: 0 0 5px 0; color: rgba(36, 39, 42, 0.7) }
+footer .footer-links { border-top: 1px solid rgba(0, 0, 0, 0.07); padding: 35px 0 0; text-align: left; text-align: start }
+footer .footer-links h3 { color: rgba(36, 39, 42, 0.7) }
+footer .footer-links div ul { list-style-type: none; margin: 0; padding: 0 }
+footer .footer-links div ul li { margin: 10px 10px 0 0 }
+footer .footer-links div ul li a { color: rgba(36, 39, 42, 0.5); font-weight: normal; text-decoration: none }
+footer .footer-links div ul li a:hover { color: rgba(36, 39, 42, 0.7) }
+footer .footer-links div ul li i.fa-plus { display: none }
+footer input.subscribe { width: 100%; height: 35px; font-size: 14px; line-height: 1.1; padding-left: 15px; background: #fff; border: 1px solid #ccc; color: #24272a; box-shadow: inset 0 3px 7px 0 rgba(0, 0, 0, 0.1); border-radius: 25px }
+footer input.subscribe:focus, footer input.subscribe:hover { outline: none !important; border-color: #aaa }
+footer #newsletterIcon { position: relative; top: 1px; margin-right: 6px; display: none }
+footer #newsletterForm button.submit-button { background: transparent; border: 0; outline: 0 }
+footer #newsletterEmailInput::-ms-clear { display: none }
+footer .footer-subscribe.error .subscribe { background: #fff; border-color: #f34742 }
+footer .footer-subscribe.error .subscribe:focus { background: #fff; border-color: #f67672 }
+footer .footer-subscribe.error #newsletterIcon { display: inline-block; color: #f34742 }
+footer .footer-subscribe.success #newsletterIcon { display: inline-block; color: #0071ce }
+footer .footer-link-col h3, footer .footer-social-col h3 { margin: 0; font-weight: bold }
+footer .footer-social-col li { display: inline-block; text-align: center }
+footer .footer-social-col .footer-social-icons i { border: 1px solid #ccc; background: transparent; width: 35px; height: 35px; line-height: 18px; padding: 8px; border-radius: 35px; -webkit-transition: all .2s; transition: all .2s }
+footer .footer-social-col .footer-social-icons i:hover { color: #24272a; background: #fff; border-color: #aaa }
+footer .footer-social-col .footer-subscribe { padding: 0 }
+footer .footer-social-col .footer-subscribe p { margin: 10px 0 15px; color: #aaa; text-align: left; text-align: start; font-size: 15px; font-weight: normal }
+footer .footer-social-col .footer-subscribe form { position: relative }
+footer .footer-social-col .footer-subscribe form i { position: absolute; top: 10px; right: 15px; font-size: 14px; border: 0; color: #aaa; cursor: pointer; -webkit-transition: color .2s; transition: color .2s }
+footer .footer-social-col .footer-subscribe form i:hover { color: #0071ce }
+footer .footer-social-col .footer-social-icons { display: block; margin: 10px auto 0 }
+footer .footer-social-col .footer-social-icons li { margin: 0 10px 10px 0 }
+@media only screen and (max-width:599px) {
+  footer .footer-social-col .footer-social-icons { text-align: center }
+}
+footer .copyright { color: #9a9a9a; margin-bottom: 30px }
+footer .copyright a { color: inherit; text-decoration: none }
+.footer-bottom-button { position: relative; padding: 10px 25px; display: inline-block; margin: 35px 15px; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 40px; color: #24272a; background-color: transparent; cursor: pointer; -webkit-transition: all .2s; transition: all .2s }
+.footer-bottom-button:visited { color: #24272a }
+.footer-bottom-button:hover { background-color: #fff; border-color: rgba(0, 0, 0, 0.25); color: #363c40; text-decoration: none }
+.footer-language-selector .sprite-flag { float: none; display: inline-block; margin: 0 0 1px 5px }
+@media only screen and (max-width:599px) {
+  .footer-language-selector { margin-top: 0 }
+}
+#gts_container { width: 144px; margin: 0 auto }
+@media only screen and (min-width:600px) and (max-width:1000px) {
+  .footer-container { padding: 0 20px 30px }
+  .footer-links div li a { display: inline-block }
+}
+@media only screen and (max-width:599px) {
+  footer { padding-top: 0 }
+  footer [class*='footer-col-'] { width: 100% }
+  footer .footer-stats { display: none }
+  footer .footer-links { border: 0; padding: 0 }
+  footer .footer-links h3 { display: block; margin: 0; padding: 20px 30px; border-bottom: 1px solid rgba(0, 0, 0, 0.2) }
+  footer .footer-links h3:after { display: inline-block; position: absolute; content: "+"; right: 20px }
+  footer .footer-links h3.drawer-open:after { content: "–" }
+  footer .footer-link-col li { margin: 0 !important; border-bottom: solid 1px rgba(0, 0, 0, 0.05); position: relative }
+  footer .footer-link-col li:hover { background-color: #0071ce }
+  footer .footer-link-col li a, footer .footer-link-col li a:visited { color: inherit; display: block; padding: 20px 30px }
+  footer .footer-link-col li a:hover, footer .footer-link-col li a:visited:hover { background-color: #0071ce; color: #fff }
+  footer .footer-social-col .footer-subscribe { background-color: #212528 !important }
+  footer .footer-social-col .footer-subscribe .footer-subscribe-liner { padding: 20px 30px }
+  footer .footer-social-col .footer-subscribe p { color: #9a9a9a; font-size: 20px; margin: 0 auto 25px; text-align: center }
+  footer .footer-social-col .footer-subscribe form .subscribe { height: 44px }
+  footer .footer-social-col .footer-subscribe form i { top: 10px; right: 20px }
+  .slide-drawer { height: 0; overflow: hidden }
+  .modal-dialog h2 { font-size: 15px }
+  .modal-dialog .language-flag { width: 100px }
+  .modal-dialog .modal-body { padding: 0; width: 100%; border: 0 }

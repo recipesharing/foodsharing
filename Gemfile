@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 gem 'shrimp'
 
 gem 'bootstrap', '~> 4.0.0.alpha5'

@@ -19,6 +19,9 @@
 //= require social-share-button
 //= require owl.carousel
 //= require cook_books
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
@@ -147,7 +150,7 @@ document.addEventListener("turbolinks:load", function() {
       $(this).attr('class', 'fa fa-chevron-circle-up');
       $('#season-list').show();
     };
-  };
+  });
   $("#filter-btn").on("click", function(){
     var $hidden_cuisine = $("<input type='hidden' name='cuisine' id='cuisine'/>");
     var cuisine_selector = $("ul#cuisine-list").find("li.pick-cuisine");

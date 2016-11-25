@@ -28,9 +28,10 @@ class User < ApplicationRecord
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
   has_many :identities
+  has_many :orders
   has_many :recipes
-  has_many :payment
-  accepts_nested_attributes_for :payment
+  # has_many :payment
+  # accepts_nested_attributes_for :payment
   acts_as_voter
 
   def facebook

@@ -13,5 +13,5 @@ class Payment < ApplicationRecord
                         description: 'Premium',
                         currency: 'usd'
   end
-
+  
 end

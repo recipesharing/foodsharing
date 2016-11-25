@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :payments
   get 'menus/index'
   get 'home/show'
+  get 'carts/index'
   root 'home#index'
   get 'cook_books', to: 'cook_books#index'
   resources :cart_items
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   devise_for :users, class_name: 'User',
     :controllers => {:omniauth_callbacks => 'users/omniauth_callbacks', registrations: 'users/registrations'}
   resource :orders
+
 
   %w(
     introduce

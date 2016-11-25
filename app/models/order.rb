@@ -2,6 +2,7 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :recipes, through: :order_recipes
   has_many :order_recipes
+
   def initialize(order)
     @ordered_recipes= order["recipes"]||{}
 
@@ -14,7 +15,6 @@ class Order < ApplicationRecord
     @payment_id = ""
     @status = "pending"
   end
-<<<<<<< ac286d61c9ec1b328ae1a58fe8f05af8e2e6db4b
 
   def save_order(current_user)
    user = current_user
@@ -26,6 +26,4 @@ class Order < ApplicationRecord
     new_order = order_recipes <<       
    
   end
-=======
->>>>>>> update
 end

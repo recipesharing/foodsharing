@@ -14,23 +14,10 @@ class CookBooksController < ApplicationController
   private
 
   def repare_recipes
-<<<<<<< HEAD
     @recipes = if params[:search]
                  Recipe.filter(params).search(params)
                else
                  Recipe.all
                end
-=======
-    if params[:search]
-      @recipes = if params[:search] == ''
-                   Recipe.all
-                 else
-                   Recipe.search(params)
-                 end
-      @recipes = @recipes.cuisine(params) if params[:cuisine]
-    else
-      @recipes = Recipe.all
-    end
->>>>>>> o_develop
   end
 end

@@ -10,11 +10,6 @@ br
           | Cookbook
         = form_tag :cook_books, method: 'get', class: 'form-group', id: 'cookbooks', remote: true
           = text_field_tag :search, '', class: 'form-control', placeholder: 'search'
-<<<<<<< HEAD
-=======
-          / = hidden_field_tag :cuisine, val: {}, id: "cuisine"
-          / = hidden_field_tag :main_ingredients, val: {}, id: "main_ingredients"
->>>>>>> o_develop
         button.btn.btn-primary#filter-btn[style="margin: 20px 20px 20px 0"]
           | search and filter
       .row

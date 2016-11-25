@@ -121,4 +121,32 @@ document.addEventListener("turbolinks:load", function() {
     if (season.length > 0) { $("form#cookbooks").append($hidden_season); }
   };
 
+  $('#cuisine-toggle').on('click', function(){
+    if($(this).hasClass('fa-chevron-circle-up')){
+      $(this).attr('class', 'fa fa-chevron-circle-down');
+      $('#cuisine-list').hide();
+    }else{
+      $(this).attr('class', 'fa fa-chevron-circle-up');
+      $('#cuisine-list').show();
+    };
+  });
+  $('#ingredient-toggle').on('click', function(){
+    if($(this).hasClass('fa-chevron-circle-up')){
+      $(this).attr('class', 'fa fa-chevron-circle-down');
+      $('#ingredient-list').hide();
+    }else{
+      $(this).attr('class', 'fa fa-chevron-circle-up');
+      $('#ingredient-list').show();
+    };
+  });
+  $('#season-toggle').on('click', function(){
+    if($(this).hasClass('fa-chevron-circle-up')){
+      $(this).attr('class', 'fa fa-chevron-circle-down');
+      $('#season-list').hide();
+    }else{
+      $(this).attr('class', 'fa fa-chevron-circle-up');
+      $('#season-list').show();
+    };
+  });
+
 });

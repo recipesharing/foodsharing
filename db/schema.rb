@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121014210) do
+ActiveRecord::Schema.define(version: 20161123044350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,12 @@ ActiveRecord::Schema.define(version: 20161121014210) do
     t.index ["recipe_id"], name: "index_instructions_on_recipe_id", using: :btree
   end
 
+  create_table "main_ingredients", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "models", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -95,21 +101,32 @@ ActiveRecord::Schema.define(version: 20161121014210) do
   create_table "recipes", force: :cascade do |t|
     t.string   "video_id"
     t.text     "description"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "public_id"
     t.integer  "country_id"
     t.string   "short_description"
-    t.integer  "cooking_time_min",  default: 0
-    t.integer  "calory",            default: 0
-    t.string   "thumbnail",                                  array: true
+    t.integer  "cooking_time_min",   default: 0
+    t.integer  "calory",             default: 0
+    t.string   "thumbnail",                                   array: true
     t.string   "name"
-    t.integer  "serving_num",       default: 2
+    t.integer  "serving_num",        default: 2
     t.string   "ingredient_url"
     t.string   "background_image"
     t.integer  "user_id"
+    t.integer  "season_id"
+    t.integer  "main_ingredient_id"
+    t.string   "background_name"
     t.index ["country_id"], name: "index_recipes_on_country_id", using: :btree
+    t.index ["main_ingredient_id"], name: "index_recipes_on_main_ingredient_id", using: :btree
+    t.index ["season_id"], name: "index_recipes_on_season_id", using: :btree
     t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -175,5 +192,7 @@ ActiveRecord::Schema.define(version: 20161121014210) do
   add_foreign_key "ingredients", "recipes"
   add_foreign_key "instructions", "recipes"
   add_foreign_key "recipes", "countries"
+  add_foreign_key "recipes", "main_ingredients"
+  add_foreign_key "recipes", "seasons"
   add_foreign_key "recipes", "users"
 end

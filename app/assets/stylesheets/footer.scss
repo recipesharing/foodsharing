@@ -74,3 +74,43 @@ footer .copyright a { color: inherit; text-decoration: none }
   .modal-dialog h2 { font-size: 15px }
   .modal-dialog .language-flag { width: 100px }
   .modal-dialog .modal-body { padding: 0; width: 100%; border: 0 }
+}
+iframe[name='google_conversion_frame'] { height: 0 !important; width: 0 !important; line-height: 0 !important; font-size: 0 !important; margin-top: -13px; float: left }
+
+/*! File: Shared/modal.less */
+.modal-overlay { background-color: #000; background-color: rgba(0, 0, 0, 0.7) }
+.modalBox { position: absolute; z-index: 100000; top: 0; left: 0; right: 0; bottom: 0; border: 0; border-radius: 0 }
+.modalBox.letterBoxModal { width: 48% !important; height: auto !important; top: 0 !important; left: 0 !important; border: 1px solid #fafafa; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); margin: 4% 26% }
+.modalBox.letterBoxModal .modalContentBox { margin: 0 auto; padding: 24px }
+.modalBox.letterBoxModal .modalContentBox, .modalBox.letterBoxModal .modalContentBox div { width: 100% !important }
+@media only screen and (max-width:599px) {
+  .responsive .modalBox.letterBoxModal { height: 92% !important }
+}
+@media only screen and (max-width:1000px) {
+  .responsive .modalBox.letterBoxModal { width: 92% !important; margin: 4% !important; overflow: scroll; overflow-x: hidden }
+  .responsive .modalBox.letterBoxModal .modalCloseBtn { top: 0; right: 0 }
+  .responsive .modalBox.letterBoxModal .modalContentBox { height: auto !important }
+}
+.modalContentBox { max-width: 872px; margin: 0 auto; padding: 30px 0; height: auto !important; text-align: center; overflow: hidden; position: relative }
+.modalContentBox>.modal-content { position: relative; margin: auto; padding: 8px; max-width: 100%; display: inline-block; *display: inline; *zoom: 1; background: #fff; border-radius: 8px !important; text-align: left; text-align: start; overflow: auto; box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.7) }
+.modalHeader { padding: 5px 5px 10px 5px; background: #666; overflow: hidden }
+.modalHeader .modalTitle { margin: 0; text-align: center; border: 0 }
+.modalHeader, .modalHeader .modalTitle, .modalHeader a, .modalHeader a:visited { color: #fff }
+.modalBox .modalCloseBtn { position: absolute; top: 0; right: 0; z-index: 501; cursor: pointer; font-size: 20px; padding: 0 9px 3px 10px; line-height: 1.5em; border-bottom-left-radius: 8px; background: #eee; color: #666 }
+.modalBox .modalCloseBtn:hover { color: #222 }
+.modalBox .formBody { background-color: #fff }
+.modalBox>.throbber { margin-top: 200px }
+.loading { position: absolute; text-align: center; background: url(https://d1ulmmr4d4i8j4.cloudfront.net/static/images/modal/spinner.gif) no-repeat; background-position: bottom center }
+.loading .message { margin: 0 0 40px 0; font-size: 20px; font-weight: bold }
+.loading .subMessage { margin: -35px 0 40px 0 }
+.modalMessage { width: 350px }
+.modalMessageText { margin: 0; padding: 8px 8px 8px }
+.modalMessageButtons { margin: 0; padding: 0 8px 8px 8px; text-align: right }
+.modalMessageButtons.full-width button { width: 100%; margin-left: 0 }
+.modalMessageButtons button { margin: 8px 0 0 10px }
+.modalBox .formBody { margin: 0 18px 36px }
+.modalContentBox>.defaultWidth { min-width: 500px }
+@media only screen and (max-width:740px) {
+  .modalContentBox>.defaultWidth { min-width: 100% }
+}
+.modalCloseBtn { display: none }

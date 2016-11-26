@@ -65,4 +65,9 @@ class Recipe < ApplicationRecord
   scope :cuisine, ->(cuisine) { where('country_id IN (?)', cuisine) }
   scope :ingredient, ->(a) { where('main_ingredient_id IN (?)', a) }
   scope :season, ->(season) { where('season_id IN (?)', season) }
+<<<<<<< HEAD
+=======
+  scope :order_name, ->(dir) { order(name: dir) }
+  scope :order_cook_time, ->(dir) { order(cooking_time_min: dir) }
+>>>>>>> 8a085f8eb018791981eabf77bf854d8370b4c7fb
 end

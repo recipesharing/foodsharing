@@ -1,0 +1,116 @@
+/*! File: Shared/footer.less */
+footer { background-color: rgba(36, 39, 42, 0.06); width: 100%; padding-top: 20px; font-size: 15px; margin-top: 60px }
+footer a { text-decoration: none }
+footer .footer-container { width: 100%; max-width: 1000px; margin: 0 auto; padding-bottom: 30px }
+footer .footer-row { padding: 35px auto; text-align: center }
+footer .footer-row:before, footer .footer-row:after { content: ""; display: table; clear: both }
+footer .footer-col-3 { width: 25%; float: left; min-height: 1px }
+footer .footer-col-4 { width: 33.33%; float: left; min-height: 1px }
+footer .footer-stats { padding: 35px 10px }
+footer .footer-stats div p { color: rgba(36, 39, 42, 0.4); font-size: 15px; text-transform: uppercase; letter-spacing: 1px; margin: 0 }
+footer .footer-stats div .footer-stat { font-size: 36px; font-weight: 400; margin: 0 0 5px 0; color: rgba(36, 39, 42, 0.7) }
+footer .footer-links { border-top: 1px solid rgba(0, 0, 0, 0.07); padding: 35px 0 0; text-align: left; text-align: start }
+footer .footer-links h3 { color: rgba(36, 39, 42, 0.7) }
+footer .footer-links div ul { list-style-type: none; margin: 0; padding: 0 }
+footer .footer-links div ul li { margin: 10px 10px 0 0 }
+footer .footer-links div ul li a { color: rgba(36, 39, 42, 0.5); font-weight: normal; text-decoration: none }
+footer .footer-links div ul li a:hover { color: rgba(36, 39, 42, 0.7) }
+footer .footer-links div ul li i.fa-plus { display: none }
+footer input.subscribe { width: 100%; height: 35px; font-size: 14px; line-height: 1.1; padding-left: 15px; background: #fff; border: 1px solid #ccc; color: #24272a; box-shadow: inset 0 3px 7px 0 rgba(0, 0, 0, 0.1); border-radius: 25px }
+footer input.subscribe:focus, footer input.subscribe:hover { outline: none !important; border-color: #aaa }
+footer #newsletterIcon { position: relative; top: 1px; margin-right: 6px; display: none }
+footer #newsletterForm button.submit-button { background: transparent; border: 0; outline: 0 }
+footer #newsletterEmailInput::-ms-clear { display: none }
+footer .footer-subscribe.error .subscribe { background: #fff; border-color: #f34742 }
+footer .footer-subscribe.error .subscribe:focus { background: #fff; border-color: #f67672 }
+footer .footer-subscribe.error #newsletterIcon { display: inline-block; color: #f34742 }
+footer .footer-subscribe.success #newsletterIcon { display: inline-block; color: #0071ce }
+footer .footer-link-col h3, footer .footer-social-col h3 { margin: 0; font-weight: bold }
+footer .footer-social-col li { display: inline-block; text-align: center }
+footer .footer-social-col .footer-social-icons i { border: 1px solid #ccc; background: transparent; width: 35px; height: 35px; line-height: 18px; padding: 8px; border-radius: 35px; -webkit-transition: all .2s; transition: all .2s }
+footer .footer-social-col .footer-social-icons i:hover { color: #24272a; background: #fff; border-color: #aaa }
+footer .footer-social-col .footer-subscribe { padding: 0 }
+footer .footer-social-col .footer-subscribe p { margin: 10px 0 15px; color: #aaa; text-align: left; text-align: start; font-size: 15px; font-weight: normal }
+footer .footer-social-col .footer-subscribe form { position: relative }
+footer .footer-social-col .footer-subscribe form i { position: absolute; top: 10px; right: 15px; font-size: 14px; border: 0; color: #aaa; cursor: pointer; -webkit-transition: color .2s; transition: color .2s }
+footer .footer-social-col .footer-subscribe form i:hover { color: #0071ce }
+footer .footer-social-col .footer-social-icons { display: block; margin: 10px auto 0 }
+footer .footer-social-col .footer-social-icons li { margin: 0 10px 10px 0 }
+@media only screen and (max-width:599px) {
+  footer .footer-social-col .footer-social-icons { text-align: center }
+}
+footer .copyright { color: #9a9a9a; margin-bottom: 30px }
+footer .copyright a { color: inherit; text-decoration: none }
+.footer-bottom-button { position: relative; padding: 10px 25px; display: inline-block; margin: 35px 15px; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 40px; color: #24272a; background-color: transparent; cursor: pointer; -webkit-transition: all .2s; transition: all .2s }
+.footer-bottom-button:visited { color: #24272a }
+.footer-bottom-button:hover { background-color: #fff; border-color: rgba(0, 0, 0, 0.25); color: #363c40; text-decoration: none }
+.footer-language-selector .sprite-flag { float: none; display: inline-block; margin: 0 0 1px 5px }
+@media only screen and (max-width:599px) {
+  .footer-language-selector { margin-top: 0 }
+}
+#gts_container { width: 144px; margin: 0 auto }
+@media only screen and (min-width:600px) and (max-width:1000px) {
+  .footer-container { padding: 0 20px 30px }
+  .footer-links div li a { display: inline-block }
+}
+@media only screen and (max-width:599px) {
+  footer { padding-top: 0 }
+  footer [class*='footer-col-'] { width: 100% }
+  footer .footer-stats { display: none }
+  footer .footer-links { border: 0; padding: 0 }
+  footer .footer-links h3 { display: block; margin: 0; padding: 20px 30px; border-bottom: 1px solid rgba(0, 0, 0, 0.2) }
+  footer .footer-links h3:after { display: inline-block; position: absolute; content: "+"; right: 20px }
+  footer .footer-links h3.drawer-open:after { content: "–" }
+  footer .footer-link-col li { margin: 0 !important; border-bottom: solid 1px rgba(0, 0, 0, 0.05); position: relative }
+  footer .footer-link-col li:hover { background-color: #0071ce }
+  footer .footer-link-col li a, footer .footer-link-col li a:visited { color: inherit; display: block; padding: 20px 30px }
+  footer .footer-link-col li a:hover, footer .footer-link-col li a:visited:hover { background-color: #0071ce; color: #fff }
+  footer .footer-social-col .footer-subscribe { background-color: #212528 !important }
+  footer .footer-social-col .footer-subscribe .footer-subscribe-liner { padding: 20px 30px }
+  footer .footer-social-col .footer-subscribe p { color: #9a9a9a; font-size: 20px; margin: 0 auto 25px; text-align: center }
+  footer .footer-social-col .footer-subscribe form .subscribe { height: 44px }
+  footer .footer-social-col .footer-subscribe form i { top: 10px; right: 20px }
+  .slide-drawer { height: 0; overflow: hidden }
+  .modal-dialog h2 { font-size: 15px }
+  .modal-dialog .language-flag { width: 100px }
+  .modal-dialog .modal-body { padding: 0; width: 100%; border: 0 }
+}
+iframe[name='google_conversion_frame'] { height: 0 !important; width: 0 !important; line-height: 0 !important; font-size: 0 !important; margin-top: -13px; float: left }
+
+/*! File: Shared/modal.less */
+.modal-overlay { background-color: #000; background-color: rgba(0, 0, 0, 0.7) }
+.modalBox { position: absolute; z-index: 100000; top: 0; left: 0; right: 0; bottom: 0; border: 0; border-radius: 0 }
+.modalBox.letterBoxModal { width: 48% !important; height: auto !important; top: 0 !important; left: 0 !important; border: 1px solid #fafafa; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); margin: 4% 26% }
+.modalBox.letterBoxModal .modalContentBox { margin: 0 auto; padding: 24px }
+.modalBox.letterBoxModal .modalContentBox, .modalBox.letterBoxModal .modalContentBox div { width: 100% !important }
+@media only screen and (max-width:599px) {
+  .responsive .modalBox.letterBoxModal { height: 92% !important }
+}
+@media only screen and (max-width:1000px) {
+  .responsive .modalBox.letterBoxModal { width: 92% !important; margin: 4% !important; overflow: scroll; overflow-x: hidden }
+  .responsive .modalBox.letterBoxModal .modalCloseBtn { top: 0; right: 0 }
+  .responsive .modalBox.letterBoxModal .modalContentBox { height: auto !important }
+}
+.modalContentBox { max-width: 872px; margin: 0 auto; padding: 30px 0; height: auto !important; text-align: center; overflow: hidden; position: relative }
+.modalContentBox>.modal-content { position: relative; margin: auto; padding: 8px; max-width: 100%; display: inline-block; *display: inline; *zoom: 1; background: #fff; border-radius: 8px !important; text-align: left; text-align: start; overflow: auto; box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.7) }
+.modalHeader { padding: 5px 5px 10px 5px; background: #666; overflow: hidden }
+.modalHeader .modalTitle { margin: 0; text-align: center; border: 0 }
+.modalHeader, .modalHeader .modalTitle, .modalHeader a, .modalHeader a:visited { color: #fff }
+.modalBox .modalCloseBtn { position: absolute; top: 0; right: 0; z-index: 501; cursor: pointer; font-size: 20px; padding: 0 9px 3px 10px; line-height: 1.5em; border-bottom-left-radius: 8px; background: #eee; color: #666 }
+.modalBox .modalCloseBtn:hover { color: #222 }
+.modalBox .formBody { background-color: #fff }
+.modalBox>.throbber { margin-top: 200px }
+.loading { position: absolute; text-align: center; background: url(https://d1ulmmr4d4i8j4.cloudfront.net/static/images/modal/spinner.gif) no-repeat; background-position: bottom center }
+.loading .message { margin: 0 0 40px 0; font-size: 20px; font-weight: bold }
+.loading .subMessage { margin: -35px 0 40px 0 }
+.modalMessage { width: 350px }
+.modalMessageText { margin: 0; padding: 8px 8px 8px }
+.modalMessageButtons { margin: 0; padding: 0 8px 8px 8px; text-align: right }
+.modalMessageButtons.full-width button { width: 100%; margin-left: 0 }
+.modalMessageButtons button { margin: 8px 0 0 10px }
+.modalBox .formBody { margin: 0 18px 36px }
+.modalContentBox>.defaultWidth { min-width: 500px }
+@media only screen and (max-width:740px) {
+  .modalContentBox>.defaultWidth { min-width: 100% }
+}
+.modalCloseBtn { display: none }

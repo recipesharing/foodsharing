@@ -1,6 +1,12 @@
 @font-face {
   font-family: 'Signika-Regular';
-  src:asset_url('Signika-Regular.otf') format('truetype');
+  src:asset_url('Signika-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Signika-Bold';
+  src:asset_url('Signika-Bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

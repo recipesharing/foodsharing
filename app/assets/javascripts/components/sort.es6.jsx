@@ -16,11 +16,11 @@ class SortItem extends React.Component {
   render() {
     let icon;
     if ( this.state.direction === '' ) {
-      icon = <i className= 'fa fa-minus' onClick={ () => this.handleClick(this.state.direction) }/>;
+      icon = <i className= 'fa fa-minus-circle' onClick={ () => this.handleClick(this.state.direction) }/>;
     } else if ( this.state.direction === 'desc' ) {
-      icon = <i className= 'fa fa-chevron-down' onClick={ () => this.handleClick(this.state.direction) }/>
+      icon = <i className= 'fa fa-chevron-circle-down' onClick={ () => this.handleClick(this.state.direction) }/>
     } else {
-      icon = <i className= 'fa fa-chevron-up' onClick={ () => this.handleClick(this.state.direction) }/>;
+      icon = <i className= 'fa fa-chevron-circle-up' onClick={ () => this.handleClick(this.state.direction) }/>;
     }
     return (
       <li dir={this.state.direction} id={this.props.sortName}>

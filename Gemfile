@@ -1,4 +1,5 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
+source 'http://rubygems.org' if Gem.win_platform?
 gem 'shrimp'
 
 gem 'bootstrap', '~> 4.0.0.alpha5'
@@ -23,7 +24,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'google-api-client', '~> 0.7.1'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'simplecov'
@@ -68,6 +69,6 @@ else
   source 'https://rails-assets.org' do
     gem 'rails-assets-tether', '>= 1.1.0'
   end
-end 
+end
 gem 'acts_as_commentable_with_threading'
 gem 'react-rails'

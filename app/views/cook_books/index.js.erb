@@ -1,0 +1,6 @@
+// Cookbooks#index
+$('#recipe-container').html('');
+$('#recipe-container').html("<%= j render('recipe') %>");
+$('form#cookbooks input#main_ingredient').remove();
+$('form#cookbooks input#cuisine').remove();
+$('form#cookbooks input#season').remove();

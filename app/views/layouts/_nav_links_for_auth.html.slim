@@ -2,7 +2,13 @@
   li.nav-item
     = link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-link'
 - else
+  li.nav-item  
+    = link_to "Cart", carts_path
+    /= cart_properties['items_count']
+
   li.nav-item
     = link_to "Log in", user_session_path, class: 'nav-link'
   li.nav-item
     = link_to "Sign Up",new_user_registration_path, class: 'nav-link'
+  li.nav-item
+ 

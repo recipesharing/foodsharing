@@ -1,0 +1,11 @@
+- @recipes.each do |recipe|
+  .col-xs-6.col-md-4[style="margin-bottom: 20px"]
+    .card
+      = link_to(cl_image_tag(recipe.background_name,
+                            :height=>200, :width=>300,
+                            :crop=>"fill",
+                            style:'width: 100%; height: auto',
+      class: 'card-img-top'), recipe_path(recipe))
+      .card-block
+        .card-title
+          h4= recipe.name

@@ -8,6 +8,7 @@
 @import "font-awesome";
 @import "static_pages";
 @import "recipes";
+@import "cook_books";
 
 p, h1, h2, h3 {
   font-family: "Signika-Regular", sans-serif;
@@ -207,4 +208,34 @@ div.desc {
 
 .white-text {
   color: white;
+}
+
+.cart-holder {
+  margin: 0 10px 0 10px;
+  padding-left: 10px;
+  i {
+    margin-right: 5px !important;
+  }
+}
+
+.card-action {
+  padding: 10px !important;
+}
+
+.material-icons {
+ font-family: 'Material Icons';
+ font-weight: normal;
+ font-style: normal;
+ font-size: 24px;
+ line-height: 1;
+ letter-spacing: normal;
+ text-transform: none;
+ display: inline-block;
+ word-wrap: normal;
+ -webkit-font-feature-settings: 'liga';
+ -webkit-font-smoothing: antialiased;
+}
+
+.no-right-margin {
+  margin-right: 0 !important;
 }

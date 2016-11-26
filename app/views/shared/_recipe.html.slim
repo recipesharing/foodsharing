@@ -1,0 +1,19 @@
+.col-xs-6.col-md-4[style="margin-bottom: 20px"]
+  .card
+    = link_to(cl_image_tag(recipe.background_name,
+                          :height=>200, :width=>300,
+                          :crop=>"fill",
+                          style:'width: 100%; height: auto',
+    class: 'card-img-top'), recipe_path(recipe))
+    .card-block
+      .card-title
+        h4= recipe.name
+    .card-action
+  .right
+    / = link_to "                                                                                           \
+      #{this_recipe_in_cart(food)}", carts_path, class: "cart left no_left_pad no-right-margin", id: "cart" \
+  / - if recipe.status == "available"
+  = button_to "Add to cart", cart_items_path(food_id: recipe.id)
+  / - else
+    p Out of stock
+

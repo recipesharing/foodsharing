@@ -1,0 +1,51 @@
+br
+br
+br
+br
+.container#cookbook-page
+  .row
+    .col-xs-12.col-md-3
+      .row
+        h2
+          | Cookbook
+        = form_tag :cook_books, method: 'get', class: 'form-group', id: 'cookbooks', remote: true
+          = text_field_tag :search, '', class: 'form-control', placeholder: 'search'
+        button.btn.btn-primary#filter-btn[style="margin: 20px 20px 20px 0"]
+          | search and filter
+      .row
+        h3
+          | Sort by
+        ul[style="list-style: none"]
+          li 
+            | difficulty
+            i.fa.fa-minus-circle[style="float:right"]
+          li price
+          li public date
+      .row
+        h3
+          | Ingredient
+          i.fa.fa-chevron-circle-up#ingredient-toggle[style="float:right"]
+        ul#ingredient-list[style="list-style: none"]
+          - @main_ingredients.each do |ingredient|
+            li.ingredient value= ingredient.id
+              = ingredient.name
+      .row
+        h3
+          | Cuisine
+          i.fa.fa-chevron-circle-up#cuisine-toggle[style="float:right"]
+        ul#cuisine-list[style="list-style: none"]
+          - @cuisines.each do |cuisine|
+            li.cuisine value= cuisine.id
+              = cuisine.name
+      .row
+        h3
+          | Seasons
+          i.fa.fa-chevron-circle-up#season-toggle[style="float:right"]
+        ul#season-list[style="list-style: none"]
+          - @seasons.each do |season|
+            li.season value = season.id
+              = season.name
+    .col-xs-12.col-md-9
+      .row#recipe-container
+        - @recipes.each do |recipe|
+          = render partial: 'shared/recipe', locals: { recipe: recipe }

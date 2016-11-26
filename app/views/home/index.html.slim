@@ -8,30 +8,43 @@
 br
 br
 br  
-.content  
+.content
   .header
      | What's In Your Delivery
+  br   
   .list 
      i.fa.fa-check-square-o[aria-hidden="true"]
+     i.pricing-text
        | Fresh, seasonal produce
+  br
   .list
      i.fa.fa-check-square-o[aria-hidden="true"]
+     i.pricing-text
        | Meat and poultry
+  br
   .list
      i.fa.fa-check-square-o[aria-hidden="true"]
+     i.pricing-text
        | Sustainably-sourced seafood
+  br
   .list
      i.fa.fa-check-square-o[aria-hidden="true"]
+     i.pricing-text
        | Other fresh ingredients
+  br
   .list
      i.fa.fa-check-square-o[aria-hidden="true"]
-       | Recipe instructions  
+     i.pricing-text
+       | Recipe instructions
+  br
+  br
   .price-header
     |Start at
   .price-detail
-       | $3.49/Serving
-  .btn.btn-success
-        = link_to 'Choose your plan', home_show_path
+     | $3.49/Serving
+  br
+  br
+  = link_to 'Choose your plan', home_show_path, class: "btn btn-success btn-lg btn-block"
         
 .container
   .col-sm-12

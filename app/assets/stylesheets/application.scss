@@ -54,18 +54,22 @@ ul.ingredient-list {
   border: 1px solid #313567;
 }
 .content .header {
-  font-size: 25px;
+  font-size: 35px;
   margin-bottom: 5px;
   font-weight: 400;
   color: #313567;
-  font-family: "Signika";
+  font-family: "Signika-Bold";
   text-align: center;
 }
 
 .content .list {
-  padding: 10px 0;
-  text-align: left;
-  position: relative; 
+  i.pricing-text{
+    padding: 10px 0;
+    font-family: "Signika-Regular";
+    text-align: left;
+    position: relative;    
+  }
+
 }
 
 .fa-check-square-o:hover{ 
@@ -75,31 +79,34 @@ ul.ingredient-list {
 
 .content .price-part {
   text-align: left;
-  font-family: "Archer", serif;
+  font-family: "Signika-Regular";
   font-size: 16px;
   padding-left: 10 px;
 }
 
-.content .price-part .price-header {
+.content .price-header {
   padding-bottom: 10px;
-  font-family: "Archer", serif;
+  font-family: "Signika-Regular";
   font-size: 16px;
 }
 
-.content .price-part .price-detail{
-  font-size: 30px;
+.content .price-detail{
+  font-size: 25px;
   display: inline-block;
-  font-family: "Archer", serif;
+  font-family: "Signika-Regular";
   
 }
-.content .btn.btn-success{
-  padding-top: 10px;
-  position: relative;
-  text-align: center;
-  margin-left: 100px;
-  text-color: white;
-  margin-top:40px;
+#home-page{
+  .btn.btn-success{
+    padding-top: 10px;
+    position: relative;
+    text-align: center;
+    margin-left: 100px;
+    text-color: white;
+    margin-top:40px;
+  }  
 }
+
 
 .title  {
   font-size: 30px;

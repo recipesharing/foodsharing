@@ -1,0 +1,27 @@
+.container
+  br
+  br
+  br
+  .content
+    h2[style="font-family: Signika-Bold"] 
+      | Log In
+    = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-group') do |f|
+      .field
+        = f.label :email
+        br/
+        = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'enter your email'
+      .field
+        = f.label :password
+        br/
+        = f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'minimum 8 characters'
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .actions
+      = f.submit "Log In", class: "btn btn-success"
+        br
+    = render "users/shared/buttons"
+
+
+

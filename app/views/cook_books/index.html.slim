@@ -4,6 +4,8 @@ br
 br
 .container#cookbook-page
   .row
+    = react_component 'Label', { label: 'toan' }
+  .row
     .col-xs-12.col-md-3
       .row
         h2
@@ -15,7 +17,8 @@ br
       .row
         h3
           | Sort by
-        ul[style="list-style: none"]
+        = react_component 'Sort'
+        /ul[style="list-style: none"]
           li 
             | difficulty
             i.fa.fa-minus-circle[style="float:right"]

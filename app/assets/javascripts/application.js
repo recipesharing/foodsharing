@@ -82,9 +82,14 @@ document.addEventListener("turbolinks:load", function() {
     getCuisineList();
     getIngredientList();
     getSeasonList();
+    getSortList();
     // submit form
     $("form#cookbooks").submit();
   });
+
+  /*
+   * Get data for hidden form
+   */
 
   function getCuisineList(){
     // variable
@@ -122,6 +127,17 @@ document.addEventListener("turbolinks:load", function() {
     // append data to form
     $hidden_season.val((season));
     if (season.length > 0) { $("form#cookbooks").append($hidden_season); }
+  };
+
+  function getSortList() {
+    var $hidden_sort = $("<input type='hidden' name='sort' id='sort'/>");
+    const sort_selector =  $(".sort-items li")
+    var sort = [];
+    sort_selector.each(function(){
+      sort.push($(this).attr('id') + '/' + $(this).attr('dir'));
+    });
+    $hidden_sort.val(sort);
+    if (sort.length > 0) { $("form#cookbooks").append($hidden_sort); }
   };
 
   $('#cuisine-toggle').on('click', function(){

@@ -2,20 +2,20 @@
 class SortItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { direction: 'none' };
+    this.state = { direction: '' };
   }
   handleClick(prevState) {
-    if (prevState === 'none') {
+    if (prevState === '') {
       this.setState({ direction: 'desc' })
     } else if (prevState === 'desc' ) {
       this.setState({ direction: 'asc' })
     } else if (prevState === 'asc' ) {
-      this.setState({ direction: 'none' })
+      this.setState({ direction: '' })
     }
   }
   render() {
     let icon;
-    if ( this.state.direction === 'none' ) {
+    if ( this.state.direction === '' ) {
       icon = <i className= 'fa fa-minus' onClick={ () => this.handleClick(this.state.direction) }/>;
     } else if ( this.state.direction === 'desc' ) {
       icon = <i className= 'fa fa-chevron-down' onClick={ () => this.handleClick(this.state.direction) }/>
@@ -36,9 +36,8 @@ class Sort extends React.Component {
   render () {
     return (
       <ul className='sort-items'>
-        <SortItem sortName='difficulty'/>
-        <SortItem sortName='price'/>
-        <SortItem sortName='timecreated'/>
+        <SortItem sortName='name'/>
+        <SortItem sortName='cooking time'/>
       </ul>
     );
   }

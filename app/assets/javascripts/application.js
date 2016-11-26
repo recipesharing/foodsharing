@@ -134,7 +134,9 @@ document.addEventListener("turbolinks:load", function() {
     const sort_selector =  $(".sort-items li")
     var sort = [];
     sort_selector.each(function(){
-      sort.push($(this).attr('id') + '/' + $(this).attr('dir'));
+      if($(this).attr('dir') !== ''){
+        sort.push($(this).attr('id') + '/' + $(this).attr('dir'));
+      }
     });
     $hidden_sort.val(sort);
     if (sort.length > 0) { $("form#cookbooks").append($hidden_sort); }

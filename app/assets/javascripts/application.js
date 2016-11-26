@@ -25,6 +25,10 @@
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
+  // when windows load
+  $('#cuisine-list').hide();
+  $('#season-list').hide();
+  $('#ingredient-list').hide();
 
   $(".new-comment").bind('ajax:success', function(e, data, status, xhr){
     $(".comment-box").prepend(data);

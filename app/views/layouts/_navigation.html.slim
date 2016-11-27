@@ -1,8 +1,11 @@
-
-  .navbar-default.navbar-fixed-top
-   .nav-container
-      ul.navbar-left 
-        = link_to 'Food recipes', root_path, class: 'navbar-brand'
-      ul.navbar-right 
-        = render 'layouts/nav_links_for_auth'
-
+nav.navbar.navbar-light.bg-faded
+  ul.nav.navbar-nav
+    .nav-container
+      ul.navbar-left
+        = link_to 'Foodsharing', root_path, class: 'navbar-brand'
+    li.nav-item
+      a.nav-link href="/cook_books"  Cookbook
+    li.nav-item
+      a.nav-link href="/introduce"  About
+	.nav-item-right 
+      = render 'layouts/nav_links_for_auth'

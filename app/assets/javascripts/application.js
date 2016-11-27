@@ -22,9 +22,13 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require recipes
+//= require upload_handler
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
+  // call upload hanler
+  upload_handler_listen();
   // when windows load
   $('#cuisine-list').hide();
   $('#season-list').hide();
@@ -44,16 +48,6 @@ document.addEventListener("turbolinks:load", function() {
     if($.fn.cloudinary_fileupload !== undefined) {
       $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
     }
-  });
-
-
-  $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  $('.preview').html(
-     console.log( "upload done!", data ));
-     $('.video_public_id').val(data.result.public_id);    
-  });
-
-  $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-    $('.progress').val(Math.round((data.loaded * 100.0) / data.total));
   });
 
   $("#owl-demo").owlCarousel({

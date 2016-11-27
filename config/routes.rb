@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'instructions/new'
+
+  get 'instructions/create'
+
+  get 'instructions/show'
+
   get 'menus/index'
   get 'home/show'
   root 'home#index'

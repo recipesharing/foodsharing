@@ -211,10 +211,20 @@ div.desc {
 }
 
 .navbar-default.navbar-fixed-top .nav-container{
-  width:95%;
+  width:100%;
 }
 
 
 .white-text {
   color: white;
+}
+
+.navbar-left-eddie {
+  @extend .navbar-left;
+  padding-left: 0px;
+}
+.navbar-eddie {
+  @extend .navbar;
+  padding-left: 0px;
+  padding-right: 0px;
 }

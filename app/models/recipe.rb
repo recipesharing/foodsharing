@@ -2,17 +2,27 @@
 #
 # Table name: recipes
 #
-#  id                :integer          not null, primary key
-#  video_id          :string
-#  description       :text
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
-#  public_id         :string
-#  country_id        :integer
-#  short_description :string
-#  cooking_time_min  :integer          default(0)
-#  calory            :integer          default(0)
+#  id                 :integer          not null, primary key
+#  video_id           :string
+#  description        :text
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  public_id          :string
+#  country_id         :integer
+#  short_description  :string
+#  cooking_time_min   :integer          default(0)
+#  calory             :integer          default(0)
+#  thumbnail          :string           is an Array
+#  name               :string
+#  serving_num        :integer          default(2)
+#  ingredient_url     :string
+#  background_image   :string
+#  user_id            :integer
+#  season_id          :integer
+#  main_ingredient_id :integer
+#  background_name    :string
 #
+
 class Recipe < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :short_description

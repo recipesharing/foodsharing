@@ -10,13 +10,13 @@ br
       br
       = form_tag :cook_books, method: 'get', class: 'form-group', id: 'cookbooks', remote: true
         = text_field_tag :search, '', class: 'form-control', placeholder: 'search'
-      button.btn.btn-primary#filter-btn[style="margin: 20px 20px 20px 0"]
+      button.btn#filter-btn[style="border: solid 1px #e0e0e0;background-color:inherit"]
         | search and filter
       br
       br
       h3
         | Sort by
-      .sort-box[style="width: 60%"]
+      .sort-box[style="width: 100%"]
         = react_component 'Sort'
       br
       h3

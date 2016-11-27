@@ -8,15 +8,11 @@
     .card-block
       .card-title
         h4= recipe.name
-<<<<<<< HEAD
     .card-action
   .right
     / = link_to "                                                                                           \
       #{this_recipe_in_cart(food)}", carts_path, class: "cart left no_left_pad no-right-margin", id: "cart" \
   / - if recipe.status == "available"
-  = button_to "Add to cart", cart_items_path(food_id: recipe.id)
+  = button_to "Add to cart", cart_items_path(recipe_id: recipe.id)
   / - else
     p Out of stock
-
-=======
->>>>>>> 8a085f8eb018791981eabf77bf854d8370b4c7fb

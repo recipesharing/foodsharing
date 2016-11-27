@@ -8,8 +8,6 @@ cuisine = %w[african american asian british chinese vietnamese japanese korean i
 main_ingredient = %w[beef fish lamb pork poultry shelfish vegetarian]
 seasons.each do |season|
   Season.create(name: season)
-<<<<<<< HEAD
-=======
 end
 
 cuisine.each do |c|
@@ -42,7 +40,6 @@ end
       step: step,
       recipe: recipe)
   end
->>>>>>> 8a085f8eb018791981eabf77bf854d8370b4c7fb
 end
 
 cuisine.each do |c|

@@ -82,21 +82,14 @@ document.addEventListener("turbolinks:load", function() {
     getCuisineList();
     getIngredientList();
     getSeasonList();
-<<<<<<< HEAD
-=======
     getSortList();
->>>>>>> 8a085f8eb018791981eabf77bf854d8370b4c7fb
     // submit form
     $("form#cookbooks").submit();
   });
 
-<<<<<<< HEAD
-=======
   /*
    * Get data for hidden form
    */
-
->>>>>>> 8a085f8eb018791981eabf77bf854d8370b4c7fb
   function getCuisineList(){
     // variable
     var $hidden_cuisine = $("<input type='hidden' name='cuisine' id='cuisine'/>");
@@ -135,8 +128,6 @@ document.addEventListener("turbolinks:load", function() {
     if (season.length > 0) { $("form#cookbooks").append($hidden_season); }
   };
 
-<<<<<<< HEAD
-=======
   function getSortList() {
     var $hidden_sort = $("<input type='hidden' name='sort' id='sort'/>");
     const sort_selector =  $(".sort-items li")
@@ -150,7 +141,6 @@ document.addEventListener("turbolinks:load", function() {
     if (sort.length > 0) { $("form#cookbooks").append($hidden_sort); }
   };
 
->>>>>>> 8a085f8eb018791981eabf77bf854d8370b4c7fb
   $('#cuisine-toggle').on('click', function(){
     if($(this).hasClass('fa-chevron-circle-up')){
       $(this).attr('class', 'fa fa-chevron-circle-down');
@@ -189,5 +179,27 @@ document.addEventListener("turbolinks:load", function() {
     if (cuisine.length > 0) { $(this).append($hidden_cuisine); }
     $("form#cookbooks").submit();
   });
+  $(function() {
+  var stripeResponseHandler, $cardForm;
+
+  $cardForm = $('#card-details');
+  stripeResponseHandler = function(status, response) {
+    if (response.error) {
+      $cardForm.find('.payment-errors').text(response.error.message);
+      $cardForm.find('input[type=submit]').prop('disabled', false);
+    } else {
+      var token = response.id;
+
+      $cardForm.append($('<input type="hidden" name="stripe_token" />').val(token));
+      $cardForm.get(0).submit();
+    }
+  };
+
+  $cardForm.submit(function() {
+    Stripe.card.createToken(this, stripeResponseHandler);
+
+    return false;
+  });
+});
 
 });

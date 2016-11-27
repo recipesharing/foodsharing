@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     :controllers => {:omniauth_callbacks => 'users/omniauth_callbacks', registrations: 'users/registrations'}
   resource :orders
 
-
   %w(
     introduce
     contact

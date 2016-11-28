@@ -221,8 +221,15 @@ div.desc {
 
 .navbar-left-eddie {
   @extend .navbar-left;
-  padding-left: 0px;
+  margin: 20px;
+  padding: 0px;
 }
+
+li.nav-item {
+  margin: 20px;
+  padding: 0px;
+}
+
 .navbar-eddie {
   @extend .navbar;
   padding-left: 0px;

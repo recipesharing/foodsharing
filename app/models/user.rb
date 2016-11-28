@@ -29,6 +29,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable
   has_many :identities
   has_many :recipes
+  has_many :short_lists, dependent: :destroy
   acts_as_voter
 
   def facebook

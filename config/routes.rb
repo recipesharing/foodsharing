@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :users do
+    get 'profiles/show'
+  end
+
   get 'instructions/new'
 
   get 'instructions/create'

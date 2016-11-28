@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123044350) do
+ActiveRecord::Schema.define(version: 20161128164737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,40 @@ ActiveRecord::Schema.define(version: 20161123044350) do
     t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_recipes", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "recipe_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "status",        default: "Pending"
+    t.integer  "total"
+    t.integer  "vat"
+    t.integer  "delivery_cost"
+    t.string   "payment_id"
+    t.string   "invoice"
+    t.integer  "pickup_time",   default: 0
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "user_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string   "email"
+    t.string   "token"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string   "video_id"
     t.text     "description"
@@ -117,8 +151,11 @@ ActiveRecord::Schema.define(version: 20161123044350) do
     t.integer  "season_id"
     t.integer  "main_ingredient_id"
     t.string   "background_name"
+    t.integer  "payment_id"
+    t.float    "price"
     t.index ["country_id"], name: "index_recipes_on_country_id", using: :btree
     t.index ["main_ingredient_id"], name: "index_recipes_on_main_ingredient_id", using: :btree
+    t.index ["payment_id"], name: "index_recipes_on_payment_id", using: :btree
     t.index ["season_id"], name: "index_recipes_on_season_id", using: :btree
     t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree
   end
@@ -127,6 +164,15 @@ ActiveRecord::Schema.define(version: 20161123044350) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "short_lists", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_short_lists_on_recipe_id", using: :btree
+    t.index ["user_id"], name: "index_short_lists_on_user_id", using: :btree
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -170,6 +216,10 @@ ActiveRecord::Schema.define(version: 20161123044350) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "address"
+    t.integer  "phone"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -193,6 +243,9 @@ ActiveRecord::Schema.define(version: 20161123044350) do
   add_foreign_key "instructions", "recipes"
   add_foreign_key "recipes", "countries"
   add_foreign_key "recipes", "main_ingredients"
+  add_foreign_key "recipes", "payments"
   add_foreign_key "recipes", "seasons"
   add_foreign_key "recipes", "users"
+  add_foreign_key "short_lists", "recipes"
+  add_foreign_key "short_lists", "users"
 end

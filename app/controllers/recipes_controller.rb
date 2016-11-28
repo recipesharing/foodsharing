@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
                          background_image: params[:image_background_id],
                          name: params[:name],
                          short_description: params[:short_description])
-    debugger
+    create_instructions
     if @recipe.save
       flash[:success] = 'recipe created successfully!'
     else
@@ -45,6 +45,18 @@ class RecipesController < ApplicationController
   end
 
   private
+
+  def create_instructions
+    instructions = JSON.parse(URI.decode(params[:instruction]))
+    instructions.each_with_index do |instruction, i|
+      Instruction.create(
+        step: i + 1,
+        image_url: instruction['public_id'],
+        title: instruction['title'],
+        content: instruction['content']
+      )
+    end
+  end
 
   def prepare_recipes
     @ingredients = @recipe.ingredients

@@ -33,10 +33,13 @@ br
       = cl_image_upload_tag(:image_background_id, class: 'form-control-file')
 
     = hidden_field_tag :public_id, @public_id
-    = submit_tag "create recipe", class: 'btn btn-primary'
+    /= submit_tag "create recipe", class: 'btn btn-primary'
   .row.instructions-box
-    .col-xs-12.col-md-6.instruction-new
+    .col-xs-12.col-md-4.instruction-new
       .form-group
+        = hidden_field_tag :image_public_id
+        = hidden_field_tag :image_format
+        = hidden_field_tag :image_version
         = label_tag :title, 'step title'
         = text_field_tag :title, nil, class: 'form-control'
       .form-group
@@ -47,6 +50,11 @@ br
         = cl_image_upload_tag(:image_instruction_id, class: 'form-control-file', id: 'instruction-upload')
       button#new-step
         | create new step
-    .col-xs-12.col-md-6.instruction-steps
+    .col-xs-12.col-md-4.instruction-steps
       .preview
-
+        h1
+          | preview picture
+    .col-xs-12.col-md-4.instruction-steps-list
+      .created-list
+  button.btn.btn-success#video-upload-submit
+    | create new recipe

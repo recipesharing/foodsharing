@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :current_user
   before_action :load_order
   helper_method :cart
-  helper_method :current_order
+  helper_method :order
 
 
   rescue_from CanCan::AccessDenied do |exception|

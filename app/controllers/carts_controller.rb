@@ -12,7 +12,7 @@ class CartsController < ApplicationController
          end unless session[:cart].nil?
         @ordered_recipes = @ordered_recipes
         session[:order]["details"]["pickup_time"] = @total_pickup_time
-        session[:order]["recipes"] = @ordered_recipes['1'][:recipe][:id]
+        session[:order]["recipes"] = @ordered_recipes['1'].try(:[], :recipe).try(:[], :id)
   end
 
   def destroy 

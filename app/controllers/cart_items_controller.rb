@@ -7,7 +7,7 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
-    debugger
+    #debugger
     # @cart.delete(params[:recipe_id])
     @cart.delete(params[:id])
     redirect_to :back

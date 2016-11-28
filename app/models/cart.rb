@@ -15,7 +15,7 @@ class Cart
   end
 
   def delete recipe_id
-    @cart_data[recipe_id] = 0
+    @cart_data.delete(recipe_id)
   end
 
   private

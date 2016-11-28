@@ -1,10 +1,10 @@
 class CheckoutController < ApplicationController
     protect_from_forgery :except => [:create]
   def show
-    if logged_in?
+    if user_signed_in?
       @order.ordered_recipes = session[:order]["recipes"]
     else
-      redirect_to login_path
+      redirect_to root_path
     end
   end
 

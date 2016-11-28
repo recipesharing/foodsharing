@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :carts
   resource :cook_books
 
-  post "checkout" => "checkout#show" , as: :checkout
+  get 'checkout/show' 
 
   get 'orders/index'
   resources :recipes

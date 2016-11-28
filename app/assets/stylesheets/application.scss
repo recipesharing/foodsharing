@@ -31,7 +31,7 @@ ul.ingredient-list {
   box-shadow: 0 8px 6px -6px #999;
 
 }
-.navbar-right {
+.nav-item-right {
   float: right;
 }
 .navbar-left {
@@ -211,10 +211,27 @@ div.desc {
 }
 
 .navbar-default.navbar-fixed-top .nav-container{
-  width:95%;
+  width:100%;
 }
 
 
 .white-text {
   color: white;
+}
+
+.navbar-left-eddie {
+  @extend .navbar-left;
+  margin: 20px;
+  padding: 0px;
+}
+
+li.nav-item {
+  margin: 20px;
+  padding: 0px;
+}
+
+.navbar-eddie {
+  @extend .navbar;
+  padding-left: 0px;
+  padding-right: 0px;
 }

@@ -42,11 +42,15 @@ document.addEventListener("turbolinks:load", function() {
     $(".comment-box").prepend(data);
     $("#comment").val('');
   });
+
+  $(".comment-box").on('click', '.delete-comment', () => { $(this).parent().parent().fadeOut(); });
 // Todo: rebind problems for delete
   $(".delete-comment").bind('ajax:success', function(){
-    console.log("last");
     $(this).parent().parent().fadeOut();
   });
+
+  // $(staticAncestors).on(eventName, dynamicChild, function() {});
+  // $(".delete-comment").on("click", () => { $(this).parent().parent().fadeOut(); } )
 
   $(function() {
     if($.fn.cloudinary_fileupload !== undefined) {

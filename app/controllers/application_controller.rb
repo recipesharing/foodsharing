@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
 
   def load_cart
-      @cart ||= Cart.new(session[:cart])
+    @cart ||= Cart.new(session[:cart])
   end
 
   def load_order

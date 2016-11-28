@@ -7,10 +7,13 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
-    @cart.delete(params[:recipe_id])
+    debugger
+    # @cart.delete(params[:recipe_id])
+    @cart.delete(params[:id])
     redirect_to :back
      # @cart.destroy
      # session.delete(:cart)
+
   end
 
 
@@ -18,7 +21,7 @@ class CartItemsController < ApplicationController
     cart = cart_params
     recipe_id = cart[:recipe_id]
     quantity = cart[:quantity]
-    session[:cart][food_id] = quantity.to_i
+    session[:cart][recipe_id] = quantity.to_i
     session[:order]['ecipes'][recipe_id]['quantity'] = quantity.to_i
     session[:order]['details'] = order_params
     render json: {data: recipe_id}

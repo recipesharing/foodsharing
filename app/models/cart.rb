@@ -1,5 +1,5 @@
-class Cart < ActiveRecord::Base
-  attr_accessor :cart_data
+class Cart
+  attr_reader :cart_data
 
   def initialize(cart_data)
     @cart_data = cart_data || {}

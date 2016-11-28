@@ -22,6 +22,7 @@
     <% @ordered_recipes.each_with_index do |details, index| %>
 
    <% recipe_id = details[1][:recipe][:id] %>
+   
         <tr>
           <td><%= index %></td>
           <td ><%= details[1][:recipe]['name'] %></td>

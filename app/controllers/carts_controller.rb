@@ -8,7 +8,7 @@ class CartsController < ApplicationController
     @cart_recipe = 0
         @cart_recipes.each do |recipe_id, quantity,price|
         recipe= Recipe.find_by_id(recipe_id)
-        @ordered_recipes[recipe_id] = { recipe: recipe, quantity: quantity, price: price}
+        @ordered_recipes[recipe_id] = { short_description: recipe.short_description, , quantity: quantity, price: price} if recipe.present?
          
          end unless session[:cart].nil?
         @ordered_recipes = @ordered_recipes

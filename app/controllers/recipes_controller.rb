@@ -22,6 +22,17 @@ class RecipesController < ApplicationController
   def edit
   end
 
+
+  def edit_status
+    recipe = Recipe.find(recipe_params[:id].to_i)
+    unless recipe.nil?
+      status = recipe_params[:status] == "true" ? "available" : "not available"
+      recipe.status = status
+      recipe.save
+      # render json: recipe
+    end
+  end
+
   def show
     @recipe = Recipe.includes(:ingredients, :instructions, :comment_threads).find_by_id(params[:id])
     if @recipe.present?
@@ -36,5 +47,11 @@ class RecipesController < ApplicationController
       # Todo: handling by raise record not found
       redirect_to root_path
     end
+  end
+
+  private 
+   def recipe_params
+    params.require(:recipe).permit(:id, :name, :description, :price,
+                                 , :country_id, :status)
   end
 end

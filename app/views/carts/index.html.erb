@@ -2,7 +2,7 @@
 
 <div class="full-height scroll-bar">
   <div class="pad-bottom">
-  <% if @ordered_foods.length == 0 %>
+  <% if @ordered_recipes.length == 0 %>
       <p>Your cart is empty</p>
   <% else %>
   <table class="hoverable">
@@ -19,27 +19,27 @@
     </thead>
     <tbody>
 
-    <% @ordered_recipes.each do |index, details| %>
-      <% recipe_id = details[:recipe][:id] %>
+    <% @ordered_recipes.each_with_index do |details, index| %>
+
+   <%# recipe_id = details[:recipe][:id] %>
         <tr>
           <td><%= index %></td>
-          <td id="recipe_name_<%= recipe_id %>"><%= details[:recipe]['name'] %></td>
-          <td id="recipe_desc_<%= recipe_id %>"><%= details[:]['description'] %></td>
-          <td id="recipe_qty_<%= recipe_id %>"><%=form_for 'quantity', :url => {:controller => 'cart_items', :action => 'update', recipe_id: details[:recipe][:id], id: index }, method: :patch  do |f| %>
-            <%= f.number_field details[:qty], :min => 1, :value => details[:qty], :class => "qty qty-editable-width", "data-message" => recipe_id %>
+          <td ><%= details[:recipe]['name'] %></td>
+          <td ><%= details[:recipe]['short_description'] %></td>
+          <td ><%=form_for 'quantity', :url => {:controller => 'cart_items', :action => 'update', recipe_id: details[:recipe][:id], id: index }, method: :patch  do |f| %>
+            <%= f.number_field details[:recipe][:quantity], :min => 1, :value => details[:quantity],  "data-message" => recipe_id %>
             <% end %>
           </td>
-          <td class="recipe-prep" class="recipe_prep_<%= recipe_id %>" id="recipe_prep_<%= recipe_id %>" data-message="<%= details[:recipe]['prep_time'] %>"><%= details[:prep_time] %> mins </td>
-          <% if details[:recipe]['sales'][:status] %>
-            <td id="recipe_unit_price_<%= recipe_id %>"><%= details[:recipe]['sales'][:price] %></td>
-            <td>N<span class="line-total" id="recipe_sub_total_<%= details[:recipe][:id] %>" data-message="<%= details[:recipe]['sales'][:price] %>" ><%= details[:recipe]['sales'][:price].to_i * details[:qty].to_i %></span></td>
+          <% if details[:recipe][:status] %>
+            <td ><%= details[:recipe][:price] %></td>
+            <td>N<span class="line-total" id="recipe_sub_total_<%= details[:recipe][:id] %>" data-message="<%= details[:recipe][:price] %>" ><%= details[:recipe][:price].to_i * details[:quantity].to_i %></span></td>
           <% else %>
-            <td id="recipe_unit_price_<%= recipe_id %>"><%= details[:recipe]['price'] %></td>
+            <td"><%= details[:recipe]['price'] %></td>
           <td>N<span class="line-total" id="recipe_sub_total_<%= details[:recipe][:id] %>" data-message="<%= details[:recipe]['price'] %>" ><%= details[:recipe]['price'].to_i * details[:qty].to_i %></span></td>
           <% end %>
           <td>
-            <%= button_to cart_item_delete_path(details[:recipe][:id]), :class => "clear-button", method: :delete  do %>
-              <i class="material-icons">clear</i>
+            <%= button_to cart_item_path(details[:recipe][:id]), method: :delete do %>
+              <i class="material-icons">delete</i>
             <% end %>
           </td>
         </tr>
@@ -49,7 +49,7 @@
         <tr style="border-top:2px solid #3e2511">
           <td></td>
           <td></td>
-          <!-- <td id="prep_total">Your recipe will be ready in <%= time_ago_in_words(@total_pickup_time.minutes.from_now)%> MAX</td> -->
+          <%# <td>Your recipe will be ready in <%= time_ago_in_words(@total_pickup_time.minutes.from_now)%> MAX</td> %>
           <td></td>
           <td></td>
           <td>Subtotal</td>
@@ -57,7 +57,7 @@
         </tr>
       </tfoot>
     </table>
-    <%= button_to 'Checkout', checkout_path, :class => "btn" %>
+    <%#<%= button_to 'Checkout', checkout_path, :class => "btn" %> %>
     <% end %>
   </div>
 </div>

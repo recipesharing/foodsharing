@@ -26,7 +26,7 @@ class Order < ApplicationRecord
     @status = args[:status] || "pending"
   end
 
-
+  
   def save_order(current_user)
    user = current_user
    new_order = user.orders.new(total: @total,vat: vat, delivery_cost: @delivery_cost, invoice: @invoice,

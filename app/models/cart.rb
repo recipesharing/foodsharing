@@ -1,5 +1,5 @@
 class Cart < ActiveRecord::Base
-  attr_reader :cart_data
+  attr_accessor :cart_data
 
   def initialize(cart_data)
     @cart_data = cart_data || {}
@@ -14,7 +14,7 @@ class Cart < ActiveRecord::Base
     @cart_data = nil
   end
 
-  def delete
+  def delete recipe_id
     @cart_data[recipe_id] = 0
   end
 
@@ -23,3 +23,4 @@ class Cart < ActiveRecord::Base
   def increment_cart_recipe_by_one(recipe_id)
     @cart_data[recipe_id] += 1
   end
+end

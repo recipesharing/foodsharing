@@ -1,5 +1,6 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actioncable (5.0.0.1)
       actionpack (= 5.0.0.1)
@@ -173,6 +174,7 @@ GEM
       mini_portile2 (~> 2.1.0)
     nokogiri (1.6.8.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
+    nprogress-rails (0.2.0.2)
     oauth2 (1.2.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -350,7 +352,6 @@ GEM
     uuidtools (2.1.5)
     warden (1.2.6)
       rack (>= 1.0)
-    wdm (0.1.1)
     web-console (3.3.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -386,6 +387,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   listen (~> 3.0.5)
+  nprogress-rails
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
@@ -394,7 +396,7 @@ DEPENDENCIES
   pry
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
-  rails-assets-tether (>= 1.1.0)
+  rails-assets-tether (>= 1.1.0)!
   rails-erd
   rails_12factor
   react-rails
@@ -411,7 +413,6 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
-  wdm (>= 0.1.0)
   web-console
 
 BUNDLED WITH

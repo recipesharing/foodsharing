@@ -8,10 +8,13 @@ ul.ingredient-list > li {
 
 /* Recipe page style */
 #recipe-page {
-  .item-box { margin-bottom: 100px;
+  .item-box {
+    @media only screen and (min-width: 700px) {
+      margin-bottom: 100px;
+      min-height: 650px;
+    }
     border: solid 1px #E0E0E0;
     background-color: white;
-    min-height: 650px;
     h2.single-line { padding: 28px 20px }
   }
   .content-static {
@@ -20,20 +23,13 @@ ul.ingredient-list > li {
   }
 
   .item-box-video {
-    border: solid 1px #E0E0E0;
-    margin-bottom: 100px;
-    background-color: white;
-    min-height: 650px
-    video {
-      background-color: white;
-    }
+    @extend .item-box;
+    video { background-color: white; }
   }
 
   .item-box-short {
-    border: solid 1px #E0E0E0;
-    margin-bottom: 100px;
-    background-color: white;
-    h2.single-line { padding: 28px 20px }
+    @extend .item-box;
+    min-height: 100px;
   }
   .comment-item {
     padding: 20px;
@@ -41,6 +37,16 @@ ul.ingredient-list > li {
 
   h2 {
     margin-bottom: 0px;
+  }
+
+  .item-box img {
+    width: 100%;
+  }
+
+  .card-instruction {
+    @media only screen and (min-width: 700px){
+      height: 600px;
+    }
   }
 }
 
@@ -74,4 +80,17 @@ ul.ingredient-list > li {
   border-bottom: 1px solid #e6e6e6;
   min-height: 26px;
   line-height: 26px;
+}
+
+.instructions-box {
+  border: dashed 1px #e0e0e0;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.form-inline .form-group {
+  label {
+    margin-right: 10px;
+  }
+  margin-right: 30px;
 }

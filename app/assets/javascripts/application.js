@@ -78,5 +78,9 @@ document.addEventListener("turbolinks:load", function() {
     $("form#video-upload").append($hidden_step);
   });
 
-  $("button#video-upload-submit").on("click", () => {$("form#video-upload").submit()});
+  $("button#video-upload-submit").on("click", () => {
+    // check if input filled
+    // $("form#video-upload input").each
+    $("form#video-upload").submit();
+  });
 });

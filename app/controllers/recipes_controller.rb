@@ -22,6 +22,7 @@ class RecipesController < ApplicationController
                          description: params[:description],
                          background_image: params[:image_background_id],
                          name: params[:name],
+                         background_name: params[:background_name],
                          short_description: params[:short_description])
     if @recipe.save
       create_instructions

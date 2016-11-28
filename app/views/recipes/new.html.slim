@@ -30,8 +30,9 @@ br
       progress.progress[value="0" max="100"]
     .form-group#background-uploader
       = label_tag(:background_image,"How your recipe look like?")
-      = cl_image_upload_tag(:abort_cloudinary_id, class: 'form-control-file')
+      = cl_image_upload_tag(:abort_this_id, class: 'form-control-file')
       = hidden_field_tag :image_background_id
+      = hidden_field_tag :background_name
 
     = hidden_field_tag :public_id, @public_id
     /= submit_tag "create recipe", class: 'btn btn-primary'

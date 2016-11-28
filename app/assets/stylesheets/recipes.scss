@@ -11,10 +11,10 @@ ul.ingredient-list > li {
   .item-box {
     @media only screen and (min-width: 700px) {
       margin-bottom: 100px;
+      min-height: 650px;
     }
     border: solid 1px #E0E0E0;
     background-color: white;
-    min-height: 650px;
     h2.single-line { padding: 28px 20px }
   }
   .content-static {
@@ -29,6 +29,7 @@ ul.ingredient-list > li {
 
   .item-box-short {
     @extend .item-box;
+    min-height: 100px;
   }
   .comment-item {
     padding: 20px;

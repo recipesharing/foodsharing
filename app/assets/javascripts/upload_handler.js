@@ -36,6 +36,7 @@ function upload_handler_listen() {
 
   $('#background-uploader input.cloudinary-fileupload').bind('cloudinarydone', (e, data)=>{
     $('input#image_background_id').val(data.result.url);
+    $('input#background_name').val(data.result.public_id);
   })
 
 }

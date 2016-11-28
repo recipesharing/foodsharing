@@ -33,7 +33,7 @@ class Recipe < ApplicationRecord
   belongs_to :season
   belongs_to :main_ingredient
   has_many :ingredients
-  has_many :instructions
+  has_many :instructions, dependent: :destroy
 
   acts_as_commentable
   acts_as_votable

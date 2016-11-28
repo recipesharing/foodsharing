@@ -7,27 +7,31 @@ br
     .form-group
       = label_tag(:name, "Recipe name")
       = text_field_tag(:name, '', placeholder: "recipe's cusine", class: 'form-control')
+    br
     .form-group
       = label_tag(:short_description, "short description")
       = text_field_tag(:short_description, '', placeholder: "write short description about your recipe", class: 'form-control')
-    /.form-group
-      = label_tag(:short_description, "short description")
-      = text_field_tag(:short_description, '', placeholder: "write short description about your recipe", class: 'form-control')
+    br
     .form-group
       = label_tag(:description,"Recipe description")
       = text_area_tag(:description, nil,placeholder: 'write description for your recipe', class: 'form-control')
+    br
+    /br
     .form-inline
       .form-group
         = label_tag(:cuisine, "cuisine")
-        = select_tag "cuisine", options_from_collection_for_select(@countries, "id", "name")
+        = select_tag "cuisine", options_from_collection_for_select(@countries, "id", "name"), class: 'form-control'
       .form-group
         = label_tag(:cooking_time, "cooking time")
-        = select_tag "cooking_time", options_for_select((5..35).step(3))
+        = select_tag "cooking_time", options_for_select((5..35).step(3)), class: 'form-control'
+    br
+    /br
     .form-group
       = label_tag(:video_id,"Cooking instruction for recipe")
       br
-      = cl_upload_tag(:video_id, public_id: @public_id, chunk_size: 6_000_000, class: 'form-control-file')
+      = cl_upload_tag(:video_id, public_id: @public_id, chunk_size: 6_000_000, class: 'form-control-file', allowed_formats: ['mp4'])
       progress.progress[value="0" max="100"]
+    br
     .form-group#background-uploader
       = label_tag(:background_image,"How your recipe look like?")
       = cl_image_upload_tag(:abort_this_id, class: 'form-control-file')

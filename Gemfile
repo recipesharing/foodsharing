@@ -72,3 +72,4 @@ else
 end
 gem 'acts_as_commentable_with_threading'
 gem 'react-rails'
+gem 'nprogress-rails'

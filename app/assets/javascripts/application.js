@@ -25,6 +25,8 @@
 //= require recipes
 //= require upload_handler
 //= require cook_books
+//= require nprogress
+//= require nprogress-turbolinks
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {

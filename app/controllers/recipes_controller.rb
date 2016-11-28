@@ -18,12 +18,13 @@ class RecipesController < ApplicationController
     raise 'Invalid upload signature' unless preloaded.valid?
     @recipe = Recipe.new(video_id: preloaded.identifier,
                          public_id: params[:public_id],
+                         country: Country.find(params[:cuisine]),
                          description: params[:description],
                          background_image: params[:image_background_id],
                          name: params[:name],
                          short_description: params[:short_description])
-    create_instructions
     if @recipe.save
+      create_instructions
       flash[:success] = 'recipe created successfully!'
     else
       flash[:alert] = @recipe.errors.full_messages.to_sentence
@@ -53,7 +54,8 @@ class RecipesController < ApplicationController
         step: i + 1,
         image_url: instruction['public_id'],
         title: instruction['title'],
-        content: instruction['content']
+        content: instruction['content'],
+        recipe: @recipe
       )
     end
   end

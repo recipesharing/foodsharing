@@ -60,8 +60,10 @@ class RecipesController < ApplicationController
   private
   def recipe_params
     params.require(:recipe).permit(:id, :name, :description, :price,
-                                 , :country_id, :status)
+                                  :country_id)
+  end
 
+  
   def create_instructions
     instructions = JSON.parse(URI.decode(params[:instruction]))
     instructions.each_with_index do |instruction, i|
@@ -83,6 +85,5 @@ class RecipesController < ApplicationController
                 else
                   @recipe.root_comments.page(1).per(10)
                 end
->>>>>>> 53ff135eb6bc11cca06358da43e3c49ed70ea9ad
   end
 end

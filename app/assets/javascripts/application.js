@@ -66,111 +66,24 @@ document.addEventListener("turbolinks:load", function() {
       singleItem:true
   });
 
-  // cook-books cuisine list
-  $(".cuisine").on("click", function(){
-    $(this).toggleClass("pick-cuisine");
-  });
-  // cook-books ingredient list
-  $(".ingredient").on("click", function(){
-    $(this).toggleClass("pick-ingredient");
-  });
-  // cook-books
-  $(".season").on("click", function(){
-    $(this).toggleClass("pick-season");
-  });
-
-  $("form#cookbooks").on("submit", function(){
-    getCuisineList();
-    getIngredientList();
-    getSeasonList();
-  });
-
-  $("#filter-btn").on("click", function(){
-    getCuisineList();
-    getIngredientList();
-    getSeasonList();
-    getSortList();
-    // submit form
-    $("form#cookbooks").submit();
-  });
-
-  /*
-   * Get data for hidden form
-   */
-  function getCuisineList(){
-    // variable
-    var $hidden_cuisine = $("<input type='hidden' name='cuisine' id='cuisine'/>");
-    // get list data from picked item
-    var cuisine_selector = $("ul#cuisine-list").find("li.pick-cuisine");
-    // debugger;
-    var cuisine = [];
-    jQuery.each(cuisine_selector, function(){
-      cuisine.push($(this).val());
-    });
-    // append data to form
-    $hidden_cuisine.val((cuisine));
-    if (cuisine.length > 0) { $("form#cookbooks").append($hidden_cuisine); }
-    return true;
-  };
-  function getIngredientList() {
-    var $hidden_ingredient = $("<input type='hidden' name='main_ingredient' id='main_ingredient'/>");
-    var ingredient_selector = $("ul#ingredient-list li.pick-ingredient");
-    var ingredient = [];
-    jQuery.each(ingredient_selector, function(){
-      ingredient.push($(this).val());
-    });
-    // append data to form
-    $hidden_ingredient.val((ingredient));
-    if (ingredient.length > 0) { $("form#cookbooks").append($hidden_ingredient); }
-  };
-  function getSeasonList() {
-    var $hidden_season = $("<input type='hidden' name='season' id='season'/>");
-    var season_selector = $("ul#season-list li.pick-season");
-    var season = [];
-    jQuery.each(season_selector, function(){
-      season.push($(this).val());
-    });
-    // append data to form
-    $hidden_season.val((season));
-    if (season.length > 0) { $("form#cookbooks").append($hidden_season); }
-  };
-
-  function getSortList() {
-    var $hidden_sort = $("<input type='hidden' name='sort' id='sort'/>");
-    const sort_selector =  $(".sort-items li")
-    var sort = [];
-    sort_selector.each(function(){
-      if($(this).attr('dir') !== ''){
-        sort.push($(this).attr('id') + '/' + $(this).attr('dir'));
-      }
+  $("form#video-upload").on("submit", (e) => {
+    var $hidden_step = $("<input type='hidden' name='instruction'/>");
+    var instruction_selector = $(".instruction-steps-list .row.item");
+    // Create JSON object and append it to form
+    var instructions = []
+    jQuery.each(instruction_selector, (i, item)=>{
+      const title = jQuery(item).find(".title").text();
+      const content = jQuery(item).find(".content").text();
+      const public_id = jQuery(item).find(".public_id").text();
+      var val = {title: title, content: content, public_id: public_id};
+      // to make json array
+      instructions.push(val);
     });
     // stringtify and encode it
     var instruction_json = encodeURIComponent(JSON.stringify(instructions));
     $hidden_step.val(instruction_json);
     $("form#video-upload").append($hidden_step);
   });
-  $(function() {
-  var stripeResponseHandler, $cardForm;
-
-  $cardForm = $('#card-details');
-  stripeResponseHandler = function(status, response) {
-    if (response.error) {
-      $cardForm.find('.payment-errors').text(response.error.message);
-      $cardForm.find('input[type=submit]').prop('disabled', false);
-    } else {
-      var token = response.id;
-
-      $cardForm.append($('<input type="hidden" name="stripe_token" />').val(token));
-      $cardForm.get(0).submit();
-    }
-  };
-
-  $cardForm.submit(function() {
-    Stripe.card.createToken(this, stripeResponseHandler);
-
-    return false;
-  });
-});
 
   $("button#video-upload-submit").on("click", () => {
     // check if input filled

@@ -1,9 +1,5 @@
 GEM
-<<<<<<< HEAD
-  remote: http://rubygems.org/
-=======
   remote: https://rubygems.org/
->>>>>>> 53ff135eb6bc11cca06358da43e3c49ed70ea9ad
   remote: https://rails-assets.org/
   specs:
     actioncable (5.0.0.1)

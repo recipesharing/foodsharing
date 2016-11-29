@@ -252,7 +252,7 @@ div.desc {
   margin-right: 0 !important;
 }
 
-.container {
+/*.container {
     width: 1152px;
     padding-bottom: 30px;
     margin: auto;
@@ -265,7 +265,7 @@ div.desc {
     box-shadow: #ced7dc 0 4px, #eee 0 0px 5px;
     -moz-transform: translateY(-6px);
     -ms-transform: translateY(-6px);
-}
+}*/
 
 .col-4 {
     width: 354px;
@@ -276,4 +276,16 @@ div.desc {
 .mt-20 {
     margin-top: 20px;
     display: block;
+}
+
+.navbar-eddie {
+  @extend .navbar;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.navbar-left-eddie {
+  @extend .navbar-left;
+  margin: 20px;
+  padding: 0px;
 }

@@ -27,7 +27,7 @@ br
     br
     /br
     .form-group
-      = label_tag(:video_id,"Cooking instruction for recipe")
+      = label_tag(:video_id,"Upload cooking instruction")
       br
       = cl_upload_tag(:video_id, public_id: @public_id, chunk_size: 6_000_000, class: 'form-control-file', allowed_formats: ['mp4'])
       
@@ -35,11 +35,12 @@ br
 
     br
     .form-group#background-uploader
-      = label_tag(:background_image,"How your recipe look like?")
+      = label_tag(:background_image,"Upload main image for ingredient")
+      br
       = cl_image_upload_tag(:abort_this_id, class: 'form-control-file')
       = hidden_field_tag :image_background_id
       = hidden_field_tag :background_name
-
+    br
     = hidden_field_tag :public_id, @public_id
     /= submit_tag "create recipe", class: 'btn btn-primary'
   .row.instructions-box
@@ -60,9 +61,8 @@ br
         | create new step
     .col-xs-12.col-md-4.instruction-steps
       .preview
-        h1
-          | preview picture
-    .col-xs-12.col-md-4.instruction-steps-list
+        = cl_image_tag("2000px-No_image_available.svg_o4qguu.png", :width=>280, :crop=>"scale")
+    .col-xs-12.col-md-4.instruction-steps-list#new-ins-list
       .created-list
   button.btn.btn-success#video-upload-submit
     | create new recipe

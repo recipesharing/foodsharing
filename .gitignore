@@ -24,4 +24,5 @@
 .idea/
 coverage/*
 dump.rdb
+db/data/
 

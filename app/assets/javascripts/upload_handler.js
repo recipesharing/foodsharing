@@ -25,8 +25,8 @@ function upload_handler_listen() {
                    content: content,
                    image_data_id: image_data_id};
     const template = [
-          '<div class="row item">',
-            '<div class="title">{{title}}</div>',
+          '<div class="card card-block row item">',
+            '<div class="new-instruction-title">{{title}}</div>',
             '<div class="content" hidden="true">{{content}}</div>',
             '<div class="public_id" hidden="true">{{image_data_id}}</div>',
           '</div>'].join('\n');

@@ -83,7 +83,7 @@ ul.ingredient-list > li {
 }
 
 .instructions-box {
-  border: dashed 1px #e0e0e0;
+  border: dashed 6px #e0e0e0;
   padding: 20px;
   margin: 20px 0;
 }
@@ -93,4 +93,23 @@ ul.ingredient-list > li {
     margin-right: 10px;
   }
   margin-right: 30px;
+}
+
+.red-color {
+  color: red;
+}
+
+i.red-color {
+  margin-left: 20px;
+}
+
+.recipe-card-block {
+  min-height: 380px;
+  p.short-description {
+    margin-top: 20px;
+  }
+}
+
+#new-ins-list {
+  overflow: scroll;
 }

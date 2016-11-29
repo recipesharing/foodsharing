@@ -1,4 +1,4 @@
-.card id= "recipe_#{recipe.id}"
+.card.recipe-card-block id= "recipe_#{recipe.id}"
   = link_to(cl_image_tag(recipe.background_name,
                         :height=>200, :width=>300,
                         :crop=>"fill",
@@ -6,12 +6,16 @@
   class: 'card-img-top'), recipe_path(recipe))
   .card-block
     .card-title
-      h4= recipe.name
+      h6
+        = recipe.name
       = recipe.get_likes.size
       = link_to short_lists_create_path(recipe: recipe),
                 remote: true,
                 class: 'add-to-shortlist' do
         - if user.present? && user.voted_for?(recipe)
-          i.fa.fa-heart[aria-hidden="true"]
+          i.red-color.fa.fa-heart[aria-hidden="true"]
         - else
-          i.fa.fa-heart-o[aria-hidden="true"]
+          i.red-color.fa.fa-heart-o[aria-hidden="true"]
+      br
+      p.short-description
+        = recipe.short_description

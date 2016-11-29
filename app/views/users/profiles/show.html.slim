@@ -2,6 +2,7 @@
   #user-image-banner[style= 'background-image: url("http://res.cloudinary.com/dgwgbnszx/image/upload/c_crop,h_330,w_1920/v1480358824/red-tomatoes-food-wallpaper-1920x1080_cnacea.jpg")']
   
   .container
+    br
     ul.nav.nav-pills role="tablists"
       li.nav-item.active
         a.nav-link[data-toggle="pill" href="#favorite-item"]
@@ -9,9 +10,10 @@
       li.nav-item
         a.nav-link[data-toggle="pill" href="#order-history"]
           | order history
+    br
     .tab-content
       #favorite-item.tab-pane.fade.in.active
-        h3
+        /h3
           = "#{@short_lists.count} recipes"
         .div
           - @short_lists.each do |sl|
@@ -19,4 +21,4 @@
 
       #order-history.tab-pane.fade
         h3
-          | order item data
+          | you have no order yet

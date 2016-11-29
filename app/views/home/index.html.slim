@@ -2,6 +2,8 @@
   .item
     = cl_image_tag("foodsharing-recipe-package_pscxrb.jpg", :height=>703, :width=>1220, :x=>0, :y=>61, :crop=>"crop")
 
+#slogan
+    | Create your healthy family meal quickly with Us
 br
 br
 br  
@@ -35,13 +37,9 @@ br
        | Recipe instructions
   br
   br
-  .price-header
-    |Start at
-  .price-detail
-     | $3.49/Serving
   br
   br
-  = link_to 'Choose Your Meals', home_show_path, class: "btn btn-success btn-lg btn-block"
+  = link_to 'Select Your Dishes', cook_books_path, class: "btn btn-success btn-lg btn-block"
         
 .container
   .col-sm-12

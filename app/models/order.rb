@@ -11,8 +11,8 @@ class Order < ApplicationRecord
     @pickup_time = order["details"]["pickup_time"].to_i || 0
      @sub_total = order["details"]["sub_total"].to_i || 0
     @user = {}
-    @invoice = ""
-    @payment_id = ""
+    # @invoice = ""
+    # @payment_id = ""
     @status = "pending"
   end
 
@@ -29,8 +29,7 @@ class Order < ApplicationRecord
   
   def save_order(current_user)
    user = current_user
-   new_order = user.orders.new(total: @total,vat: vat, delivery_cost: @delivery_cost, invoice: @invoice,
-                                payment_id: @payment_id,
+   new_order = user.orders.new(total: @total,vat: vat, 
                                     pickup_time: @total_pickup_time)
         if new_order.save
           @ordered_recipes.each do |index, details|

@@ -248,3 +248,29 @@ div.desc {
 .no-right-margin {
   margin-right: 0 !important;
 }
+
+.container {
+    width: 1152px;
+    padding-bottom: 30px;
+    margin: auto;
+    font-size: 14px;
+    background: #fff;
+    background: #fff;
+    border-radius: 3px;
+    -moz-box-shadow: #ced7dc 0 4px, #eee 0 0px 5px;
+    -webkit-box-shadow: #ced7dc 0 4px, #eee 0 0px 5px;
+    box-shadow: #ced7dc 0 4px, #eee 0 0px 5px;
+    -moz-transform: translateY(-6px);
+    -ms-transform: translateY(-6px);
+}
+
+.col-4 {
+    width: 354px;
+    float: left;
+    padding: 15px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+    display: block;
+}

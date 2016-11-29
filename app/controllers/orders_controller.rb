@@ -22,5 +22,10 @@ class OrdersController < ApplicationController
 
   def delete
   end
+ 
+
+ private 
+
+
 
 end

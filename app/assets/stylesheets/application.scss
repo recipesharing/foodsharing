@@ -22,6 +22,7 @@ body {
   background-color: rgb(249,249,251);
 }
 
+
 ul.ingredient-list {
   background-color: rgba(255,255,255,0.8);
   list-style-type: none;
@@ -241,4 +242,15 @@ li.nav-item {
 
 .red-color {
   color: red;
-}
+#slogan{
+         position: relative;
+         margin-top: -480px;
+         font-size: 52px;
+         text-align: center;
+         font-weight: bold;
+         text-shadow: 0px 4px 5px rgba(0,0,0,0.2); 
+         color: white;
+         padding-bottom: 400px;
+
+
+      }

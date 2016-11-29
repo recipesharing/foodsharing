@@ -22,6 +22,7 @@ br
       | instruction
     - @instructions.each do |instruct|
         = render partial: 'instruction', locals: { instruction: instruct } if instruct.present?
+
   .row.item-box-short
     h2.single-line
       | customer reviews
@@ -35,6 +36,9 @@ br
             = cl_image_tag("userDefaultIcon_x1msy4.png", :width=>50, :crop=>"scale")
           .col-xs-10.comment-body[style="padding-top: 5px; padding-left: 0px"]
             = form_tag :comments, remote: true, class: 'new-comment form-group' do
-              = text_field_tag :comment, 'enter your comment', class: 'form-control'
+              = text_field_tag :comment, nil, placeholder: 'leave comment', class: 'form-control'
               = hidden_field_tag :recipe_id, @recipe.id
               /= submit_tag "leave your review"
+      -else
+        = link_to 'sigin in', new_user_session_path
+        = link_to 'sign up', new_user_registration_path

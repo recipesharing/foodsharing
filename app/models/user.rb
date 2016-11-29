@@ -30,8 +30,7 @@ class User < ApplicationRecord
   has_many :identities
   has_many :orders
   has_many :recipes
-  # has_many :payment
-  # accepts_nested_attributes_for :payment
+  has_many :short_lists, dependent: :destroy
   acts_as_voter
 
   def facebook

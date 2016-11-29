@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
   resources :payments
+
+  get 'short_lists/create'
+
+  get 'short_lists/destroy'
+
+  namespace :users do
+    get 'profiles/show'
+  end
+
+  get 'instructions/new'
+
+  get 'instructions/create'
+
+  get 'instructions/show'
+
   get 'menus/index'
   get 'home/show'
   get 'carts/index'
@@ -7,6 +22,7 @@ Rails.application.routes.draw do
   get 'cook_books', to: 'cook_books#index'
   resources :cart_items
   resources :carts
+  get 'user', to: 'user#show'
   resource :cook_books
 
   get 'checkout/show' 

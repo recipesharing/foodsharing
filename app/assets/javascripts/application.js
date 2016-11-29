@@ -22,34 +22,41 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require recipes
+//= require upload_handler
+//= require cook_books
+//= require nprogress
+//= require nprogress-turbolinks
+//= require_tree ./ajaxs
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
+  // call upload hanler
+  cookbooks_handler();
+  upload_handler_listen();
+  // when windows load
+  $('#cuisine-list').hide();
+  $('#season-list').hide();
+  $('#ingredient-list').hide();
 
   $(".new-comment").bind('ajax:success', function(e, data, status, xhr){
     $(".comment-box").prepend(data);
     $("#comment").val('');
   });
+
+  $(".comment-box").on('click', '.delete-comment', () => { $(this).parent().parent().fadeOut(); });
 // Todo: rebind problems for delete
   $(".delete-comment").bind('ajax:success', function(){
-    console.log("last");
     $(this).parent().parent().fadeOut();
   });
+
+  // $(staticAncestors).on(eventName, dynamicChild, function() {});
+  // $(".delete-comment").on("click", () => { $(this).parent().parent().fadeOut(); } )
 
   $(function() {
     if($.fn.cloudinary_fileupload !== undefined) {
       $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
     }
-  });
-
-
-  $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  $('.preview').html(
-     console.log( "upload done!", data ));
-     $('.video_public_id').val(data.result.public_id);    
-  });
-
-  $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-    $('.progress').val(Math.round((data.loaded * 100.0) / data.total));
   });
 
   $("#owl-demo").owlCarousel({
@@ -137,47 +144,10 @@ document.addEventListener("turbolinks:load", function() {
         sort.push($(this).attr('id') + '/' + $(this).attr('dir'));
       }
     });
-    $hidden_sort.val(sort);
-    if (sort.length > 0) { $("form#cookbooks").append($hidden_sort); }
-  };
-
-  $('#cuisine-toggle').on('click', function(){
-    if($(this).hasClass('fa-chevron-circle-up')){
-      $(this).attr('class', 'fa fa-chevron-circle-down');
-      $('#cuisine-list').hide();
-    }else{
-      $(this).attr('class', 'fa fa-chevron-circle-up');
-      $('#cuisine-list').show();
-    };
-  });
-  $('#ingredient-toggle').on('click', function(){
-    if($(this).hasClass('fa-chevron-circle-up')){
-      $(this).attr('class', 'fa fa-chevron-circle-down');
-      $('#ingredient-list').hide();
-    }else{
-      $(this).attr('class', 'fa fa-chevron-circle-up');
-      $('#ingredient-list').show();
-    };
-  });
-  $('#season-toggle').on('click', function(){
-    if($(this).hasClass('fa-chevron-circle-up')){
-      $(this).attr('class', 'fa fa-chevron-circle-down');
-      $('#season-list').hide();
-    }else{
-      $(this).attr('class', 'fa fa-chevron-circle-up');
-      $('#season-list').show();
-    };
-  });
-  $("#filter-btn").on("click", function(){
-    var $hidden_cuisine = $("<input type='hidden' name='cuisine' id='cuisine'/>");
-    var cuisine_selector = $("ul#cuisine-list").find("li.pick-cuisine");
-    var cuisine = [];
-    jQuery.each(cuisine_selector, function(){
-      cuisine.push($(this).val());
-    });
-    $hidden_cuisine.val((cuisine));
-    if (cuisine.length > 0) { $(this).append($hidden_cuisine); }
-    $("form#cookbooks").submit();
+    // stringtify and encode it
+    var instruction_json = encodeURIComponent(JSON.stringify(instructions));
+    $hidden_step.val(instruction_json);
+    $("form#video-upload").append($hidden_step);
   });
   $(function() {
   var stripeResponseHandler, $cardForm;
@@ -202,4 +172,9 @@ document.addEventListener("turbolinks:load", function() {
   });
 });
 
+  $("button#video-upload-submit").on("click", () => {
+    // check if input filled
+    // $("form#video-upload input").each
+    $("form#video-upload").submit();
+  });
 });

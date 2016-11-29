@@ -3,12 +3,15 @@
 # Table name: comments
 #
 #  id               :integer          not null, primary key
-#  title            :string(50)       default("")
-#  comment          :text
-#  commentable_type :string
 #  commentable_id   :integer
-#  user_id          :integer
-#  role             :string           default("comments")
+#  commentable_type :string
+#  title            :string
+#  body             :text
+#  subject          :string
+#  user_id          :integer          not null
+#  parent_id        :integer
+#  lft              :integer
+#  rgt              :integer
 #  created_at       :datetime
 #  updated_at       :datetime
 #

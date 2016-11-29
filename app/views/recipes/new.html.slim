@@ -5,13 +5,64 @@ br
 .container
   = form_tag(recipes_path, method: 'post', id: 'video-upload') do
     .form-group
-      = label_tag(:country, "what country name of your new recipe?")
-      = text_field_tag(:country, 'something', class: 'form-control')
+      = label_tag(:name, "Recipe name")
+      = text_field_tag(:name, '', placeholder: "recipe's cusine", class: 'form-control')
+    br
     .form-group
-      = label_tag(:description,"enter recipe's description")
-      = text_area_tag(:description, nil, class: 'form-control')
+      = label_tag(:short_description, "short description")
+      = text_field_tag(:short_description, '', placeholder: "write short description about your recipe", class: 'form-control')
+    br
     .form-group
-      = cl_upload_tag(:video_id, public_id: @public_id, chunk_size: 6_000_000, class: 'form-control-file')
-      progress.progress[value="0" max="100"]
+      = label_tag(:description,"Recipe description")
+      = text_area_tag(:description, nil,placeholder: 'write description for your recipe', class: 'form-control')
+    br
+    /br
+    .form-inline
+      .form-group
+        = label_tag(:cuisine, "cuisine")
+        = select_tag "cuisine", options_from_collection_for_select(@countries, "id", "name"), class: 'form-control'
+      .form-group
+        = label_tag(:cooking_time, "cooking time")
+        = select_tag "cooking_time", options_for_select((5..35).step(3)), class: 'form-control'
+    br
+    /br
+    .form-group
+      = label_tag(:video_id,"Cooking instruction for recipe")
+      br
+      = cl_upload_tag(:video_id, public_id: @public_id, chunk_size: 6_000_000, class: 'form-control-file', allowed_formats: ['mp4'])
+      
+      /progress.progress[value="0" max="100"]
+
+    br
+    .form-group#background-uploader
+      = label_tag(:background_image,"How your recipe look like?")
+      = cl_image_upload_tag(:abort_this_id, class: 'form-control-file')
+      = hidden_field_tag :image_background_id
+      = hidden_field_tag :background_name
+
     = hidden_field_tag :public_id, @public_id
-    = submit_tag "create recipe", class: 'btn btn-prim'
+    /= submit_tag "create recipe", class: 'btn btn-primary'
+  .row.instructions-box
+    .col-xs-12.col-md-4.instruction-new
+      .form-group
+        = hidden_field_tag :image_public_id
+        = hidden_field_tag :image_format
+        = hidden_field_tag :image_version
+        = label_tag :title, 'step title'
+        = text_field_tag :title, nil, class: 'form-control'
+      .form-group
+        = label_tag :content, 'step detail'
+        = text_area_tag :content, nil , class: 'form-control'
+      .form-group
+        = label_tag(:instruction_image,"picture descibe this step")
+        = cl_image_upload_tag(:image_instruction_id, class: 'form-control-file', id: 'instruction-upload')
+      button#new-step
+        | create new step
+    .col-xs-12.col-md-4.instruction-steps
+      .preview
+        h1
+          | preview picture
+    .col-xs-12.col-md-4.instruction-steps-list
+      .created-list
+  button.btn.btn-success#video-upload-submit
+    | create new recipe

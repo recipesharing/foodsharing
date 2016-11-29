@@ -1,0 +1,28 @@
+.card id= "recipe_#{recipe.id}"
+  = link_to(cl_image_tag(recipe.background_name,
+                        :height=>200, :width=>300,
+                        :crop=>"fill",
+                        style:'width: 100%; height: auto',
+  class: 'card-img-top'), recipe_path(recipe))
+  .card-block
+    .card-title
+      h4= recipe.name
+      = recipe.get_likes.size
+      = link_to short_lists_create_path(recipe: recipe),
+                remote: true,
+                class: 'add-to-shortlist' do
+        - if user.present? && user.voted_for?(recipe)
+          i.fa.fa-heart[aria-hidden="true"]
+        - else
+          i.fa.fa-heart-o[aria-hidden="true"]
+
+    .card-action
+         .price-tag
+           = recipe.price
+      .right
+        / = link_to "                                                                                           \
+          #{this_recipe_in_cart(food)}", carts_path, class: "cart left no_left_pad no-right-margin", id: "cart" \
+      / - if recipe.status == "available"
+      = button_to "Add to cart", cart_items_path(recipe_id: recipe.id)
+      / - else
+        p Out of stock

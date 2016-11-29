@@ -30,7 +30,9 @@ end
     short_description: Faker::Lorem.sentence,
     cooking_time_min: rand(30),
     background_image: "http://res.cloudinary.com/dgwgbnszx/image/upload/v1478839280/3_aylfeg.jpg",
+    price: 10000, 
     calory: rand(5000))
+    
 
   4.times { Ingredient.create(name: Faker::App.name, recipe: recipe) }
   4.times do |step|

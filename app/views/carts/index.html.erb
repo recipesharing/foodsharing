@@ -5,6 +5,7 @@
   <% if @ordered_recipes.length == 0 %>
       <p>Your cart is empty</p>
   <% else %>
+  <div class= "container">
   <table class="hoverable">
     <thead>
       <tr style="background-color:#BCAAA4;">
@@ -12,7 +13,6 @@
         <th data-field="name">Name</th>
         <th data-field="description">Description</th>
         <th data-field="quantity">Quantity</th>
-        <th data-field="quantity">Delivery Time</th>
         <th data-field="price">Price</th>
         <th data-field="line total">Line Total</th>
       </tr>
@@ -27,16 +27,16 @@
           <td><%= index %></td>
           <td ><%= details[1][:recipe]['name'] %></td>
           <td ><%= details[1][:recipe]['short_description'] %></td>
-          <td ><%=form_for 'quantity', :url => {:controller => 'cart_items', :action => 'update', recipe_id: details[1][:recipe][:id], id: index }, method: :patch  do |f| %>
-            <%= f.number_field details[1][:recipe][:quantity], :min => 1, :value => details[1][:quantity],  "data-message" => recipe_id %>
+          <td ><%=form_for 'quantity', :url => {:controller => 'cart_items', :action => 'update', recipe_id: details[1][:recipe][:id], id: index }, method: :patch,  html: {id: "form" + recipe_id.to_s}  do |f| %>
+            <%= f.number_field details[1][:recipe][:quantity], :min => 1, :value => details[1][:quantity],  "data-message" => recipe_id, class: "qty" %>
             <% end %>
           </td>
-          <% if details[1][:recipe][:status] %>
-            <td ><%= details[1][:recipe][:price] %></td>
-            <td>N<span class="line-total" id="recipe_sub_total_<%= details[1][:recipe][:id] %>" data-message="<%= details[1][:recipe][:price] %>" ><%= details[1][:recipe][:price].to_i * details[1][:quantity].to_i %></span></td>
+          <% if details[1][:recipe] %>
+            <td id="price<%=recipe_id%>" ><%= details[1][:recipe][:price] %></td>
+            <td id="total<%=recipe_id%>"><%= details[1][:recipe][:price].to_i * details[1][:quantity].to_i %></td>
           <% else %>
-            <td"><%= details[1][:recipe]['price'] %></td>
-          <td>N<span class="line-total" id="recipe_sub_total_<%= details[1][:recipe][:id] %>" data-message="<%= details[1][:recipe]['price'] %>" ><%= details[1][:recipe]['price'].to_i * details[1][:qty].to_i %></span></td>
+            <td id="total<%=recipe_id%>"><%= details[1][:recipe]['price'] %></td>
+            <td id="total<%=recipe_id%>"><%= details[1][:recipe]['price'].to_i * details[1][:quantity].to_i %></td>
           <% end %>
           <td>
             <%= button_to cart_item_path(details[1][:recipe][:id]), method: :delete do %>
@@ -58,7 +58,9 @@
         </tr>
       </tfoot>
     </table>
+    </div>
     <%= button_to 'Checkout', checkout_show_path, :class => "btn btn-secondary"   %>
     <% end %>
   </div>
 </div>
+

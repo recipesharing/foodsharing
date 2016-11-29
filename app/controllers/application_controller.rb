@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
   def load_order
     session[:order] ||= {}
     @order ||= Order.new(session[:order])
+    @order = Order.new if @order.present?
   end
 
   def cart

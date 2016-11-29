@@ -22,7 +22,7 @@ class CartItemsController < ApplicationController
     recipe_id = cart[:recipe_id]
     quantity = cart[:quantity]
     session[:cart][recipe_id] = quantity.to_i
-    session[:order]['ecipes'][recipe_id]['quantity'] = quantity.to_i
+    session[:order]['recipes'][recipe_id]['quantity'] = quantity.to_i
     session[:order]['details'] = order_params
     render json: {data: recipe_id}
   end
@@ -33,6 +33,13 @@ class CartItemsController < ApplicationController
     @cart_data[recipe_id] += 1
   end
 
-  
+  private 
+  def cart_params
+    params.require(:cart_recipes).permit(:recipe_id, :quantity)
+  end
+
+  def order_params
+    params.require(:order_details).permit( :total, :pickup_time)
+  end
 
 end

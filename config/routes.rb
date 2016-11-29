@@ -24,15 +24,15 @@ Rails.application.routes.draw do
   resources :carts
   get 'user', to: 'user#show'
   resource :cook_books
-
-  get 'checkout/show' 
-
+  
   get 'orders/index'
+  resources :cart_recipes
   resources :recipes
   resources :comments
   devise_for :users, class_name: 'User',
     :controllers => {:omniauth_callbacks => 'users/omniauth_callbacks', registrations: 'users/registrations'}
   resource :orders
+  post 'checkout/show', to: 'checkout#show', as: "checkout_show"
   %w(
     introduce
     contact

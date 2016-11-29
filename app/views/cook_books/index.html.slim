@@ -46,4 +46,4 @@ br
     .col-xs-12.col-md-9
       .row#recipe-container
         - @recipes.each do |recipe|
-          = render partial: 'shared/recipe', locals: { recipe: recipe }
+          = render partial: 'shared/recipe', locals: { recipe: recipe, user: @user }

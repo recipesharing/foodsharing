@@ -1,5 +1,6 @@
 - @recipes.each do |recipe|
-  .col-xs-6.col-md-4[style="margin-bottom: 20px"]
+  = render partial: 'shared/recipe', locals: { recipe: recipe, user: @user }
+  /.col-xs-6.col-md-4[style="margin-bottom: 20px"]
     .card
       = link_to(cl_image_tag(recipe.background_name,
                             :height=>200, :width=>300,

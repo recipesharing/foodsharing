@@ -27,6 +27,7 @@
 //= require cook_books
 //= require nprogress
 //= require nprogress-turbolinks
+//= require_tree ./ajaxs
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'short_lists/create'
+
+  get 'short_lists/destroy'
+
   namespace :users do
     get 'profiles/show'
   end
@@ -13,6 +17,7 @@ Rails.application.routes.draw do
   get 'home/show'
   root 'home#index'
   get 'cook_books', to: 'cook_books#index'
+  get 'user', to: 'user#show'
   resource :cook_books
   resources :recipes
   resources :comments

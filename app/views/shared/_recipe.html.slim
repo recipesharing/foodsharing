@@ -1,5 +1,6 @@
 .col-xs-6.col-md-4[style="margin-bottom: 20px"]
-  .card
+  = render partial: 'shared/recipe_inner', locals: { recipe: recipe, user: user }
+  /.card id= "recipe_#{recipe.id}"
     = link_to(cl_image_tag(recipe.background_name,
                           :height=>200, :width=>300,
                           :crop=>"fill",
@@ -8,3 +9,11 @@
     .card-block
       .card-title
         h4= recipe.name
+        = recipe.get_likes.size
+        = link_to short_lists_create_path(recipe: recipe),
+                  remote: true,
+                  class: 'add-to-shortlist' do
+          - if (user.voted_for? recipe)
+            i.fa.fa-heart[aria-hidden="true"]
+          - else
+            i.fa.fa-heart-o[aria-hidden="true"]

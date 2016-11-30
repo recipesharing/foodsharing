@@ -52,7 +52,7 @@ prices = [50_000, 100_000, 150_000]
   4.times do |step|
     Instruction.create(
       # title: Faker::Lorem.sentence,
-      title: count_description_steps[rand(count_description_steps)],
+      title: description_steps[rand(count_description_steps)],
       image_url: 'http://res.cloudinary.com/dgwgbnszx/image/upload/c_mfit,h_380,w_500/v1478839280/3_aylfeg.jpg',
       content: Faker::Lorem.paragraph,
       step: step,

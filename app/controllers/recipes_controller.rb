@@ -30,6 +30,7 @@ class RecipesController < ApplicationController
     else
       flash[:alert] = @recipe.errors.full_messages.to_sentence
     end
+    redirect_to root_path
   end
 
   def edit

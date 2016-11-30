@@ -3,11 +3,15 @@
 	  ul.nav.navbar-nav
 	    .nav-container
 	      ul.navbar-left-eddie
-	        = link_to 'Foodsharing', root_path, class: 'navbar-brand'
+	       .navbar-brand 
+	        .nav-up
+	        =link_to cl_image_tag("unnamed_1_fvzjvj.png", :height=>60, :width=>180, :crop=>"fit" ), root_path
 	    li.nav-item
 	      a.nav-link href="/cook_books"  Menu
-	    li.nav-item
+	    /li.nav-item
 	      a.nav-link href="/introduce"  About
+	    li.nav-item
+	      a.nav-link href="/recipes/new"  Chef upload
 	    li.nav-item
 	      a.nav-link href="/contact"  Contact Us
 	    - if user_signed_in?

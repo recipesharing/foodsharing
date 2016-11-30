@@ -1,11 +1,8 @@
 # populate countries
-# CS.countries.map { |country| Country.create(name: country[1]) }
-
-# generate recipe ,video_id, description, public_id, country_id, short_description, cooking_time_min, calory
-
-seasons = %w[fall spring summer winter]
-cuisine = %w[african american asian british chinese vietnamese japanese korean indian]
-main_ingredient = %w[beef fish lamb pork poultry shelfish vegetarian]
+seasons = %w(fall spring summer winter)
+cuisine = %w(african american asian british\
+             chinese vietnamese japanese korean indian)
+main_ingredient = %w(beef fish lamb pork poultry shelfish vegetarian)
 seasons.each do |season|
   Season.create(name: season)
 end
@@ -18,9 +15,9 @@ main_ingredient.each do |ingredient|
   MainIngredient.create(name: ingredient)
 end
 
-
 20.times do
-  recipe = Recipe.create(video_id: "1478856605.035882999",
+  recipe = Recipe.create(
+    video_id: 'v1480418558/18346bdb0e5f98080a955b028903aa3f79b4d6e7.mp4',
     background_name: '3_aylfeg.jpg',
     country: Country.find(rand(1..Country.count)),
     season: Season.find(rand(1..Season.count)),
@@ -29,15 +26,52 @@ end
     name: Faker::App.name,
     short_description: Faker::Lorem.sentence,
     cooking_time_min: rand(30),
-    background_image: "http://res.cloudinary.com/dgwgbnszx/image/upload/v1478839280/3_aylfeg.jpg",
-    calory: rand(5000))
+    background_image: 'http://res.cloudinary.com/dgwgbnszx/image/upload/v1478839280/3_aylfeg.jpg',
+    calory: rand(5000)
+  )
 
   4.times { Ingredient.create(name: Faker::App.name, recipe: recipe) }
+
   4.times do |step|
-    Instruction.create(title: Faker::Lorem.sentence,
+    Instruction.create(
+      title: Faker::Lorem.sentence,
       image_url: 'http://res.cloudinary.com/dgwgbnszx/image/upload/c_mfit,h_380,w_500/v1478839280/3_aylfeg.jpg',
       content: Faker::Lorem.paragraph,
       step: step,
-      recipe: recipe)
+      recipe: recipe
+    )
   end
+end
+
+### gonna change background image
+background_url = %w(
+  http://res.cloudinary.com/dgwgbnszx/image/upload/v1480424248/back1.jpg
+  http://res.cloudinary.com/dgwgbnszx/image/upload/v1480424248/back2.jpg
+  http://res.cloudinary.com/dgwgbnszx/image/upload/v1480424248/back3.jpg
+  http://res.cloudinary.com/dgwgbnszx/image/upload/v1480424248/back4.jpg
+  http://res.cloudinary.com/dgwgbnszx/image/upload/v1480424248/back5.jpg
+  http://res.cloudinary.com/dgwgbnszx/image/upload/v1480424248/back6.jpg
+)
+
+background_name_ls = %w(back1.jpg back2.jpg\
+                        back3.jpg back4.jpg back5.jpg back6.jpg)
+
+food_names =
+  ['Simmered Basil & Lime Pork',
+   'Basted Tomatos & Pigeon',
+   'Broasted Garlic & Onion Herring',
+   'Dry-Roasted Curry of Crab',
+   'Brined Savory Pasta',
+   'Oven-Grilled Beets & Orange Walnuts',
+   'Peanut and Almond Doughnut',
+   'Saffron and Red Wine Tart',
+   'Apple Tarte Tatin',
+   'Papaya Roll']
+
+Recipe.all.each do |r|
+  i = rand(5)
+  r.background_name = background_name_ls[i]
+  r.background_image = background_url[i]
+  r.name = food_names[rand(9)]
+  r.save
 end

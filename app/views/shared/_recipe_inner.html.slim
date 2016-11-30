@@ -8,14 +8,17 @@
     .card-title
       h6
         = recipe.name
-      = recipe.get_likes.size
-      = link_to short_lists_create_path(recipe: recipe),
-                remote: true,
-                class: 'add-to-shortlist' do
-        - if user.present? && user.voted_for?(recipe)
-          i.red-color.fa.fa-heart[aria-hidden="true"]
-        - else
-          i.red-color.fa.fa-heart-o[aria-hidden="true"]
+      .liked_row
+        = recipe.get_likes.size
+        = link_to short_lists_create_path(recipe: recipe),
+                  remote: true,
+                  class: 'add-to-shortlist' do
+          - if user.present? && user.voted_for?(recipe)
+            i.red-color.fa.fa-heart[aria-hidden="true"]
+          - else
+            i.red-color.fa.fa-heart-o[aria-hidden="true"]
       br
+      h6[style="color: red"]
+        = number_to_currency(100000, unit: 'VND ', precision: 0)
       p.short-description
         = recipe.short_description

@@ -10,7 +10,7 @@ ul.ingredient-list > li {
 #recipe-page {
   .item-box {
     @media only screen and (min-width: 700px) {
-      margin-bottom: 100px;
+      margin-bottom: 40px;
       min-height: 650px;
     }
     border: solid 1px #E0E0E0;
@@ -95,7 +95,7 @@ ul.ingredient-list > li {
   margin-right: 30px;
 }
 
-.red-color {
+i.red-color {
   color: red;
 }
 
@@ -104,7 +104,7 @@ i.red-color {
 }
 
 .recipe-card-block {
-  min-height: 380px;
+  height: 380px;
   p.short-description {
     margin-top: 20px;
   }
@@ -112,4 +112,8 @@ i.red-color {
 
 #new-ins-list {
   overflow: scroll;
+}
+
+.liked_row {
+  margin-top: 4px;
 }

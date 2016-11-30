@@ -6,8 +6,10 @@
 	        = link_to 'Foodsharing', root_path, class: 'navbar-brand'
 	    li.nav-item
 	      a.nav-link href="/cook_books"  Menu
-	    li.nav-item
+	    /li.nav-item
 	      a.nav-link href="/introduce"  About
+	    li.nav-item
+	      a.nav-link href="/recipes/new"  Chef upload
 	    li.nav-item
 	      a.nav-link href="/contact"  Contact Us
 	    - if user_signed_in?

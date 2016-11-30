@@ -45,14 +45,14 @@ document.addEventListener("turbolinks:load", function() {
     $("#comment").val('');
   });
 
-  $(".comment-box").on('click', '.delete-comment', () => { $(this).parent().parent().fadeOut(); });
+  $(".comment-box").on('click', '.delete-comment',function () { $(this).parent().parent().fadeOut(); });
 // Todo: rebind problems for delete
   $(".delete-comment").bind('ajax:success', function(){
     $(this).parent().parent().fadeOut();
   });
 
   // $(staticAncestors).on(eventName, dynamicChild, function() {});
-  // $(".delete-comment").on("click", () => { $(this).parent().parent().fadeOut(); } )
+  // $(".delete-comment").on("click",function () { $(this).parent().parent().fadeOut(); } )
 
   $(function() {
     if($.fn.cloudinary_fileupload !== undefined) {
@@ -67,12 +67,12 @@ document.addEventListener("turbolinks:load", function() {
       singleItem:true
   });
 
-  $("form#video-upload").on("submit", (e) => {
+  $("form#video-upload").on("submit", function(e) {
     var $hidden_step = $("<input type='hidden' name='instruction'/>");
     var instruction_selector = $(".instruction-steps-list .row.item");
     // Create JSON object and append it to form
     var instructions = []
-    jQuery.each(instruction_selector, (i, item)=>{
+    jQuery.each(instruction_selector, function(i, item) {
       const title = jQuery(item).find(".title").text();
       const content = jQuery(item).find(".content").text();
       const public_id = jQuery(item).find(".public_id").text();
@@ -86,7 +86,7 @@ document.addEventListener("turbolinks:load", function() {
     $("form#video-upload").append($hidden_step);
   });
 
-  $("button#video-upload-submit").on("click", () => {
+  $("button#video-upload-submit").on("click",function () {
     // check if input filled
     // $("form#video-upload input").each
     $("form#video-upload").submit();

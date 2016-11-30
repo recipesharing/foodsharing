@@ -1,15 +1,12 @@
 # == Schema Information
 #
-# Table name: short_lists
+# Table name: torder_statuses
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  recipe_id  :integer
+#  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-
-class ShortList < ApplicationRecord
-  belongs_to :user
-  belongs_to :recipe
+class TorderStatus < ApplicationRecord
+  has_many :torders
 end

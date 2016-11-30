@@ -18,6 +18,10 @@
 #  provider               :string
 #  uid                    :string
 #  name                   :string
+#  firstname              :string
+#  lastname               :string
+#  address                :string
+#  phone                  :integer
 #
 
 class User < ApplicationRecord

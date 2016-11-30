@@ -17,6 +17,8 @@
 #  serving_num        :integer          default(2)
 #  ingredient_url     :string
 #  background_image   :string
+#  payment_id         :integer
+#  price              :float
 #  user_id            :integer
 #  season_id          :integer
 #  main_ingredient_id :integer
@@ -34,6 +36,7 @@ class Recipe < ApplicationRecord
   belongs_to :main_ingredient
   has_many :ingredients
   has_many :instructions, dependent: :destroy
+  has_many :torder_items
 
   acts_as_commentable
   acts_as_votable

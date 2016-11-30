@@ -1,15 +1,14 @@
 # == Schema Information
 #
-# Table name: short_lists
+# Table name: order_items
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  recipe_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class ShortList < ApplicationRecord
-  belongs_to :user
-  belongs_to :recipe
+require 'rails_helper'
+
+RSpec.describe OrderItem, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128164737) do
+ActiveRecord::Schema.define(version: 20161130064926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,12 +147,12 @@ ActiveRecord::Schema.define(version: 20161128164737) do
     t.integer  "serving_num",        default: 2
     t.string   "ingredient_url"
     t.string   "background_image"
+    t.integer  "payment_id"
+    t.float    "price"
     t.integer  "user_id"
     t.integer  "season_id"
     t.integer  "main_ingredient_id"
     t.string   "background_name"
-    t.integer  "payment_id"
-    t.float    "price"
     t.index ["country_id"], name: "index_recipes_on_country_id", using: :btree
     t.index ["main_ingredient_id"], name: "index_recipes_on_main_ingredient_id", using: :btree
     t.index ["payment_id"], name: "index_recipes_on_payment_id", using: :btree
@@ -198,6 +198,33 @@ ActiveRecord::Schema.define(version: 20161128164737) do
     t.string  "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  end
+
+  create_table "torder_items", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "torder_id"
+    t.integer  "unit_price"
+    t.integer  "quantity"
+    t.integer  "total_price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["recipe_id"], name: "index_torder_items_on_recipe_id", using: :btree
+    t.index ["torder_id"], name: "index_torder_items_on_torder_id", using: :btree
+  end
+
+  create_table "torder_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "torders", force: :cascade do |t|
+    t.integer  "total"
+    t.integer  "subtotal"
+    t.integer  "torder_status_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["torder_status_id"], name: "index_torders_on_torder_status_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -248,4 +275,7 @@ ActiveRecord::Schema.define(version: 20161128164737) do
   add_foreign_key "recipes", "users"
   add_foreign_key "short_lists", "recipes"
   add_foreign_key "short_lists", "users"
+  add_foreign_key "torder_items", "recipes"
+  add_foreign_key "torder_items", "torders"
+  add_foreign_key "torders", "torder_statuses"
 end

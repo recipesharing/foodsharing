@@ -27,10 +27,11 @@ class RecipesController < ApplicationController
     if @recipe.save
       create_instructions
       flash[:success] = 'recipe created successfully!'
+      redirect_to @recipe
     else
       flash[:alert] = @recipe.errors.full_messages.to_sentence
+      redirect_to root_path
     end
-    redirect_to root_path
   end
 
   def edit

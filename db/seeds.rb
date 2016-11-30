@@ -26,7 +26,7 @@ prices = [50_000, 100_000, 150_000]
     main_ingredient: MainIngredient.find(rand(1..MainIngredient.count)),
     description: Faker::Lorem.paragraph,
     name: Faker::App.name,
-    short_description: Faker::Lorem.sentence,
+    short_description: Faker::Lorem.sentence(2),
     cooking_time_min: rand(30),
     background_image: 'http://res.cloudinary.com/dgwgbnszx/image/upload/v1478839280/3_aylfeg.jpg',
     calory: rand(5000),
@@ -35,9 +35,24 @@ prices = [50_000, 100_000, 150_000]
 
   4.times { Ingredient.create(name: Faker::App.name, recipe: recipe) }
 
+  description_steps = [
+    'Roast the beet & carrots',
+    'Place the beet and carrots on a sheet pan',
+    'Drizzle with olive oil',
+    'season with salt',
+    'pepper and half the thyme',
+    'Toss to thoroughly coat',
+    'Arrange in a single',
+    'layer and roast',
+    'stirring halfway through',
+    'tender when pierced with a fork',
+    'Remove from the oven'
+  ]
+  count_description_steps = description_steps.count
   4.times do |step|
     Instruction.create(
-      title: Faker::Lorem.sentence,
+      # title: Faker::Lorem.sentence,
+      title: count_description_steps[rand(count_description_steps)],
       image_url: 'http://res.cloudinary.com/dgwgbnszx/image/upload/c_mfit,h_380,w_500/v1478839280/3_aylfeg.jpg',
       content: Faker::Lorem.paragraph,
       step: step,

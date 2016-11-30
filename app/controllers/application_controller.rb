@@ -1,3 +1,4 @@
+# application controller
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   rescue_from CanCan::AccessDenied do |exception|
@@ -8,7 +9,9 @@ class ApplicationController < ActionController::Base
 
   def current_torder
     if !session[:torder_id].nil?
-      Order.find(session[:order])
+      Torder.find(session[:torder_id])
+    else
+      Torder.new
     end
   end
 end

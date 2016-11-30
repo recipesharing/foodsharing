@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  get 'tcarts/show'
+
   # get 'torder_items/create'
   # get 'torder_items/update'
   # get 'torder_items/destroy'
   # get 'carts/show'
-  # get 'short_lists/create'
-  # get 'short_lists/destroy'
+  get 'short_lists/create'
+  get 'short_lists/destroy'
 
   resources :tcart, only: [:index]
   resources :torder_items, only: [:create, :update, :destroy]

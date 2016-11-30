@@ -15,6 +15,8 @@ main_ingredient.each do |ingredient|
   MainIngredient.create(name: ingredient)
 end
 
+prices = [50_000, 100_000, 150_000]
+
 20.times do
   recipe = Recipe.create(
     video_id: 'v1480418558/18346bdb0e5f98080a955b028903aa3f79b4d6e7.mp4',
@@ -27,7 +29,8 @@ end
     short_description: Faker::Lorem.sentence,
     cooking_time_min: rand(30),
     background_image: 'http://res.cloudinary.com/dgwgbnszx/image/upload/v1478839280/3_aylfeg.jpg',
-    calory: rand(5000)
+    calory: rand(5000),
+    unit_price: prices[rand(3)]
   )
 
   4.times { Ingredient.create(name: Faker::App.name, recipe: recipe) }

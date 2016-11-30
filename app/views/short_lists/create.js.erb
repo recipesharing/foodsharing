@@ -1,4 +1,4 @@
 // console.log(@recipe); 
 // $("#recipe_<%= @recipe.id %> i").switchClass('fa-heart-o', 'fa-heart');
 // $("#recipe_<%= @recipe.id %> i").removeClass('fa-heart-o').addClass('fa-heart');
-$("#recipe_<%= @recipe.id %>").parent().html("<%= j render(partial: 'shared/recipe_inner', locals: { recipe: @recipe, user: @user }) %>");
+$("#recipe_<%= @recipe.id %>").parent().html("<%= j render(partial: 'shared/recipe_inner', locals: { recipe: @recipe, user: @user, torder_item: @torder_item }) %>");

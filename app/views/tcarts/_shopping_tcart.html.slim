@@ -1,0 +1,20 @@
+- if !@torder_item.nil? && @torder_item.errors.any?
+  .alert.alert-danger
+    ul
+      - @torder_item.errors.full_messages.each do |msg|
+        li
+          = msg
+- if @torder_items.size == 0
+  br
+  br
+  br
+  p.text-center
+    |  There are no items in your shopping cart. Please 
+    = link_to "go back", cook_books_path
+    |  and add some items to your cart.
+  br
+  br
+  br 
+- else
+  - @torder_items.each do |torder_item|
+    = render 'tcarts/tcart_row', recipe: torder_item.recipe, torder_item: torder_item, show_total: true

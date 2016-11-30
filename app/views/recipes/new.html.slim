@@ -29,7 +29,7 @@ br
     .form-group
       = label_tag(:video_id,"Upload cooking instruction")
       br
-      = cl_upload_tag(:video_id, public_id: @public_id, chunk_size: 6_000_000, class: 'form-control-file', allowed_formats: ['mp4'])
+      = cl_upload_tag(:video_id, public_id: @public_id, chunk_size: 6_000_000, class: 'form-control-file')
       
       /progress.progress[value="0" max="100"]
 

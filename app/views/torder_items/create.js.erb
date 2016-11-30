@@ -1,0 +1,5 @@
+<% if @torder.errors.any? || @torder_item.errors.any? %>
+  alert("not valid.")
+<% else %>
+  $(".cart-text").html("<%= escape_javascript(render 'layouts/tcart_text') %>")
+<% end %>

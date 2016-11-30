@@ -6,6 +6,7 @@ class CookBooksController < ApplicationController
     @main_ingredients = MainIngredient.all
     @cuisines = Country.all
     @seasons = Season.all
+    @torder_item = current_torder.torder_items.new
     respond_to do |format|
       format.html
       format.js {}

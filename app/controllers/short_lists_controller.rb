@@ -6,6 +6,7 @@ class ShortListsController < ApplicationController
     flash[:notice] = 'please login to like recipe' unless current_user.present?
     @user = current_user
     @recipe = Recipe.find(params[:recipe])
+    @torder_item = current_torder.torder_items.new
     if current_user.voted_for? @recipe
       @recipe.unliked_by current_user
     else

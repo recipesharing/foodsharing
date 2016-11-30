@@ -19,7 +19,7 @@
           - @short_lists.each do |sl|
             /= render partial: 'shared/recipe', locals: { recipe: sl, user: @user }
             .col-xs-6.col-md-3[style="margin-bottom: 20px"]
-              = render partial: 'shared/recipe_inner', locals: { recipe: sl, user: @user }
+              = render partial: 'shared/recipe_inner', locals: { recipe: sl, user: @user, torder_item: @torder_item }
 
       #order-history.tab-pane.fade
         h3

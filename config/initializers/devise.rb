@@ -12,6 +12,7 @@ require 'devise/orm/active_record'
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
+  config.secret_key = '92f54e42340ac70b8414319423d1339cc13de98add8e5ce6a53bdf20ebd10a2d93a7574702b60336a77e267b55be06a062668eec7408559f917f8a932c8e8bd9'
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com' 
   config.omniauth :facebook, "156568341479738", "46b94e83f661e2a7eb525cfa8e730033", scope: "email"
   config.omniauth :google_oauth2, "862432264132-p559gte8t3ohun1bon1d64n1d12lb7ec.apps.googleusercontent.com", "uNq2AtzJXVYT8e41nFaWYk1q", scope: "email,profile,offline", prompt: "consent"

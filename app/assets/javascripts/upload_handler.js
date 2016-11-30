@@ -15,7 +15,7 @@ function upload_handler_listen() {
     $('.progress').val(Math.round((data.loaded * 100.0) / data.total));
   });
 
-  $('button#new-step').on('click', () => {
+  $('button#new-step').on('click', function() {
     // TODO check all input filled
     const title = $('.instructions-box input#title').val();
     const content = $('.instructions-box textarea#content').val();
@@ -34,7 +34,7 @@ function upload_handler_listen() {
     $('.created-list').append(html);
   });
 
-  $('#background-uploader input.cloudinary-fileupload').bind('cloudinarydone', (e, data)=>{
+  $('#background-uploader input.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
     $('input#image_background_id').val(data.result.url);
     $('input#background_name').val(data.result.public_id);
   })

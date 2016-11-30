@@ -1,8 +1,9 @@
 - if user_signed_in?
-  li.nav-item
+  li.nav-itemsign
     = link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-link'
 - else
   li.nav-item
     = link_to "Log in", user_session_path, class: 'nav-link'
   li.nav-item
-    = link_to "Sign Up",new_user_registration_path, class: 'nav-link'
+    button.btn.btn-warning.btn-sm type="button"  
+      = link_to "Sign Up" ,new_user_registration_path, class: 'nav-link'

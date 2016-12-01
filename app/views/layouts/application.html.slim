@@ -10,6 +10,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     script[src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"]
     = cloudinary_js_config
+    = action_cable_meta_tag
   body
     header
       ==  render 'layouts/navigation'

@@ -40,6 +40,7 @@ class Recipe < ApplicationRecord
 
   acts_as_commentable
   acts_as_votable
+  acts_as_taggable_on :ingredients
 
   def up_votes
     get_upvotes.size

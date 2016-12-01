@@ -43,6 +43,13 @@ br
           li.season value = season.id
             = season.name
       br
+      h3
+        | ingredient tags
+      ul#tags-list[style="list-style: none"]
+        br
+        - @tag_names.each do |tag_name|
+          = link_to "#{tag_name}", cook_books_path(tags: "#{tag_name}"), class: "btn btn-tags"
+      br
     .col-xs-12.col-md-9
       .row#recipe-container
         - @recipes.each do |recipe|

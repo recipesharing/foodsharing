@@ -41,11 +41,20 @@ class RecipesController < ApplicationController
     @recipe = Recipe.includes(:ingredients, :instructions,
                               :comment_threads).find_by_id(params[:id])
     if @recipe.present?
-      prepare_recipes
+      prepare_recipes_info
+      @ingredient_tags = @recipe.ingredient_list
     else
       # TODO: handling by raise record not found
       redirect_to root_path
     end
+  end
+
+  def index
+    @recipes = if params[:tags]
+                 @recipes = Recipe.tagged_with(parse[:tags])
+               else
+                 @recipes = Recipe.all
+               end
   end
 
   private
@@ -63,7 +72,7 @@ class RecipesController < ApplicationController
     end
   end
 
-  def prepare_recipes
+  def prepare_recipes_info
     @ingredients = @recipe.ingredients
     @instructions = @recipe.instructions.order(step: :ASC)
     @comments = if params[:page]

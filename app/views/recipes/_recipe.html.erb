@@ -11,8 +11,12 @@
       <div class="card card-block col-md-5" style="margin: 20px; border: none">
         <p><%= "cooking time: #{recipe.cooking_time_min} min" %></p>
         <p><%= "for #{recipe.serving_num} persons"%></p>
-        <br>
         <p><%= recipe.description %></p>
+        <% @ingredient_tags.each do |tag| %>
+          <%= link_to "##{tag}", cook_books_path(tags: tag) %>
+        <% end %>
+        <br/>
+        <br/>
         <%= social_share_button_tag(recipe.name) %>
       </div>
     </div>

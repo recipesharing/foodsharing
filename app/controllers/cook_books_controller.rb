@@ -21,12 +21,13 @@ class CookBooksController < ApplicationController
                else
                  Recipe.all
                end
-    if params['sort']
-      params['sort'].split(',').each do |sort|
-        sort = sort.split('/')
-        @recipes = @recipes.order_name(sort[1]) if sort[0] == 'name'
-        @recipes = @recipes.order_cook_time(sort[1]) if sort[0] == 'cooking time'
-      end
+
+    return unless params['sort']
+
+    params['sort'].split(',').each do |sort|
+      sort = sort.split('/')
+      @recipes = @recipes.order_name(sort[1]) if sort[0] == 'name'
+      @recipes = @recipes.order_cook_time(sort[1]) if sort[0] == 'cooking time'
     end
   end
 end

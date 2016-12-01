@@ -29,7 +29,7 @@ prices = [50_000, 100_000, 150_000]
     short_description: Faker::Lorem.sentence(2),
     cooking_time_min: rand(30),
     background_image: 'http://res.cloudinary.com/dgwgbnszx/image/upload/v1478839280/3_aylfeg.jpg',
-    calory: rand(5000),
+    calory: rand(3..5) * 100,
     unit_price: prices[rand(3)]
   )
 
@@ -86,10 +86,42 @@ food_names =
    'Apple Tarte Tatin',
    'Papaya Roll']
 
+ingredient_names = 
+ ['Bacon',
+  'Beef fat',
+  'Butter',
+  'Chicken fat',
+  'Cocoa butter',
+  'Coconut or coconut oil',
+  'Hydrogenated fats and oils',
+  'Lard',
+  'Palm or palm kernel oil',
+  'Powdered whole milk solids',
+  'Shortening',
+  'Suet',
+  'Tallow',
+  'Baking powder',
+  'Baking soda',
+  'Brine',
+  'Celery salt',
+  'Disodium phosphate',
+  'Garlic salt',
+  'Monosodium glutamate (MSG)',
+  'Onion salt',
+  'Salt',
+  'Sodium alginate',
+  'Sodium benzoate',
+  'Sodium bisulfate',
+  'Sodium proprionate',
+  'Soy sauce']
+
 Recipe.all.each do |r|
+  count = ingredient_names.count
   i = rand(5)
   r.background_name = background_name_ls[i]
   r.background_image = background_url[i]
   r.name = food_names[rand(9)]
+  r.ingredient_list << ingredient_names[rand(count - 3), rand(3)]
   r.save
 end
+

@@ -31,7 +31,7 @@ prices = [50_000, 100_000, 150_000]
     background_image: 'http://res.cloudinary.com/dgwgbnszx/image/upload/v1478839280/3_aylfeg.jpg',
     calory: rand(3..5) * 100,
     unit_price: prices[rand(3)]
-  )
+  ) if Recipe.count < 10
 
   4.times { Ingredient.create(name: Faker::App.name, recipe: recipe) }
 

@@ -18,6 +18,11 @@
         <br/>
         <br/>
         <%= social_share_button_tag(recipe.name) %>
+        <br/>
+          <div class="recipe-show-cart">
+            <%= render partial: 'shared/form_add_to_tcart', locals: { recipe: recipe, torder_item: @torder_item } %>
+          </div>
+        <br/>
       </div>
     </div>
   </div>

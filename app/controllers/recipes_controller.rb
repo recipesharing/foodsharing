@@ -43,6 +43,7 @@ class RecipesController < ApplicationController
     if @recipe.present?
       prepare_recipes_info
       @ingredient_tags = @recipe.ingredient_list
+      @torder_item = current_torder.torder_items.new
     else
       # TODO: handling by raise record not found
       redirect_to root_path

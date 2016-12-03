@@ -1,7 +1,5 @@
 br
-br
-br
-br
+
 .container#cookbook-page
   .row
     .col-xs-12.col-md-3
@@ -44,11 +42,12 @@ br
             = season.name
       br
       h3
-        | ingredient tags
-      ul#tags-list[style="list-style: none"]
+        a.collapsed.nav-link[data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: black"]
+          | ingredient tags
+      ul#collapseThree.collapse[role="tabpanel" aria-labelledby="headingThree"]
         br
         - @tag_names.each do |tag_name|
-          = link_to "#{tag_name}", cook_books_path(tags: "#{tag_name}"), class: "btn btn-tags"
+          = link_to "#{tag_name}", cook_books_path(tags: "#{tag_name}"), class: "btn btn-tags btn-sm"
       br
     .col-xs-12.col-md-9
       .row#recipe-container

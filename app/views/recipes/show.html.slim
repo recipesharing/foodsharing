@@ -13,7 +13,7 @@ br
       /| open small video
     .col-md-12.col-xs-12[style="padding: 0px"]
       = cl_video_tag(@recipe.video_id, controls: true, width: '100%', id: 'big-video')
-      button.btn.btn-scroll-mode
+      button.btn.btn-scroll-mode.hidden-md-down
         | TOGGLE SCROLL MODE
     /.col-md-4.col-xs-12
       h4= "ingredients of #{@recipe.name}"

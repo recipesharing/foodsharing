@@ -95,6 +95,7 @@ document.addEventListener("turbolinks:load", function() {
   $("video#big-video").on('click', function(){
     const video = $("video#big-video").get(0);
     if(video.paused){
+      $(".btn-scroll-mode").css({top: '2%', left: '2%'});
       video.play();
     }else{
       video.pause();

@@ -33,7 +33,7 @@ br
     / = paginate @comments
     .container.comment-box
       - @comments.each do |comment|
-        = render partial: 'comment', locals: { comment: comment } if comment.present?
+        = render partial: 'comment', locals: { comment: comment, user: @user } if comment.present?
       -if user_signed_in?
         .row.comment-item
           .col-xs-3.col-md-1.comment-head

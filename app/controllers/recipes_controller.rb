@@ -42,6 +42,7 @@ class RecipesController < ApplicationController
                               :comment_threads).find_by_id(params[:id])
     if @recipe.present?
       prepare_recipes_info
+      @user = current_user
       @ingredient_tags = @recipe.ingredient_list
       @torder_item = current_torder.torder_items.new
     else

@@ -121,3 +121,12 @@ i.red-color {
 .recipe-show-cart .input-group {
   width: 250px;
 }
+
+.btn-scroll-mode {
+  width: 240px;
+  height: 80px;
+  position: absolute;
+  top: calc(50% - 40px);
+  left: calc(50% - 120px);
+  background-color: rgba(240,240,240,0.3);
+}

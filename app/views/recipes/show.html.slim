@@ -8,9 +8,13 @@ br
     = render partial: 'recipe', locals: { recipe: @recipe }
 
   .row.item-box-video
-    h2.single-line[style="padding: 28px 20px"]= "cooking video for #{@recipe.name}"
+    h2.col-sm-9.single-line[style="padding: 28px 20px"]= "cooking video for #{@recipe.name}"
+    /button.btn.col-sm-3.hidden-md-down[onClick="$('.small_video_player').toggle()"]
+      /| open small video
     .col-md-12.col-xs-12[style="padding: 0px"]
-      = cl_video_tag(@recipe.video_id, controls: true, width: '100%')
+      = cl_video_tag(@recipe.video_id, controls: true, width: '100%', id: 'big-video')
+      button.btn.btn-scroll-mode
+        | TOGGLE SCROLL MODE
     /.col-md-4.col-xs-12
       h4= "ingredients of #{@recipe.name}"
       ul.ingredient-list
@@ -42,3 +46,5 @@ br
       -else
         = link_to 'sigin in', new_user_session_path
         = link_to 'sign up', new_user_registration_path
+/ let render small video
+= render 'video_player', recipe: @recipe

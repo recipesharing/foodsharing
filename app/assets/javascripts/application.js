@@ -90,4 +90,26 @@ document.addEventListener("turbolinks:load", function() {
     // $("form#video-upload input").each
     $("form#video-upload").submit();
   });
+
+  // play video handling
+  $("video#big-video").on('click', function(){
+    const video = $("video#big-video").get(0);
+    if(video.paused){
+      video.play();
+    }else{
+      video.pause();
+    }
+  });
+
+  $(".btn-scroll-mode").on('click', function(){
+    var video = $("#small-video").get(0);
+    $(".small-video-container").toggle();
+    if (video.paused){
+      video.play();
+    }else{
+      video.pause();
+    }
+    // move it to top - right of video
+    $(this).css({top: '2%', left: '2%'});
+  });
 });

@@ -28,6 +28,7 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require_tree ./ajaxs
+//= require checkout
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {

@@ -29,6 +29,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   validates_uniqueness_of :name, :case_sensitive => false
   validates_uniqueness_of :email, :case_sensitive => false
+  validates_uniqueness_of :address, :case_sensitive =>false
+  validates_uniqueness_of :phone, :case_sensitive => false
+
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
   has_many :identities

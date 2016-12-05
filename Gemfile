@@ -61,6 +61,9 @@ gem 'kaminari'
 gem 'cancancan', '~> 1.10'
 gem 'rails_12factor', group: :production
 gem 'sidekiq'
+gem 'invoicing'
+gem 'prawn'
+gem 'prawn-table'
 # gem 'sidetiq'
 if Gem.win_platform?
   gem 'rails-assets-tether', '>= 1.1.0'

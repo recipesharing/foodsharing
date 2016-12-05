@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204060923) do
+ActiveRecord::Schema.define(version: 20161205082741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,50 @@ ActiveRecord::Schema.define(version: 20161204060923) do
     t.index ["recipe_id"], name: "index_instructions_on_recipe_id", using: :btree
   end
 
+  create_table "invoicing_ledger_items", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.string   "type"
+    t.datetime "issue_date"
+    t.string   "currency",     limit: 3,                           null: false
+    t.decimal  "total_amount",            precision: 20, scale: 4
+    t.decimal  "tax_amount",              precision: 20, scale: 4
+    t.string   "status",       limit: 20
+    t.string   "identifier",   limit: 50
+    t.string   "description"
+    t.datetime "period_start"
+    t.datetime "period_end"
+    t.string   "uuid",         limit: 40
+    t.datetime "due_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invoicing_line_items", force: :cascade do |t|
+    t.integer  "ledger_item_id"
+    t.string   "type"
+    t.decimal  "net_amount",                precision: 20, scale: 4
+    t.decimal  "tax_amount",                precision: 20, scale: 4
+    t.string   "description"
+    t.string   "uuid",           limit: 40
+    t.datetime "tax_point"
+    t.decimal  "quantity",                  precision: 20, scale: 4
+    t.integer  "creator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invoicing_tax_rates", force: :cascade do |t|
+    t.string   "description"
+    t.decimal  "rate",           precision: 20, scale: 4
+    t.datetime "valid_from",                              null: false
+    t.datetime "valid_until"
+    t.integer  "replaced_by_id"
+    t.boolean  "is_default"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "main_ingredients", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -98,40 +142,6 @@ ActiveRecord::Schema.define(version: 20161204060923) do
     t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "order_items", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "order_recipes", force: :cascade do |t|
-    t.integer  "quantity"
-    t.integer  "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "recipe_id"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.string   "status",        default: "Pending"
-    t.integer  "total"
-    t.integer  "vat"
-    t.integer  "delivery_cost"
-    t.string   "payment_id"
-    t.string   "invoice"
-    t.integer  "pickup_time",   default: 0
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.integer  "user_id"
-  end
-
-  create_table "payments", force: :cascade do |t|
-    t.string   "email"
-    t.string   "token"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "recipes", force: :cascade do |t|
     t.string   "video_id"
     t.text     "description"
@@ -147,8 +157,6 @@ ActiveRecord::Schema.define(version: 20161204060923) do
     t.integer  "serving_num",        default: 2
     t.string   "ingredient_url"
     t.string   "background_image"
-    t.integer  "payment_id"
-    t.float    "price"
     t.integer  "user_id"
     t.integer  "season_id"
     t.integer  "main_ingredient_id"
@@ -156,7 +164,6 @@ ActiveRecord::Schema.define(version: 20161204060923) do
     t.integer  "unit_price"
     t.index ["country_id"], name: "index_recipes_on_country_id", using: :btree
     t.index ["main_ingredient_id"], name: "index_recipes_on_main_ingredient_id", using: :btree
-    t.index ["payment_id"], name: "index_recipes_on_payment_id", using: :btree
     t.index ["season_id"], name: "index_recipes_on_season_id", using: :btree
     t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree
   end
@@ -225,6 +232,10 @@ ActiveRecord::Schema.define(version: 20161204060923) do
     t.integer  "torder_status_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "firstname"
+    t.string   "lastname"
+    t.integer  "phone"
+    t.string   "address"
     t.index ["torder_status_id"], name: "index_torders_on_torder_status_id", using: :btree
   end
 
@@ -272,7 +283,6 @@ ActiveRecord::Schema.define(version: 20161204060923) do
   add_foreign_key "instructions", "recipes"
   add_foreign_key "recipes", "countries"
   add_foreign_key "recipes", "main_ingredients"
-  add_foreign_key "recipes", "payments"
   add_foreign_key "recipes", "seasons"
   add_foreign_key "recipes", "users"
   add_foreign_key "short_lists", "recipes"

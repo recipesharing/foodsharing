@@ -8,4 +8,6 @@ class Users::ProfilesController < ApplicationController
     @torder_item = current_torder.torder_items.new
     @user = current_user
   end
+
+  
 end

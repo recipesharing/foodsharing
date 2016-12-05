@@ -7,4 +7,6 @@ class Users::ProfilesController < ApplicationController
     @short_lists = Recipe.where(id: recipe_ids)
     @torder_item = current_torder.torder_items.new
   end
+
+  
 end

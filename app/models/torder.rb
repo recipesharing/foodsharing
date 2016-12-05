@@ -14,6 +14,7 @@
 class Torder < ApplicationRecord
   belongs_to :torder_status
   has_many :torder_items
+  belongs_to :user
   # before_create :set_torder_status
   before_validation :set_torder_status
   before_save :update_subtotal
@@ -27,6 +28,11 @@ class Torder < ApplicationRecord
     0
   end
 
+  def overall_price
+    
+  end 
+
+  
   private
 
   def set_torder_status

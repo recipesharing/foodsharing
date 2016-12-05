@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # get 'carts/show'
   get 'short_lists/create'
   get 'short_lists/destroy'
+  get 'tcarts/checkout'
+  
 
   resources :tcart, only: [:index]
   resources :torder_items, only: [:create, :update, :destroy]
@@ -28,6 +30,7 @@ Rails.application.routes.draw do
   resource :cook_books
   resources :recipes
   resources :comments
+  resources :tcarts
   devise_for :users, class_name: 'User',
     :controllers => {:omniauth_callbacks => 'users/omniauth_callbacks', registrations: 'users/registrations'}
   %w(

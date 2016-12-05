@@ -17,12 +17,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
   def prepare_recipes
     @recipes = if params[:search]
                  Recipe.filter(params).search(params)
                else
                  Recipe.all
                end
+
+
 
     if params['sort']
       params['sort'].split(',').each do |sort|

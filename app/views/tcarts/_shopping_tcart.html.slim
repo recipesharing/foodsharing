@@ -11,10 +11,12 @@
   p.text-center
     |  There are no items in your shopping cart. Please 
     = link_to "go back", cook_books_path
-    |  and add some items to your cart.
+    |  and add some items to your cart 
   br
   br
   br 
 - else
   - @torder_items.each do |torder_item|
     = render 'tcarts/tcart_row', recipe: torder_item.recipe, torder_item: torder_item, show_total: true
+  br
+  = link_to "Checkout",tcarts_checkout_path, class: "btn btn-primary"

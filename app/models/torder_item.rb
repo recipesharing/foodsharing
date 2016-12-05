@@ -18,9 +18,7 @@ class TorderItem < ApplicationRecord
 
   # validates :quantity, presence: true, greater_than: 0
   validates_presence_of :recipe
-
   # before_save :finalize
-
   def unit_price
     if persisted?
       self[:unit_price]
@@ -34,7 +32,7 @@ class TorderItem < ApplicationRecord
   end
 
   private
-
+  
   def recipe_present
     errors.add(:recipe, 'is not a valid or not active.') if recipe.nil?
   end

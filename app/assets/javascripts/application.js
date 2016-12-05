@@ -72,7 +72,7 @@ document.addEventListener("turbolinks:load", function() {
     // Create JSON object and append it to form
     var instructions = []
     jQuery.each(instruction_selector, function(i, item) {
-      const title = jQuery(item).find(".title").text();
+      const title = jQuery(item).find(".new-instruction-title").text();
       const content = jQuery(item).find(".content").text();
       const public_id = jQuery(item).find(".public_id").text();
       var val = {title: title, content: content, public_id: public_id};

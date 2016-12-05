@@ -11,6 +11,7 @@ function upload_handler_listen() {
     $('input#image_version').val(data.result.version);
   });
 
+  // instruction step upload
   $('.instruction-new input.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
     $('.progress#progress-step-image').val(Math.round((data.loaded * 100.0) / data.total));
   });
@@ -40,7 +41,7 @@ function upload_handler_listen() {
               '</div>',
           '</div>'].join('\n');
     const html = Mustache.render(template, data);
-    debugger;
+    // debugger;
     $('.created-list').append(html);
     $('.created-list img#' + image_id).parent().html(image);
   });

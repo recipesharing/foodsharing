@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205233358) do
+ActiveRecord::Schema.define(version: 20161206074223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,14 +179,14 @@ ActiveRecord::Schema.define(version: 20161205233358) do
   create_table "recipes", force: :cascade do |t|
     t.string   "video_id"
     t.text     "description"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "public_id"
     t.integer  "country_id"
     t.string   "short_description"
     t.integer  "cooking_time_min",   default: 0
     t.integer  "calory",             default: 0
-    t.string   "thumbnail",                                   array: true
+    t.string   "thumbnail",                                        array: true
     t.string   "name"
     t.integer  "serving_num",        default: 2
     t.string   "ingredient_url"
@@ -197,7 +197,7 @@ ActiveRecord::Schema.define(version: 20161205233358) do
     t.integer  "season_id"
     t.integer  "main_ingredient_id"
     t.string   "background_name"
-    t.integer  "unit_price"
+    t.integer  "unit_price",         default: 100000
     t.index ["country_id"], name: "index_recipes_on_country_id", using: :btree
     t.index ["main_ingredient_id"], name: "index_recipes_on_main_ingredient_id", using: :btree
     t.index ["payment_id"], name: "index_recipes_on_payment_id", using: :btree

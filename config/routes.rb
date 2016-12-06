@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
   get 'tcarts/show'
-
-  # get 'torder_items/create'
-  # get 'torder_items/update'
-  # get 'torder_items/destroy'
-  # get 'carts/show'
   get 'short_lists/create'
   get 'short_lists/destroy'
   get 'tcarts/checkout'
@@ -28,7 +23,7 @@ Rails.application.routes.draw do
   get 'cook_books', to: 'cook_books#index'
   get 'user', to: 'user#show'
   resource :cook_books
-  resources :recipes
+  resources :recipes, only: [:show, :create, :new]
   resources :comments
   resources :tcarts
   devise_for :users, class_name: 'User',

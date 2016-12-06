@@ -12,7 +12,6 @@
           a.nav-link href="/cook_books"  Menu
         li.nav-item.text-link
           a.nav-link href="/recipes/new"  Upload
-        /- if user_signed_in?
-          li.nav-item.text-link
-            a.nav-link href="/users/profiles/show" Favorites
+        li.nav-item.text-link
+          a.nav-link href="/tcarts/show" Cart
         = render 'layouts/nav_links_for_auth'

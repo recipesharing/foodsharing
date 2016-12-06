@@ -20,11 +20,7 @@ class TorderItem < ApplicationRecord
   validates_presence_of :recipe
   # before_save :finalize
   def unit_price
-    if persisted?
-      self[:unit_price]
-    else
-      recipe.unit_price
-    end
+    recipe.unit_price
   end
 
   def total_price

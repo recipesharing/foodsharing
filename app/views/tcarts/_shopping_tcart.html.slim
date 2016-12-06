@@ -16,7 +16,26 @@
   br
   br 
 - else
-  - @torder_items.each do |torder_item|
-    = render 'tcarts/tcart_row', recipe: torder_item.recipe, torder_item: torder_item, show_total: true
-  br
-  = link_to "Checkout",tcarts_checkout_path, class: "btn btn-primary"
+  .table-responsive
+    table.table
+      h4
+        = @user.name
+      thead
+        tr
+          th
+            | Recipe
+          th
+            | name/ description
+          th
+            | Order information
+      tbody
+        - @torder_items.each do |torder_item|
+          tr
+            td= render('recipe_tcart', recipe: torder_item.recipe)
+            td
+              b= torder_item.recipe.name 
+              p= torder_item.recipe.short_description
+            td= render('form_update_recipe', torder_item: torder_item, recipe: torder_item.recipe)
+
+br
+= link_to "Checkout",tcarts_checkout_path, class: "btn btn-lg btn-checkout"

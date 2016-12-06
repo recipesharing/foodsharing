@@ -34,6 +34,7 @@ class ApplicationController < ActionController::Base
         @recipes = @recipes.order_cook_time(sort[1]) if sort[0] == 'cooking time'
       end
     end
+
     @tag_names = Recipe.all_tags(&:name)
     return unless params['tags']
     @recipes = @recipes.tagged_with params['tags']

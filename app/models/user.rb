@@ -29,8 +29,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   validates_uniqueness_of :name, :case_sensitive => false
   validates_uniqueness_of :email, :case_sensitive => false
-  validates_uniqueness_of :address, :case_sensitive =>false
-  validates_uniqueness_of :phone, :case_sensitive => false
+  # validates_uniqueness_of :address, :case_sensitive =>false
+  # validates_uniqueness_of :phone, :case_sensitive => false
 
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
@@ -58,6 +58,33 @@ class User < ApplicationRecord
       @google_oauth2_client.authorization.update_token!({:access_token => google_oauth2.accesstoken, :refresh_token => google_oauth2.refreshtoken})
     end
     @google_oauth2_client
+  end
+
+  def get_image_avatar
+    image = self.image_url
+    if image.nil?
+      'http://res.cloudinary.com/dgwgbnszx/image/upload/c_scale,w_50/v1479717237/userDefaultIcon_x1msy4.png'
+    else
+      if image.include? 'google'
+        "#{image}?sz=50"
+      elsif image.include? 'facebook'
+        self.image_url
+      end
+    end
+  end
+
+  def get_profile_picture
+    image = self.image_url
+    if image.nil?
+      # signup user
+      'http://res.cloudinary.com/dgwgbnszx/image/upload/c_scale,w_200/v1479717237/userDefaultIcon_x1msy4.png'
+    elsif image.include? 'google'
+      # google avatar
+      "#{image}?sz=200"
+    elsif image.include? 'facebook'
+      # facebook avatar
+      "#{image}?width=200&height=200"
+    end
   end
 end
 

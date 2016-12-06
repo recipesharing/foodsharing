@@ -30,9 +30,18 @@ ul.ingredient-list {
 }
 
 @media screen and (min-width: 768px) {
+
+  .avatar-image {
+    border-radius: 50%;
+  }
   ul.nav.navbar-nav li.text-link {
     margin: 40px 20px;
   }
+
+  ul.nav.navbar-nav li.avatar-link {
+    margin: 36px 10px;
+  }
+
   ul.nav.navbar-nav li.brand-link {
     margin: 18px 20px 18px 0;
   }
@@ -217,10 +226,6 @@ div.desc {
   border-radius: 16px;
   color: white;
   background-color: #16B0FE;
-}
-
-ul.float-lg-right {
-
 }
 
 header {

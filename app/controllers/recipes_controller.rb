@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit]
 
   def new
+    @user = current_user if user_signed_in?
     @public_id = SecureRandom.hex(20)
     @countries = Country.all
     # @countries = Country.all.map(&:name)

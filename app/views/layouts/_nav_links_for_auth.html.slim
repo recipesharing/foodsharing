@@ -1,5 +1,8 @@
 .float-md-right
   - if user_signed_in?
+    li.nav-item.avatar-link
+      = link_to users_profiles_show_path do
+        = image_tag(@user.image_url, class: "avatar-image")
     li.nav-item.text-link
       = link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-link'
   - else

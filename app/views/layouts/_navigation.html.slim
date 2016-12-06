@@ -12,7 +12,7 @@
           a.nav-link href="/cook_books"  Menu
         li.nav-item.text-link
           a.nav-link href="/recipes/new"  Chef upload
-        - if user_signed_in?
+        /- if user_signed_in?
           li.nav-item.text-link
             a.nav-link href="/users/profiles/show" Favorites
         = render 'layouts/nav_links_for_auth'

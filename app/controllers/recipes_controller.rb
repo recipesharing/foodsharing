@@ -66,7 +66,7 @@ class RecipesController < ApplicationController
     instructions = JSON.parse(URI.decode(params[:instruction]))
     instructions.each_with_index do |instruction, i|
       Instruction.create(
-        step: i + 1,
+        step: i,
         image_url: instruction['public_id'],
         title: instruction['title'],
         content: instruction['content'],

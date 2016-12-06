@@ -39,4 +39,4 @@
             td= render('form_update_recipe', torder_item: torder_item, recipe: torder_item.recipe)
 
 br
-= link_to "Checkout",tcarts_checkout_path, class: "btn btn-lg btn-checkout"
+= link_to "Checkout",tcarts_checkout_path, class: "btn btn-lg btn-checkout" if @torder_items.size > 0

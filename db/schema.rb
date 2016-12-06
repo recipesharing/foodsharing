@@ -292,11 +292,11 @@ ActiveRecord::Schema.define(version: 20161205233358) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.string   "image_url"
+    t.string   "address"
+    t.string   "phone"
     t.string   "firstname"
     t.string   "lastname"
-    t.string   "address"
-    t.integer  "phone"
-    t.string   "image_url"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

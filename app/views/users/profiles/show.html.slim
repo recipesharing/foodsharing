@@ -1,6 +1,10 @@
 #user-profile-page
   #user-image-banner[style= 'background-image: url("http://res.cloudinary.com/dgwgbnszx/image/upload/c_crop,h_330,w_1920/v1480358824/red-tomatoes-food-wallpaper-1920x1080_cnacea.jpg")']
-  
+    .container
+      .row
+        .col-xs-12.col-lg-2.user-image-url
+          = image_tag("#{@user.image_url}?width=200&height=200")
+
   .container
     br
     ul.nav.nav-pills role="tablists"
@@ -18,7 +22,7 @@
         .div
           - @short_lists.each do |sl|
             /= render partial: 'shared/recipe', locals: { recipe: sl, user: @user }
-            .col-xs-6.col-md-3[style="margin-bottom: 20px"]
+            .col-xs-12.col-sm-6.col-md-3[style="margin-bottom: 20px"]
               = render partial: 'shared/recipe_inner', locals: { recipe: sl, user: @user, torder_item: @torder_item }
 
       #order-history.tab-pane.fade

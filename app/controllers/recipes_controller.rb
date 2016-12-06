@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit]
 
   def new
+    @user = current_user if user_signed_in?
     @public_id = SecureRandom.hex(20)
     @countries = Country.all
     # @countries = Country.all.map(&:name)
@@ -42,7 +43,9 @@ class RecipesController < ApplicationController
                               :comment_threads).find_by_id(params[:id])
     if @recipe.present?
       prepare_recipes_info
+      @user = current_user
       @ingredient_tags = @recipe.ingredient_list
+      @torder_item = current_torder.torder_items.new
     else
       # TODO: handling by raise record not found
       redirect_to root_path

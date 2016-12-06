@@ -73,7 +73,7 @@ document.addEventListener("turbolinks:load", function() {
     // Create JSON object and append it to form
     var instructions = []
     jQuery.each(instruction_selector, function(i, item) {
-      const title = jQuery(item).find(".title").text();
+      const title = jQuery(item).find(".new-instruction-title").text();
       const content = jQuery(item).find(".content").text();
       const public_id = jQuery(item).find(".public_id").text();
       var val = {title: title, content: content, public_id: public_id};
@@ -92,5 +92,26 @@ document.addEventListener("turbolinks:load", function() {
     $("form#video-upload").submit();
   });
 
+  // play video handling
+  $("video#big-video").on('click', function(){
+    const video = $("video#big-video").get(0);
+    if(video.paused){
+      $(".btn-scroll-mode").css({top: '2%', left: '2%'});
+      video.play();
+    }else{
+      video.pause();
+    }
+  });
 
+  $(".btn-scroll-mode").on('click', function(){
+    var video = $("#small-video").get(0);
+    $(".small-video-container").toggle();
+    if (video.paused){
+      video.play();
+    }else{
+      video.pause();
+    }
+    // move it to top - right of video
+    $(this).css({top: '2%', left: '2%'});
+  });
 });

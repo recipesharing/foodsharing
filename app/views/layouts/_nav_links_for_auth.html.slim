@@ -1,12 +1,16 @@
-- if user_signed_in?
-  li.nav-item
-    = link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-link'
-- else
-  li.nav-item
-    = link_to "Log in", user_session_path, class: 'nav-link'
-  li.nav-item
-    = link_to "Sign Up",new_user_registration_path, class: 'nav-link'
-li.nav-item
-  = render 'layouts/tcart_text'
-/button.btn.btn-warning.btn-sm type="button"  
-/= link_to "Sign Up" ,new_user_registration_path, class: 'nav-link'
+.float-md-right
+  - if user_signed_in?
+    li.nav-item.avatar-link
+      = link_to users_profiles_show_path do
+        = image_tag(@user.image_url, class: "avatar-image")
+    li.nav-item.text-link
+      = link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-link'
+  - else
+    li.nav-item.text-link
+      = link_to "Log in", user_session_path, class: 'nav-link'
+    li.nav-item.text-link
+      = link_to "Sign Up",new_user_registration_path, class: 'nav-link'
+  /li.nav-item
+    /= render 'layouts/tcart_text'
+  /button.btn.btn-warning.btn-sm type="button"  
+  /= link_to "Sign Up" ,new_user_registration_path, class: 'nav-link'

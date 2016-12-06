@@ -74,7 +74,7 @@ ul.ingredient-list > li {
 
 .instruction-block {
   margin-top: 25px;
-  overflow: hidden;
+  // overflow: hidden;
   margin-bottom: 15px;
   padding-bottom: 15px;
   border-bottom: 1px solid #e6e6e6;
@@ -104,16 +104,29 @@ i.red-color {
 }
 
 .recipe-card-block {
-  height: 380px;
+  min-height: 380px;
   p.short-description {
     margin-top: 20px;
   }
 }
 
 #new-ins-list {
-  overflow: scroll;
+  // overflow: scroll;
 }
 
 .liked_row {
   margin-top: 4px;
+}
+
+.recipe-show-cart .input-group {
+  width: 250px;
+}
+
+.btn-scroll-mode {
+  width: 240px;
+  height: 80px;
+  position: absolute;
+  top: calc(50% - 40px);
+  left: calc(50% - 120px);
+  background-color: rgba(240,240,240,0.3);
 }

@@ -1,5 +1,9 @@
 class InvoicingController < ApplicationController
+<<<<<<< HEAD
   before_action: authenticate_user!
+=======
+  before_action :authenticate_user!
+>>>>>>> 794bcd40fba6e8bf98a180fa3994d133de84fd84
 
   def create
   @torder_items = current_torder.torder_items

@@ -142,6 +142,40 @@ ActiveRecord::Schema.define(version: 20161206100133) do
     t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_recipes", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "recipe_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "status",        default: "Pending"
+    t.integer  "total"
+    t.integer  "vat"
+    t.integer  "delivery_cost"
+    t.string   "payment_id"
+    t.string   "invoice"
+    t.integer  "pickup_time",   default: 0
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "user_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string   "email"
+    t.string   "token"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string   "video_id"
     t.text     "description"
@@ -157,6 +191,8 @@ ActiveRecord::Schema.define(version: 20161206100133) do
     t.integer  "serving_num",        default: 2
     t.string   "ingredient_url"
     t.string   "background_image"
+    t.integer  "payment_id"
+    t.float    "price"
     t.integer  "user_id"
     t.integer  "season_id"
     t.integer  "main_ingredient_id"
@@ -164,6 +200,7 @@ ActiveRecord::Schema.define(version: 20161206100133) do
     t.integer  "unit_price",         default: 100000
     t.index ["country_id"], name: "index_recipes_on_country_id", using: :btree
     t.index ["main_ingredient_id"], name: "index_recipes_on_main_ingredient_id", using: :btree
+    t.index ["payment_id"], name: "index_recipes_on_payment_id", using: :btree
     t.index ["season_id"], name: "index_recipes_on_season_id", using: :btree
     t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree
   end
@@ -285,6 +322,7 @@ ActiveRecord::Schema.define(version: 20161206100133) do
   add_foreign_key "instructions", "recipes"
   add_foreign_key "recipes", "countries"
   add_foreign_key "recipes", "main_ingredients"
+  add_foreign_key "recipes", "payments"
   add_foreign_key "recipes", "seasons"
   add_foreign_key "recipes", "users"
   add_foreign_key "short_lists", "recipes"

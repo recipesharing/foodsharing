@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206074223) do
+ActiveRecord::Schema.define(version: 20161206100133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -273,7 +273,9 @@ ActiveRecord::Schema.define(version: 20161206074223) do
     t.string   "lastname"
     t.integer  "phone"
     t.string   "address"
+    t.integer  "user_id"
     t.index ["torder_status_id"], name: "index_torders_on_torder_status_id", using: :btree
+    t.index ["user_id"], name: "index_torders_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -328,4 +330,5 @@ ActiveRecord::Schema.define(version: 20161206074223) do
   add_foreign_key "torder_items", "recipes"
   add_foreign_key "torder_items", "torders"
   add_foreign_key "torders", "torder_statuses"
+  add_foreign_key "torders", "users"
 end

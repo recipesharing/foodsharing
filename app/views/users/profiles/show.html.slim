@@ -26,5 +26,23 @@
               = render partial: 'shared/recipe_inner', locals: { recipe: sl, user: @user, torder_item: @torder_item }
 
       #order-history.tab-pane.fade
-        h3
-          | you have no order yet
+        .container[style="border: solid 1px #e0e0e0; padding: 2rem; margin: 5rem 0"]
+          table.table
+            thead
+              tr
+                th
+                  | Num
+                th
+                  | Order at
+                th
+                  | Total
+            tbody
+              - @user.torders.each_with_index do |torder, i|
+                tr
+                  td= i + 1
+                  td= "#{time_ago_in_words(torder.updated_at)} ago"
+                  td
+                    b= number_to_currency(torder.total, unit: 'VND ', precision: 0)
+          - if @user.torders.size == 0
+            h3
+              | you have no order yet

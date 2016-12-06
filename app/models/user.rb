@@ -37,6 +37,7 @@ class User < ApplicationRecord
   has_many :identities
   has_many :recipes
   has_many :short_lists, dependent: :destroy
+  has_many :torders, dependent: :destroy
   acts_as_voter
 
   def facebook

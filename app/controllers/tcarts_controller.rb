@@ -27,10 +27,10 @@ class TcartsController < ApplicationController
 
   def create
     @torder_items = current_torder.torder_items
-    current_torder.update(total: @torder_items.map(&:total_price).sum)
+    current_torder.update(total: @torder_items.map(&:total_price).sum, user: current_user)
     @torder_items.each { |t| t.save}
     session[:torder_id] = nil
-    redirect_to cook_books_path 
+    redirect_to cook_books_path
     flash[:success] = " Thanks for shopping with us "
       # end
   end 

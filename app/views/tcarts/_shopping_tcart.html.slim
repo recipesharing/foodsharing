@@ -16,7 +16,7 @@
   br
   br 
 - else
-  .table-responsive
+  .table-responsive-remove
     h1
       | update cart information
     br
@@ -27,16 +27,20 @@
             | Recipe
           th
             | name/ description
-          th
+          th.hidden-sm-down
             | Order information
       tbody
         - @torder_items.each do |torder_item|
-          tr
+          tr class= "cart_item_#{torder_item.id}"
             td= render('recipe_tcart', recipe: torder_item.recipe)
             td
               b= torder_item.recipe.name 
               p= torder_item.recipe.short_description
-            td= render('form_update_recipe', torder_item: torder_item, recipe: torder_item.recipe)
+            td.hidden-sm-down
+              = render('form_update_recipe', torder_item: torder_item, recipe: torder_item.recipe)
+          tr.hidden-sm-up
+            td
+              = render('form_update_recipe', torder_item: torder_item, recipe: torder_item.recipe)
 
 br
 = link_to "Checkout",tcarts_checkout_path, class: "btn btn-lg btn-checkout" if @torder_items.size > 0

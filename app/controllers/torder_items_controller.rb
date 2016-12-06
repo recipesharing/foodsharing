@@ -28,8 +28,13 @@ class TorderItemsController < ApplicationController
   def destroy
     @torder = current_torder
     @torder_item = @torder.torder_items.find(params[:id])
+    @torder_item_id = @torder_item.id
     @torder_item.destroy
     @torder_items = @torder.torder_items
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
 
   private

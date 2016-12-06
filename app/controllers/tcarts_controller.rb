@@ -1,5 +1,5 @@
 class TcartsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:checkout]
   before_action :prepare_user, only: [:index, :show, :checkout]
   
   def index

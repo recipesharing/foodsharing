@@ -1,75 +1,67 @@
-.container-checkout
- .row
-  .col-md-4.col-sm-12
-    .col-lg-12
-      .col-sm-6
-        = form_tag tcarts_path, method: 'POST' do
-          .form-group
-            = label_tag 'First name'
-            = text_field_tag :firstname, nil, class: 'form-control'
-            = label_tag 'Last name'
-            = text_field_tag :lastname, nil, class: 'form-control'
-            = label_tag 'phone number'
-            = text_field_tag :phone, nil, class: 'form-control'
-            = label_tag 'Address'
-            = text_field_tag :address, nil, class: 'form-control'
-            = hidden_field_tag :payment_method
+br
+br
+br
+.container[style="border: solid 1px #e0e0e0; padding: 40px 20px; background: white"]
+  .col-lg-6.col-xs-12
+    h4
+      | Personal information
+    br
+    = form_tag tcarts_path, method: 'POST' do
+      .form-group
+        = label_tag 'First name'
+        = text_field_tag :firstname, nil, class: 'form-control'
+      .form-group
+        = label_tag 'Last name'
+        = text_field_tag :lastname, nil, class: 'form-control'
+      .form-group
+        = label_tag 'phone number'
+        = text_field_tag :phone, nil, class: 'form-control'
+      .form-group
+        = label_tag 'Address'
+        = text_field_tag :address, nil, class: 'form-control'
+      = hidden_field_tag :payment_method
 
 
-  .col-md-3.col-sm-12
-    .col-lg-12
+  /.col-lg-4.col-xs-12
+    h4
+      | Payment method
+    br
+    .custom-controls-stacked
+      label.custom-control.custom-radio
+        input#radioStacked1.custom-control-input[name="radio-stacked" type="radio"]
+        span.custom-control-indicator
+        span.custom-control-description
+          | Toggle this custom radio
+      label.custom-control.custom-radio
+        input#radioStacked2.custom-control-input[name="radio-stacked" type="radio"]
+        span.custom-control-indicator
+        span.custom-control-description
+          | Or toggle this other custom radio
+
+
+
+  .col-lg-6.col-xs-12
       h4
-        b Payment methods
-      .col-lg-6
-        #box1.radio.radio-info.radio-inline
-          input  name="radioInline" class="inputCheck" type="radio" value="Yes" /
-          p#payment_text1
-            | COD
-        #box2.radio.radio-inline
-          input name="radioInline" class="inputCheck" type="radio" value="No" /
-          p#payment_text2 
-            | Pay by Card
-
-
-  .col-md-5.col-sm-12nhu
-      h4
-        b Bills
+        | Bills
+      br
         /! REVIEW ORDER
-      .panel.panel-info
-        .panel-heading
-          | Review Order
-          .pull-right
-            small
-              a.afix-1 href="/tcarts/show"  
-               .btn.btn-primary 
-                 | Edit Cart 
-        .panel-body
-          .form-group
-            .row
-              .col-lg-6
-                  | Name:           
-              
-              .col-lg-6
-                  | Quantity:
+      table.table
+        thead
+          tr
+            th
+              | Name:
+            th
+              | Quantity:
+        tbody
           - @torder_items.each do |torder_item|
-            .row
-              .col-lg-6
-                   = torder_item.recipe.name
-              
-              .col-lg-6
-                  = torder_item.quantity
-          .form-group
-            .col-xs-12
-              strong Total 
-              .pull-right
-                span $
-                span 
-                  = @total_all
-  .row 
-   .col-lg-12
-     .btn.btn-success
-       = link_to "Order now", tcarts_path, method: :post , id: "payment-submit"
-
-       
-
-
+            tr
+              td= torder_item.recipe.name
+              td= torder_item.quantity
+          tr
+            td
+              b= number_to_currency(@total_all, unit: 'VND ', precision: 0)
+            td
+              = link_to 'edit cart', tcarts_show_path
+br
+.container
+  = link_to "Order now", tcarts_path, method: :post , id: "payment-submit", class: "btn btn-lg"

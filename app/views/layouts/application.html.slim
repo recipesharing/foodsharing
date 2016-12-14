@@ -11,6 +11,7 @@ html
     script[src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"]
     = cloudinary_js_config
     = action_cable_meta_tag
+    = analytics_init if GoogleAnalytics.valid_tracker?
   body
     header
       ==  render 'layouts/navigation'

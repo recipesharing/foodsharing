@@ -96,4 +96,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.react.variant = :production
   config.react.addons = true
+
+  GA.tracker = "UA-88597227-2"
 end
